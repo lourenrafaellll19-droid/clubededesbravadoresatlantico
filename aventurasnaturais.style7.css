@@ -9,7 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
     /* Camada escura sobre a imagem de fundo para dar contraste */
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
-                url('florestaazul.png'); /* Caminho da sua imagem de fundo */
+                url('florestaazul.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -26,6 +26,7 @@ body {
     justify-content: space-between;
     padding: 40px 20px;
     min-height: 100vh;
+    width: 100%;
 }
 
 /* --- HEADER E ORNAMENTOS --- */
@@ -52,24 +53,22 @@ body {
     color: #ffbd59; 
     font-size: 3.2rem; 
     border-bottom: 3px solid #ffbd59;
-    
-    /* AJUSTES AQUI: */
-    line-height: 0.5;       /* Diminuído de 1.1 para 0.85 para subir o traço */
-    padding-bottom: 5px;    /* Espaço extra controlado entre a letra e o traço */
-    
+    line-height: 0.5;       
+    padding-bottom: 5px;    
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
+
 .ornamento { width: 60px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-
+/* --- CONTAINER DE CARDS --- */
 .cards-main-container {
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite quebrar linha se não couber */
 }
 
 .value-card {
@@ -120,7 +119,7 @@ body {
     padding: 0 10px;
 }
 
-/* --- BOTÕES PADRONIZADOS (IGUAIS AO MODELO ANTERIOR) --- */
+/* --- BOTÕES PÍLULA --- */
 .navigation-footer {
     width: 100%;
     display: flex;
@@ -135,7 +134,7 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     padding: 12px 50px;
-    background-color: #0b1a3d; /* Azul marinho sólido igual historia2 */
+    background-color: #0b1a3d; 
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     transition: 0.4s ease;
@@ -144,73 +143,65 @@ body {
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px); /* Efeito de crescer igual historia2 */
+    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: #ffffff;
 }
 
-/* --- RESPONSIVIDADE PARA CELULAR (PÁGINA DE VALORES) --- */
+/* ============================================================
+   --- AJUSTES PARA CELULAR (MEDIA QUERY) ---
+   ============================================================ */
+
 @media (max-width: 768px) {
     body {
-        /* Permite rolagem vertical se o conteúdo for longo */
-        overflow-y: auto; 
-        background-attachment: scroll; /* Melhora a performance em alguns celulares */
+        overflow-y: auto; /* Garante que o usuário consiga rolar para baixo */
+        background-attachment: scroll; /* Melhora fluidez em telas touch */
     }
 
     .page-container {
         padding: 20px 15px;
-        height: auto;
+        height: auto; /* Altura se adapta ao conteúdo empilhado */
     }
 
-    /* Ajuste do Título Gótico */
+    /* Título Gótico Ajustado */
     .titulo-gotico {
-        font-size: 2rem; /* Diminuído para não quebrar linha */
+        font-size: 2.1rem; 
         line-height: 0.8;
     }
 
     .ornamento {
-        width: 35px; /* Ornamentos menores no celular */
+        width: 35px;
     }
 
     .titulo-wrapper {
         gap: 10px;
     }
 
-    /* Ajuste dos Cards */
+    /* Empilhamento dos Cards */
     .cards-main-container {
-        flex-direction: column; /* Força um card embaixo do outro */
+        flex-direction: column; 
         align-items: center;
-        gap: 40px; /* Mais espaço entre os cards */
+        gap: 45px; /* Espaço maior entre um card e outro */
     }
 
     .value-card {
-        min-width: 100%; /* Ocupa a largura total disponível */
+        min-width: 100%;
         max-width: 100%;
     }
 
     .image-frame {
-        height: 220px; /* Reduz um pouco a altura da imagem no celular */
+        height: 230px; /* Reduz altura da imagem para sobrar tela */
     }
 
-    .card-text {
-        font-size: 0.95rem;
-        padding: 0 5px;
-    }
-
-    /* Ajuste dos Botões Inferiores */
+    /* Ajuste dos Botões no Rodapé */
     .navigation-footer {
         flex-direction: row; /* Mantém lado a lado */
         justify-content: center;
-        gap: 10px;
-        margin-top: 30px;
+        gap: 12px;
+        margin-top: 40px;
+        margin-bottom: 20px;
     }
 
     .btn-pilula {
-        padding: 10px 20px; /* Reduz o enchimento interno */
-        font-size: 0.85rem; /* Letras levemente menores */
-        flex: 1; /* Faz os dois botões terem o mesmo tamanho */
-        text-align: center;
-        white-space: nowrap; /* Evita que o texto do botão quebre linha */
-    }
-}
+        padding:
