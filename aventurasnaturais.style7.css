@@ -1,118 +1,58 @@
-/* --- MANTER AS CONFIGURAÇÕES GERAIS QUE VOCÊ MANDOU --- */
+/* 1. RESET UNIVERSAL (Obrigatório para evitar quebras) */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Isso impede que o padding "empurre" o texto para fora da tela */
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
-                url('florestaazul.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden; 
-}
-
-.page-container {
+/* 2. ESTILO DA SEÇÃO (Onde fica o fundo escuro/imagem) */
+.secao-apoio {
+    width: 100%;
+    min-height: 300px; /* Ajuste a altura conforme seu design */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 20px;
-    min-height: 100vh;
-    width: 100%;
-    max-width: 1600px;
-}
-
-/* --- HEADER E ORNAMENTOS (Ajustado para não sumir no Mobile) --- */
-.header-topo { 
-    text-align: center; 
-    width: 100%; 
-    margin-bottom: 30px;
-}
-
-.club-logo { height: 70px; margin-bottom: 15px; }
-
-.titulo-wrapper {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15px; /* Reduzi levemente o gap para caber no mobile */
+    align-items: center;
+    background-color: #05162a; /* Cor de fundo base (ajuste se necessário) */
+    padding: 60px 20px; /* Espaço interno em cima/baixo e nas laterais */
+}
+
+/* 3. CONTAINER DO TEXTO (O "escudo" que impede o corte) */
+.container-texto {
     width: 100%;
+    max-width: 900px; /* Não deixa o texto ficar largo demais em telas grandes */
+    margin: 0 auto; /* Centraliza o bloco horizontalmente */
+    text-align: left; /* Mantém o alinhamento à esquerda como no seu print */
 }
 
-.titulo-gotico { 
-    font-family: 'UnifrakturMaguntia', cursive; 
-    color: #ffbd59; 
-    font-size: clamp(1.8rem, 7vw, 3.2rem); /* Agora ele encolhe proporcionalmente */
-    border-bottom: 3px solid #ffbd59;
-    line-height: 0.85;
-    padding-bottom: 5px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    white-space: nowrap; /* Mantém o título em uma linha */
-}
-
-.ornamento { 
-    width: clamp(30px, 8vw, 60px); /* Encolhe no mobile, mas não some */
-    height: auto;
-    flex-shrink: 0; /* ISSO GARANTE QUE O ORNAMENTO-DIR NÃO SUMA */
-}
-
-.ornamento-dir { transform: scaleX(-1); }
-
-/* --- BOTÕES (OS SEUS ORIGINAIS COM AJUSTE DE LARGURA) --- */
-.navigation-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin-top: 40px;
-    padding-bottom: 20px;
-    gap: 15px; /* Espaço entre botões no mobile */
-}
-
-.btn-pilula {
-    text-decoration: none;
-    color: white;
+/* 4. AJUSTE DOS TÍTULOS (H2) */
+.container-texto h2 {
+    color: #ffffff;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Fonte que diminui sozinha no celular */
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 30px; /* Reduzi o padding lateral para não quebrar no celular */
-    background-color: #0b1a3d;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    transition: 0.4s ease;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-    flex: 1; /* Faz os dois botões terem o mesmo tamanho no mobile */
-    max-width: 250px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    word-wrap: break-word; /* Força a quebra se a palavra for maior que a tela */
+    overflow-wrap: break-word;
 }
 
-.btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
+/* 5. AJUSTE DO PARÁGRAFO (P) */
+.container-texto p {
+    color: #e0e0e0;
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Fonte adaptável */
+    line-height: 1.6;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
-/* --- RESPONSIVIDADE ESPECÍFICA PARA CELULAR --- */
-@media (max-width: 600px) {
-    .titulo-wrapper {
-        gap: 8px;
+/* 6. RESPONSIVIDADE PARA TELAS PEQUENAS (MOBILE) */
+@media (max-width: 768px) {
+    .secao-apoio {
+        padding: 40px 15px; /* Diminui um pouco o respiro em celulares */
     }
-
-    .navigation-footer {
-        justify-content: center; /* Centraliza os botões */
-    }
-
-    .btn-pilula {
-        font-size: 0.9rem; /* Texto levemente menor para caber lado a lado */
-        padding: 10px 15px;
+    
+    .container-texto {
+        width: 95%; /* Garante que use quase toda a tela, mas sem encostar na borda */
     }
 }
