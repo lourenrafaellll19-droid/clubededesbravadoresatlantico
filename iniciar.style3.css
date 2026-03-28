@@ -75,7 +75,7 @@ h2.titulo-gotico { font-size: 0.2rem; }
     gap: 20px; 
     margin-bottom: 30px; 
     justify-content: center; /* Centraliza os cards horizontalmente */
-    margin-top: 136px;        /* AJUSTE AQUI: Aumente para abaixar mais as fotos */
+    margin-top: 236px;        /* AJUSTE AQUI: Aumente para abaixar mais as fotos */
 }
 
 .value-card { flex: 1; }
