@@ -26,7 +26,7 @@ body {
 }
 
 h1.titulo-gotico { font-size: 1.8rem; }
-h2.titulo-gotico { font-size: 3.2rem; }
+h2.titulo-gotico { font-size: 2.2rem; }
 
 /* --- LAYOUT DE COLUNAS --- */
 .page-container { display: flex; min-height: 100vh; }
