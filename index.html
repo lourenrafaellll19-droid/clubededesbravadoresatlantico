@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clube de Desbravadores Atlântico</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home.style.css?v=3">
+    
+    <link rel="stylesheet" href="home.style.css?v=6">
 </head>
 <body>
 
@@ -16,21 +18,18 @@
     </video>
 
     <main class="container">
-        <div class="logo-wrapper">
+        <div class="header-visual">
             <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
-        </div>
-        
-        <header>
-            <h1 class="texto-brilhante">Clube de desbravadores</h1>
-            <div class="titulo-container">
+            <div class="ornamentos-box">
+                <h1 class="texto-brilhante">Clube de desbravadores</h1>
                 <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
             </div>
-        </header>
+        </div>
 
         <nav class="menu">
-            <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
-            <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
-            <a href="enviar especialidade.html" class="btn" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
+            <a href="iniciar.html" class="btn">INICIAR</a>
+            <a href="apontamentos.html" class="btn">APONTAMENTOS</a>
+            <a href="enviar especialidade.html" class="btn">ENVIAR AS ESPECIALIDADES</a>
         </nav>
     </main>
 
@@ -43,9 +42,13 @@
             event.preventDefault(); 
             const link = event.currentTarget.href;
             const som = document.getElementById('somBrilho');
-            som.play().then(() => {
-                setTimeout(() => { window.location.href = link; }, 1000); 
-            }).catch(() => { window.location.href = link; });
+            if(som) {
+                som.play().then(() => {
+                    setTimeout(() => { window.location.href = link; }, 1000);
+                }).catch(() => { window.location.href = link; });
+            } else {
+                window.location.href = link;
+            }
         }
     </script>
 </body>
