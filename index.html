@@ -4,34 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clube de Desbravadores Atlântico</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="home.style.css?v=2">
+    <link rel="stylesheet" href="home.style.css?v=3">
 </head>
 <body>
 
     <video autoplay muted loop playsinline id="bg-video">
         <source src="seu-video.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos.
     </video>
 
     <main class="container">
-        <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
-        <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
-        <img src="bussola.png" alt="Bússola" class="bussola">
+        <div class="logo-wrapper">
+            <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
+        </div>
         
         <header>
             <h1 class="texto-brilhante">Clube de desbravadores</h1>
-            <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
+            <div class="titulo-container">
+                <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
+            </div>
         </header>
 
         <nav class="menu">
             <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
             <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
-            <a href="enviar especialidade.html" class="btn btn-largo" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
+            <a href="enviar especialidade.html" class="btn" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
         </nav>
     </main>
 
@@ -44,14 +43,9 @@
             event.preventDefault(); 
             const link = event.currentTarget.href;
             const som = document.getElementById('somBrilho');
-
             som.play().then(() => {
-                setTimeout(() => {
-                    window.location.href = link;
-                }, 1200); 
-            }).catch(err => {
-                window.location.href = link;
-            });
+                setTimeout(() => { window.location.href = link; }, 1000); 
+            }).catch(() => { window.location.href = link; });
         }
     </script>
 </body>
