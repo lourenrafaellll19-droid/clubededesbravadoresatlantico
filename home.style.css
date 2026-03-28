@@ -1,19 +1,16 @@
 /* --- CONFIGURAÇÕES GERAIS --- */
-html, body {
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    min-height: 100vh;
     background-color: black;
     font-family: 'Arial', sans-serif;
-    color: white;
-    overflow-x: hidden; /* Proíbe o balanço lateral */
-}
-
-body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+    overflow-x: hidden;
 }
 
 /* --- VÍDEO DE FUNDO --- */
@@ -31,14 +28,13 @@ body {
 .container {
     text-align: center;
     position: relative;
-    width: 95%; /* Aumentado para dar mais respiro */
+    width: 90%;
     max-width: 1200px;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 10px;
-    box-sizing: border-box;
+    padding: 20px;
 }
 
 /* --- TÍTULOS --- */
@@ -47,7 +43,7 @@ h1, .titulo-principal {
     margin: 0;
     color: white;
     line-height: 1.1;
-    width: 100%;
+    text-align: center;
 }
 
 h1 { font-size: 4.5rem; }
@@ -95,7 +91,7 @@ h1 { font-size: 4.5rem; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     margin-top: 40px;
     width: 100%;
 }
@@ -104,14 +100,13 @@ h1 { font-size: 4.5rem; }
     background-color: #0b1a3d;
     color: white;
     border: 5px solid rgba(255, 255, 255, 0.1);
-    padding: 15px 20px; /* Reduzi o padding lateral fixo */
+    padding: 20px 80px;
     border-radius: 60px;
     font-weight: bold;
     font-size: 1.2rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     cursor: pointer;
-    width: 100%; /* Agora ele tenta ocupar o container */
-    max-width: 400px; /* Mas não passa de 400px */
+    width: 400px;
     transition: all 0.4s ease;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
@@ -122,15 +117,7 @@ h1 { font-size: 4.5rem; }
     box-sizing: border-box;
 }
 
-.btn-largo { max-width: 550px; }
-
-.btn:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
-                0px 0px 45px rgba(30, 58, 138, 0.7);
-    border: 5px solid rgba(255, 255, 255, 0.6);
-}
+.btn-largo { width: 550px; }
 
 /* --- IMAGENS DECORATIVAS (PC) --- */
 .logo-topo {
@@ -139,56 +126,73 @@ h1 { font-size: 4.5rem; }
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
+    z-index: 10;
 }
 
 .lenco-topo { position: absolute; top: -300px; right: -600px; width: 750px; }
 .bussola { position: absolute; top: -100px; left: -720px; width: 950px; opacity: 0.7; }
 
-/* --- MODO CELULAR (RESOLUÇÃO DO PROBLEMA) --- */
-@media (max-width: 600px) {
+/* --- MODO CELULAR (RESOLUÇÃO) --- */
+@media (max-width: 768px) {
     body {
-        display: block !important;
-        padding-top: 130px;
-        overflow-x: hidden !important;
+        display: block;
+        overflow-y: auto;
+        padding-top: 130px; /* Dá espaço para a logo no topo */
     }
 
     .container {
-        width: 100% !important;
-        padding: 0 15px !important;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    /* Redução agressiva das fontes */
     h1 { 
         font-size: 1.4rem !important; 
+        width: 100%;
+        margin-bottom: 5px;
     }
     
     .titulo-principal { 
         font-size: 2.8rem !important; 
         margin-top: 5px !important;
-        display: block !important;
+        width: auto;
+        display: inline-block;
     }
 
-    /* Forçar o desaparecimento dos itens de PC */
-    .titulo-principal::before, .titulo-principal::after, 
-    .lenco-topo, .bussola {
-        display: none !important;
+    /* Ajuste dos Ornamentos para ficarem centrados no mobile */
+    .titulo-principal::before,
+    .titulo-principal::after {
+        width: 250px; 
+        height: 120px;
+        top: 50%;
+        opacity: 0.4;
     }
+
+    .titulo-principal::before { left: -60px; }
+    .titulo-principal::after { right: -60px; }
+
+    .lenco-topo, .bussola { display: none !important; }
 
     .logo-topo {
-        top: 20px !important;
-        width: 90px !important;
+        top: 15px;
+        width: 100px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     .menu {
-        margin-top: 25px !important;
-        width: 100% !important;
+        gap: 12px;
+        margin-top: 25px;
     }
 
     .btn, .btn-largo {
-        width: 100% !important; /* Ocupa a largura disponível no container */
-        max-width: 280px !important; /* Limita para não ficar gigante */
-        font-size: 0.8rem !important;
-        padding: 12px 10px !important;
-        border-width: 3px !important;
+        width: 90% !important;
+        max-width: 300px;
+        padding: 15px 5px !important;
+        font-size: 0.85rem !important;
+        border-radius: 40px;
     }
 }
