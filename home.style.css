@@ -1,3 +1,4 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
 body {
     margin: 0;
     padding: 0;
@@ -6,10 +7,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden; /* Evita rolagem lateral chata */
 }
 
 /* --- VÍDEO DE FUNDO --- */
@@ -35,9 +36,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
-/* --- TÍTULOS GÓTICOS COM BRILHO --- */
+/* --- TÍTULOS --- */
 h1, .titulo-principal {
     font-family: 'UnifrakturMaguntia', cursive;
     margin: 0;
@@ -45,9 +47,7 @@ h1, .titulo-principal {
     line-height: 1.1;
 }
 
-h1 { 
-    font-size: 4.5rem; 
-}
+h1 { font-size: 4.5rem; }
 
 .titulo-principal { 
     font-size: 8rem; 
@@ -57,16 +57,14 @@ h1 {
     display: inline-block;
 }
 
-/* --- CLASSE DE BRILHO NOS TEXTOS --- */
 .texto-brilhante {
-    /* Camadas de sombra: Sombra preta para leitura + Brilho branco + Halo azul */
     text-shadow: 
         3px 3px 1px rgba(0, 0, 0, 0.9), 
         0px 0px 25px rgba(255, 255, 255, 0.6), 
         0px 0px 25px rgba(30, 58, 138, 0.4);
 }
 
-/* --- ORNAMENTOS LATERAIS NO TEXTO --- */
+/* --- ORNAMENTOS (PC) --- */
 .titulo-principal::before,
 .titulo-principal::after {
     content: '';
@@ -89,13 +87,14 @@ h1 {
     transform: translateY(-50%) scaleX(-1); 
 }
 
-/* --- BOTÕES COM BRILHO AO PASSAR O MOUSE --- */
+/* --- MENU E BOTÕES --- */
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
     margin-top: 40px;
+    width: 100%;
 }
 
 .btn {
@@ -112,13 +111,11 @@ h1 {
     transition: all 0.4s ease;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    
-    /* Novos ajustes para o link funcionar como botão */
     text-decoration: none; 
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box; /* Garante que a borda não aumente o tamanho do botão */
+    box-sizing: border-box;
 }
 
 .btn-largo { width: 550px; }
@@ -128,10 +125,11 @@ h1 {
     background-color: #1e3a8a;
     box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
                 0px 0px 45px rgba(30, 58, 138, 0.7);
-    border: 5px solid rgba(255, 255, 255, 0.6); /* Mantive os 5px do seu design */
+    border: 5px solid rgba(255, 255, 255, 0.6);
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
-/* --- IMAGENS DE DECORAÇÃO --- */
+
+/* --- IMAGENS DECORATIVAS (PC) --- */
 .logo-topo {
     position: absolute;
     top: -190px;
@@ -152,10 +150,53 @@ h1 {
     top: -100px;
     left: -720px;
     width: 950px;
-    opacity: 1.7;
+    opacity: 0.7;
 }
 
 .logo-topo, .lenco-topo, .bussola {
     filter: drop-shadow(8px 12px 12px rgba(0, 0, 0, 0.7));
     pointer-events: none;
+}
+
+/* --- MODO CELULAR (RESPONSIVIDADE) --- */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto; /* Permite rolar para baixo no celular */
+        align-items: flex-start; /* Alinha ao topo para não cortar conteúdo */
+        padding-top: 150px;
+    }
+
+    h1 { font-size: 1.8rem; }
+    
+    .titulo-principal { 
+        font-size: 3.5rem; 
+        margin-top: 5px;
+    }
+
+    /* Esconde ornamentos que quebram a largura no mobile */
+    .titulo-principal::before,
+    .titulo-principal::after,
+    .lenco-topo,
+    .bussola {
+        display: none;
+    }
+
+    .logo-topo {
+        top: 20px; /* Posiciona a logo no topo da tela mobile */
+        width: 120px;
+    }
+
+    .menu {
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .btn, .btn-largo {
+        width: 90%; /* Ocupa a largura da tela do celular */
+        max-width: 320px;
+        padding: 15px 10px;
+        font-size: 0.9rem;
+        border-radius: 30px;
+        border-width: 3px;
+    }
 }
