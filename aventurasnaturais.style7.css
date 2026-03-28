@@ -1,4 +1,4 @@
-/* RESET GERAL - Impede que elementos fujam da tela */
+/* Reset total para tirar o fundo branco e as margens padrão */
 * {
     margin: 0;
     padding: 0;
@@ -6,64 +6,48 @@
 }
 
 body {
-    background-color: #05162a; /* Cor azul escura do seu projeto */
+    background-color: #05162a; /* A cor azul escura do seu projeto */
     color: white;
-    font-family: sans-serif;
-    overflow-x: hidden; /* Impede que o site balance para os lados */
-}
-
-/* CONTAINER DE SEGURANÇA */
-.container-ajustado {
-    width: 90%; /* Margem de segurança nas laterais */
-    max-width: 1000px;
-    margin: 0 auto; /* Centraliza tudo */
-    padding: 20px 0;
-}
-
-/* SEÇÃO PRINCIPAL */
-.secao-aventuras {
-    padding: 80px 0 40px 0;
-    text-align: left;
-}
-
-.secao-aventuras h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #ffb84d; /* Cor laranja/amarela do seu logo */
-}
-
-/* SEÇÃO DE APOIO */
-.secao-apoio {
-    padding: 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.secao-apoio h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.secao-apoio p {
-    font-size: 1.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #cccccc;
 }
 
-/* AJUSTE PARA ELEMENTOS GRANDES (Evita o erro do seu print) */
-img, svg, .elemento-decorativo {
-    max-width: 100%;
-    height: auto;
-    display: block;
+/* O container que impede o texto de bater nas bordas */
+.container-ajustado {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
 }
 
-/* RESPONSIVIDADE PARA CELULAR */
+/* Títulos */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffb84d; /* Amarelo/Laranja para destaque */
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ffb84d;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Texto das campanhas */
+p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* Ajuste para celular */
 @media (max-width: 600px) {
-    .secao-aventuras h1 {
-        font-size: 1.8rem;
-    }
-    
-    .container-ajustado {
-        width: 88%; /* Um pouco mais de margem no celular */
-    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    .container-ajustado { width: 85%; }
 }
-
