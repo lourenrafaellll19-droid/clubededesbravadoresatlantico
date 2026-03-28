@@ -154,3 +154,25 @@ h2.titulo-gotico { font-size: 3.2rem; }
     border: 3px solid rgba(255, 255, 255, 0.6);
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
+/* Estilos gerais (Desktop) */
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Ajustes para Celular */
+@media screen and (max-width: 768px) {
+  .container {
+    /* Muda de linha para coluna para caber na tela estreita */
+    flex-direction: column; 
+  }
+
+  .item {
+    width: 100%; /* Faz os elementos ocuparem a largura toda */
+    margin-bottom: 20px;
+  }
+
+  body {
+    font-size: 14px; /* Opcional: ajusta o tamanho da fonte */
+  }
+}
