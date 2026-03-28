@@ -148,3 +148,64 @@ body {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: white;
 }
+
+/* --- RESPONSIVIDADE (PARA CELULARES) --- */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto; /* Permite rolar a página no celular */
+    }
+
+    .page-container {
+        flex-direction: column; /* Coloca uma coluna sobre a outra */
+        height: auto;
+        width: 100%;
+    }
+
+    .left-column, .right-column {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Ajuste do Título e Ornamentos */
+    .titulo-gotico {
+        font-size: 2.2rem;
+    }
+    
+    .ornamento-desce {
+        width: 35px;
+    }
+
+    /* Ajuste do Texto */
+    .texto-historia {
+        font-size: 1.1rem;
+        text-align: left; /* Justificado às vezes fica estranho em telas muito finas */
+    }
+
+    /* Ajuste do Frame do Vídeo */
+    .image-frame {
+        width: 100%;    /* Ocupa a largura total disponível */
+        height: auto;   /* Altura automática para manter proporção */
+        aspect-ratio: 16 / 9; /* Mantém o formato retangular */
+    }
+
+    /* Ajuste dos Botões */
+    .navigation-footer {
+        flex-direction: row; /* Mantém lado a lado, ou 'column' se preferir um sobre o outro */
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .btn-pilula {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        flex: 1; /* Faz os botões dividirem o espaço igualmente */
+        text-align: center;
+    }
+
+    /* Remove ou ajusta o enfeite de fundo para não poluir o visual */
+    .left-column::before {
+        height: 100px;
+        background-size: contain;
+    }
+}
