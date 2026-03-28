@@ -18,16 +18,12 @@
                     <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
                 </div>
                 <p class="texto-historia">
-                    O Clube Atlântico tem sua data de fundação em 08/07/2018 com um irmão chamado Gilmar Pinheiro de Carvalho que tinha um ônibus muito simples mas que auxiliava pegando crianças totalmente carentes, ia na casa de apoio e também pegava crianças de lá e trazia para o Clube de Desbravadores, infelizmente o ônibus precisou ser vendido por questão dos custo para mantê-lo e logo veio a pandemia, após não foi possível dar continuidade ficando o Clube fechado alguns anos e retornando em 2024 com outra liderança, um jovem chamado Luis Miguel Tramontini de 18 anos assumiu e vem trabalhando desde então com uma liderança Unida, motivada e dedicada, para que tudo passa se reorganizar novamente, apesar de todas as dificuldades.
-
+                    O Clube Atlântico tem sua data de fundação em 08/07/2018 com um irmão chamado Gilmar Pinheiro de Carvalho que tinha um ônibus muito simples mas que auxiliava pegando crianças totalmente carentes, ia na casa de apoio e também pegava crianças de lá e trazia para o Clube de Desbravadores. Infelizmente o ônibus precisou ser vendido por questão dos custo para mantê-lo e logo veio a pandemia. Após não foi possível dar continuidade ficando o Clube fechado alguns anos e retornando em 2024 com outra liderança, um jovem chamado Luis Miguel Tramontini de 18 anos assumiu e vem trabalhando desde então com uma liderança unida, motivada e dedicada, para que tudo possa se reorganizar novamente, apesar de todas as dificuldades.
                 </p>
             </div>
         </section>
 
         <section class="right-column">
-            <header class="right-header">
-                </header>
-
             <div class="cards-container">
                 <div class="image-frame">
                     <img src="foto1.jpeg" alt="História do Clube" class="card-image">
@@ -35,37 +31,31 @@
             </div>
 
             <footer class="navigation-footer">
- <a href="iniciar.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-    <a href="historia2.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+                <a href="iniciar.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+                <a href="historia2.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
             </footer>
         </section>
     </main>
 
-<audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-<script>
-   function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <script>
+        function transicaoComSom(event) {
+            event.preventDefault(); 
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1000); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
+            });
+        }
+    </script>
 
 </body>
 </html>
