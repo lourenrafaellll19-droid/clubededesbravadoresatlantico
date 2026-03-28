@@ -149,3 +149,68 @@ body {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: #ffffff;
 }
+
+/* --- RESPONSIVIDADE PARA CELULAR (PÁGINA DE VALORES) --- */
+@media (max-width: 768px) {
+    body {
+        /* Permite rolagem vertical se o conteúdo for longo */
+        overflow-y: auto; 
+        background-attachment: scroll; /* Melhora a performance em alguns celulares */
+    }
+
+    .page-container {
+        padding: 20px 15px;
+        height: auto;
+    }
+
+    /* Ajuste do Título Gótico */
+    .titulo-gotico {
+        font-size: 2rem; /* Diminuído para não quebrar linha */
+        line-height: 0.8;
+    }
+
+    .ornamento {
+        width: 35px; /* Ornamentos menores no celular */
+    }
+
+    .titulo-wrapper {
+        gap: 10px;
+    }
+
+    /* Ajuste dos Cards */
+    .cards-main-container {
+        flex-direction: column; /* Força um card embaixo do outro */
+        align-items: center;
+        gap: 40px; /* Mais espaço entre os cards */
+    }
+
+    .value-card {
+        min-width: 100%; /* Ocupa a largura total disponível */
+        max-width: 100%;
+    }
+
+    .image-frame {
+        height: 220px; /* Reduz um pouco a altura da imagem no celular */
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        padding: 0 5px;
+    }
+
+    /* Ajuste dos Botões Inferiores */
+    .navigation-footer {
+        flex-direction: row; /* Mantém lado a lado */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .btn-pilula {
+        padding: 10px 20px; /* Reduz o enchimento interno */
+        font-size: 0.85rem; /* Letras levemente menores */
+        flex: 1; /* Faz os dois botões terem o mesmo tamanho */
+        text-align: center;
+        white-space: nowrap; /* Evita que o texto do botão quebre linha */
+    }
+}
