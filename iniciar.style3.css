@@ -65,7 +65,7 @@ h2.titulo-gotico { font-size: 1.2rem; }
 /* Header */
 .right-header { display: flex; align-items: center; margin-bottom: 40px; }
 .club-logo { height: 70px; margin-right: auto; }
-.titulo-wrapper { flex-grow: 1; display: flex; justify-content: center; align-items: center; gap: 15px; margin-right: 70px; }
+.titulo-wrapper { flex-grow: 1; display: flex; justify-content: center; align-items: center; gap: 15px; margin-right: 50px; }
 .ornamento-desce { width: 60px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
