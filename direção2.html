@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretoria - Clube Atlântico</title>
+    <link rel="stylesheet" href="direção2.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        
+        <header class="header-topo">
+            <img src="logo-atlantico.png" alt="Logo Clube Atlântico" class="club-logo">
+            <div class="titulo-wrapper">
+                <img src="ornamentoamarelo.png" alt="" class="ornamento">
+                <h1 class="titulo-gotico">Direção</h1>
+                <img src="ornamentoamarelo.png" alt="" class="ornamento ornamento-dir">
+            </div>
+        </header>
+
+        <section class="cards-main-container">
+            
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="semfoto.png" alt="Luis Miguel" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">JESSICA</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo">CAPELÃ</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p> Jéssica, uma dedicada capelã dos Desbravadores, responsável por um grande pilar do clube na questão da espiritualidade e uma grande conexão com Deus.</p>
+                </div>
+            </article>
+
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="rudy.png" alt="Jaqueline" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">RUDY</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo">CAPELÃO</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p> Rudy,  um dos membros mais jovens da liderança  mesmo com pouca idade tem  grande expêriencia no mundo dos desbravadores,  com sua proatividade, auxilia em qualquer problema.</p>
+                </div>
+            </article>
+
+             <article class="value-card">
+                <div class="image-frame">
+                    <img src="rogerio.png" alt="Jaqueline" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">ROGERIO</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo">INSTRUTOR</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p> Rogerio, É um instrutor qualificado e figura ativa na comunidade esportiva local. No clube, sua experiência com artes marciais é aplicada para ensinar disciplina, foco e condicionamento físico.
+Ele é peça-chave para as especialidades de esportes e atividades que exigem alto nível de organização.
+</p>
+                </div>
+            </article>
+
+        </section>
+
+           <footer class="navigation-footer">
+    <a href="direção.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="direção3.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+    </main>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+    
+</script>
+</body>
+</html>
+
+</body>
+</html>

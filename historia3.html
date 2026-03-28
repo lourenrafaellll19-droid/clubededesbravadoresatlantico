@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História - Clube Atlântico</title>
+    <link rel="stylesheet" href="historia3.style5.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        
+        <section class="left-column">
+            <div class="left-content">
+                <div class="sobre-nos-header">
+                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
+                    <h2 class="titulo-gotico titulo-sublinhado">História</h2>
+                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
+                </div>
+                
+                <div class="texto-historia">
+                    Estamos muito felizes na missão que o Senhor nos confiou, cada sorriso de cada desbravador é uma motivação para cada um de nós, assim como também o amor de Cristo que nos motiva a cada dia, a maior alegria é poder ver cada um deles crescendo e aprendendo a Palavra do Senhor, sorrindo, brincando, são participativos, entregamos tudo nas mãos de Deus e cremos que Ele está no controle sempre. Agradecemos a Deus, a nossa liderança, aos desbravadores, aos pais, aos irmãos e amigos.
+                </div>
+
+                <strong class="maranata-center">Maranata!!!</strong>
+            </div>
+        </section>
+
+        <section class="right-column">
+            <header class="right-header">
+                </header>
+
+            <div class="cards-container">
+                <div class="image-frame">
+                    <video class="card-video" autoplay controls >
+                        <source src="videodapagina3.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+            </div>
+
+  <footer class="navigation-footer">
+    <a href="historia2.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="aventurasnaturais.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+
+    </main>
+    
+</body>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretoria - Clube Atlântico</title>
+    <link rel="stylesheet" href="direção.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        
+        <header class="header-topo">
+            <img src="logo-atlantico.png" alt="Logo Clube Atlântico" class="club-logo">
+            <div class="titulo-wrapper">
+                <img src="ornamentoamarelo.png" alt="" class="ornamento">
+                <h1 class="titulo-gotico">Direção</h1>
+                <img src="ornamentoamarelo.png" alt="" class="ornamento ornamento-dir">
+            </div>
+        </header>
+
+        <section class="cards-main-container">
+            
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="lourenço.png" alt="Luis Miguel" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">LOURENÇO</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo"> GESTOR DE MÍDIA E LIDER</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p>Responsável pela comunicação do nosso clube, Lourenço une a precisão técnica à sua visão única como autista, trazendo 
+foco e autenticidade para cada projeto. 
+Além de dominar as telas, ele exerce sua vocação de serviço como Líder de Desbravadores, liderando pelo exemplo, pela disciplina e pelo compromisso. Um talento neurodivergente que transforma nossa mídia em inspiração..</p>
+                </div>
+            </article>
+
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="katia.png" alt="Jaqueline" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">KATIA MORO</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo">CONSELHEIRA</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p>Katia Moro é conselheira de Desbravadores, atuando no acompanhamento de crianças e adolescentes por meio de atividades educativas, espirituais e recreativas. Ela auxilia no desenvolvimento de valores cristãos, disciplina, trabalho em equipe e liderança, além de participar da organização de acampamentos, projetos sociais e reuniões do clube.</p>
+                </div>
+            </article>
+
+             <article class="value-card">
+                <div class="image-frame">
+                    <img src="lucia.png" alt="Jaqueline" class="card-image">
+                </div>
+
+                <div class="bio-info">
+                    <h3 class="card-title">lucia</h3>
+                    <div class="cargo-wrapper">
+                        <h2 class="bio-cargo">INSTRUTORA DE CLASSE</h2>
+                        <div class="linha-branca"></div>
+                    </div>
+                </div>
+
+                <div class="box-descricao">
+                    <p> Lucia, uma dedicada instrutora de classe dos Desbravadores, sempre pronta a ensinar, orientar e inspirar os jovens com responsabilidade e espírito de liderança.</p>
+                </div>
+            </article>
+
+        </section>
+
+           <footer class="navigation-footer">
+    <a href="diretoria.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="direção2.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+    </main>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+</body>
+</html>
+    </main>
+
+</body>
+</html>

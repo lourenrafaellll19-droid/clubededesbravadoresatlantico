@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    overflow: hidden;
+}
+
+/* --- VÍDEO DE FUNDO --- */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TÍTULOS GÓTICOS COM BRILHO --- */
+h1, .titulo-principal {
+    font-family: 'UnifrakturMaguntia', cursive;
+    margin: 0;
+    color: white;
+    line-height: 1.1;
+}
+
+h1 { 
+    font-size: 4.5rem; 
+}
+
+.titulo-principal { 
+    font-size: 8rem; 
+    letter-spacing: 2px;
+    margin-top: -10px;
+    position: relative;
+    display: inline-block;
+}
+
+/* --- CLASSE DE BRILHO NOS TEXTOS --- */
+.texto-brilhante {
+    /* Camadas de sombra: Sombra preta para leitura + Brilho branco + Halo azul */
+    text-shadow: 
+        3px 3px 1px rgba(0, 0, 0, 0.9), 
+        0px 0px 25px rgba(255, 255, 255, 0.6), 
+        0px 0px 25px rgba(30, 58, 138, 0.4);
+}
+
+/* --- ORNAMENTOS LATERAIS NO TEXTO --- */
+.titulo-principal::before,
+.titulo-principal::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 1500px;
+    height: 220px;
+    background-image: url('Ornamentos.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.6));
+    z-index: -1;
+}
+
+.titulo-principal::before { left: -160px; }
+.titulo-principal::after { 
+    right: -160px; 
+    transform: translateY(-50%) scaleX(-1); 
+}
+
+/* --- BOTÕES COM BRILHO AO PASSAR O MOUSE --- */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.btn {
+    background-color: #0b1a3d;
+    color: white;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 80px;
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 400px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    
+    /* Novos ajustes para o link funcionar como botão */
+    text-decoration: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Garante que a borda não aumente o tamanho do botão */
+}
+
+.btn-largo { width: 550px; }
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
+                0px 0px 45px rgba(30, 58, 138, 0.7);
+    border: 5px solid rgba(255, 255, 255, 0.6); /* Mantive os 5px do seu design */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+/* --- IMAGENS DE DECORAÇÃO --- */
+.logo-topo {
+    position: absolute;
+    top: -190px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+}
+
+.lenco-topo {
+    position: absolute;
+    top: -300px;
+    right: -600px;
+    width: 750px;
+}
+
+.bussola {
+    position: absolute;
+    top: -100px;
+    left: -720px;
+    width: 950px;
+    opacity: 1.7;
+}
+
+.logo-topo, .lenco-topo, .bussola {
+    filter: drop-shadow(8px 12px 12px rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+}

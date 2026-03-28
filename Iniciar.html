@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores do Clube - Atlântico</title>
+    <link rel="stylesheet" href="iniciar.style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        <section class="left-column">
+            <div class="left-content">
+                <div class="sobre-nos-header">
+                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
+                    <h2 class="titulo-gotico titulo-sublinhado">Sobre Nós</h2>
+                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
+                </div>
+                <p><strong>Um grupo de jovens (10 a 15 anos ou mais)</strong> que busca crescimento físico, mental e espiritual.</p>
+                <p><strong>O que fazemos:</strong> Aprendemos com a natureza, acampamos e ajudamos a comunidade.</p>
+                <p><strong>Nosso propósito:</strong> "Salvar do pecado e guiar no serviço".</p>
+                <p><strong>Nossa marca:</strong> O lenço amarelo, símbolo de prontidão.</p>
+            </div>
+        </section>
+
+        <section class="right-column">
+            <header class="right-header">
+                <img src="logo-atlantico.png" alt="Logo Atlântico" class="club-logo">
+                <div class="titulo-wrapper">
+                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
+                    <h1 class="titulo-gotico titulo-sublinhado">Valores do Clube</h1>
+                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
+                </div>
+            </header>
+
+            <div class="cards-container">
+                <article class="value-card">
+                    <div class="image-frame">
+                        <img src="Fisico1.png" alt="Físico" class="card-image">
+                        <h3 class="card-title physical">FÍSICO</h3>
+                    </div>
+                    <p class="card-text">No aspecto físico, o Desbravador aprende que seu corpo é uma ferramenta de serviço. Através de acampamentos, trilhas e especialidades esportivas, ele desenvolve resistência, saúde e disciplina, preparando-se para os desafios da vida e para ser útil à sua comunidade.</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="image-frame">
+                        <img src="Mental2.png" alt="Mental" class="card-image">
+                        <h3 class="card-title mental">MENTAL</h3>
+                    </div>
+                    <p class="card-text">No pilar mental, o Desbravador exercita a mente para ser útil e criativo. Através das classes e especialidades, ele expande seus horizontes, descobre novos talentos e desenvolve a disciplina necessária para ser um cidadão exemplar e um líder preparado para o futuro."
+.</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="image-frame">
+                        <img src="espiritual.png" alt="Espiritual" class="card-image">
+                        <h3 class="card-title spiritual">ESPIRITUAL</h3>
+                    </div>
+                    <p class="card-text">No pilar espiritual, o Desbravador encontra o seu propósito. Ele aprende a amar a Deus sobre todas as coisas e ao próximo como a si mesmo. Através da oração, do estudo da Bíblia e do serviço, ele molda um caráter para a eternidade, vivendo o lema: 'O amor de Cristo me motiva'.".</p>
+                </article>
+            </div>
+
+            <footer class="navigation-footer">
+    <a href="index.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+    </main>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+ function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+</body>
+</html>

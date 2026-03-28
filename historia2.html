@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História - Clube Atlântico</title>
+    <link rel="stylesheet" href="historia2.style4.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        
+        <section class="left-column">
+            <div class="left-content">
+                <div class="sobre-nos-header">
+                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
+                    <h2 class="titulo-gotico titulo-sublinhado">História</h2>
+                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
+                </div>
+                
+                <p class="texto-historia">
+                    Hoje o Clube tem 25 desbravadores,  e uma liderança de 10 pessoas, alguns irmãos que ajudam , mas Deus tem sustentado, o Clube funciona na escola Zélia do Balneário do Primavera, uma localidade carente mas muito receptiva e acolhedora, os desbravadores são juvenis e adolescentes maravilhosos e muito talentosos com seus dons,  são muito ativos e felizes no Clube.
+                </p>
+            </div>
+        </section>
+
+        <section class="right-column">
+            <header class="right-header">
+                
+            </header>
+
+            <div class="cards-container">
+                <div class="image-frame">
+                    <img src="foto2.png" alt="Físico" class="card-image">
+                    
+                </div>
+            </div>
+
+             <footer class="navigation-footer">
+    <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="historia3.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+
+    </main>
+    
+</body>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+   function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+</html>

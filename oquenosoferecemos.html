@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que nós oferecemos - Clube Atlântico</title>
+    <link rel="stylesheet" href="oquenosoferecemos.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        
+        <header class="header-topo">
+            <img src="logo-atlantico.png" alt="Logo Clube Atlântico" class="club-logo">
+            <div class="titulo-wrapper">
+                <img src="ornamentoamarelo.png" alt="" class="ornamento">
+                <h1 class="titulo-gotico">O que nós oferecemos</h1>
+                <img src="ornamentoamarelo.png" alt="" class="ornamento ornamento-dir">
+            </div>
+        </header>
+
+        <section class="cards-main-container">
+            
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="amizadesverdadeiras.png" alt="Amizades Verdadeiras" class="card-image">
+                    <h3 class="card-title">AMIZADES VERDADEIRAS</h3>
+                </div>
+            </article>
+
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="comunhãocomdeus.png" alt="Comunhão com Deus" class="card-image">
+                    <h3 class="card-title">COMUNHÃO COM DEUS</h3>
+                </div>
+            </article>
+
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="acampamentos.png" alt="Acampamentos" class="card-image">
+                    <h3 class="card-title">ACAMPAMENTOS</h3>
+                </div>
+            </article>
+
+            <article class="value-card">
+                <div class="image-frame">
+                    <img src="inclusãosocial.png" alt="Inclusão Social" class="card-image">
+                    <h3 class="card-title">INCLUSÃO SOCIAL</h3>
+                </div>
+            </article>
+
+        </section>
+
+           <footer class="navigation-footer">
+    <a href="aventurasnaturais.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="diretoria.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+</footer>
+            </footer>
+        </section>
+    </main>
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+ function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+</body>
+</html>
+
+</body>
+</html>

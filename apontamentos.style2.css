@@ -1,0 +1,239 @@
+/* --- RESET E ESTRUTURA BASE (IDÊNTICO À HOME) --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    overflow: hidden;
+}
+
+/* --- VÍDEO DE FUNDO (IDÊNTICO À HOME) --- */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* --- CONTAINER (IDÊNTICO À HOME) --- */
+.container {
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TÍTULO UNIDADES COM ORNAMENTO --- */
+.titulo-unidades {
+    font-family: 'UnifrakturMaguntia', cursive;
+    margin: 0;
+    color: white;
+    line-height: 1.1;
+    font-size: 8rem; 
+    letter-spacing: 2px; 
+    margin-top: 120px; 
+    margin-bottom: 40px;
+    position: relative; 
+    display: inline-block;
+}
+
+.titulo-unidades::before,
+.titulo-unidades::after {
+    content: '';
+    position: absolute;
+    top: 35%; 
+    transform: translateY(-50%);
+    width: 1500px; 
+    height: 220px;
+    background-image: url('Ornamentos.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.6));
+    z-index: 10; 
+}
+
+.titulo-unidades::before { left: -160px; }
+.titulo-unidades::after { 
+    right: -160px; 
+    transform: translateY(-50%) scaleX(-1); 
+}
+
+.texto-brilhante {
+    text-shadow: 
+        3px 3px 1px rgba(0, 0, 0, 0.9), 
+        0px 0px 25px rgba(255, 255, 255, 0.6), 
+        0px 0px 25px rgba(30, 58, 138, 0.4);
+}
+
+/* --- GRID E LINKS DAS UNIDADES (CORREÇÃO DE TAMANHO) --- */
+.grid-unidades {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: flex-end; 
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.unidade-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px; /* Largura fixa do item */
+}
+
+/* CORREÇÃO AQUI: Link agora ocupa a largura total para o botão crescer */
+.link-unidade {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+/* --- IMAGENS DOS ANIMAIS --- */
+.img-animal {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0px 10px 12px rgba(0,0,0,0.7));
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.img-animal:hover {
+    transform: scale(1.15) translateY(-10px);
+    filter: drop-shadow(0 0 55px hwb(194 4% 0%)) 
+            drop-shadow(0 0 5px hwb(192 4% 7%)) !important;
+}
+
+/* Ajuste específico para o Peixe Espada */
+.unidade-item:nth-child(2) .img-animal {
+    margin-bottom: 25px;
+    transform: scale(1.1);
+}
+
+.unidade-item:nth-child(2) .img-animal:hover {
+    transform: scale(1.2) translateY(-10px);
+}
+
+/* --- BOTÕES --- */
+.btn {
+    background-color: #0b1a3d;
+    color: white;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0; 
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%; /* Agora ele ocupa 100% do .link-unidade (260px) */
+    transition: all 0.4s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    text-decoration: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
+                0px 0px 45px rgba(30, 58, 138, 0.7);
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.rodape {
+    margin-top: 35px;
+}
+
+.btn-voltar {
+    width: 400px;
+}
+
+/* --- DECORAÇÕES --- */
+.logo-topo {
+    position: absolute;
+    top: -58px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    z-index: 100;
+}
+
+.lenco-topo {
+    position: absolute;
+    top: -211px;
+    right: -650px;
+    width: 750px;
+}
+
+.bussola {
+    position: absolute;
+    top: -100px;
+    left: -720px;
+    width: 950px;
+    opacity: 1.7;
+}
+
+.logo-topo, .lenco-topo, .bussola {
+    filter: drop-shadow(8px 12px 12px rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+    z-index: -1;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: column; /* Coloca um botão em cima do outro */
+    align-items: center;
+    gap: 15px;              /* Espaço entre os dois botões */
+    margin-top: 35px;
+}
+
+.btn-especialidades, .btn-voltar {
+    width: 500px;           /* Ajuste o tamanho para ficar igual à sua imagem */
+    text-decoration: none;  /* Tira o sublinhado de link */
+}
+
+/* Garante que o texto fique centralizado e branco */
+a.btn {
+    color: white;
+    text-align: center;
+}
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-especialidades {
+    width: 500px; /* Largura igual à do seu print */
+    text-decoration: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

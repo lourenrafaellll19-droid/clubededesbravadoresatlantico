@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História - Clube Atlântico</title>
+    <link rel="stylesheet" href="iniciar.style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="page-container">
+        <section class="left-column">
+            <div class="left-content">
+                <div class="sobre-nos-header">
+                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
+                    <h2 class="titulo-gotico titulo-sublinhado">História</h2>
+                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
+                </div>
+                <p class="texto-historia">
+                    O Clube Atlântico tem sua data de fundação em 08/07/2018 com um irmão chamado Gilmar Pinheiro de Carvalho que tinha um ônibus muito simples mas que auxiliava pegando crianças totalmente carentes, ia na casa de apoio e também pegava crianças de lá e trazia para o Clube de Desbravadores, infelizmente o ônibus precisou ser vendido por questão dos custo para mantê-lo e logo veio a pandemia, após não foi possível dar continuidade ficando o Clube fechado alguns anos e retornando em 2024 com outra liderança, um jovem chamado Luis Miguel Tramontini de 18 anos assumiu e vem trabalhando desde então com uma liderança Unida, motivada e dedicada, para que tudo passa se reorganizar novamente, apesar de todas as dificuldades.
+
+                </p>
+            </div>
+        </section>
+
+        <section class="right-column">
+            <header class="right-header">
+                </header>
+
+            <div class="cards-container">
+                <div class="image-frame">
+                    <img src="foto1.jpeg" alt="História do Clube" class="card-image">
+                </div>
+            </div>
+
+            <footer class="navigation-footer">
+ <a href="Iniciar.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+    <a href="historia2.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+            </footer>
+        </section>
+    </main>
+
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+   function transicaoComSom(event) {
+        // 1. Bloqueia a mudança de página imediata
+        event.preventDefault(); 
+        
+        const link = event.currentTarget.href;
+        const som = document.getElementById('somBrilho');
+
+        // 2. Toca o som de brilho
+        som.play().then(() => {
+            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
+            // Aumente este número se o seu som for ainda mais longo
+            setTimeout(() => {
+                window.location.href = link;
+            }, 1200); 
+        }).catch(err => {
+            // Se houver erro ou bloqueio, muda de página direto para não travar
+            window.location.href = link;
+        });
+    }
+</script>
+
+</body>
+</html>
