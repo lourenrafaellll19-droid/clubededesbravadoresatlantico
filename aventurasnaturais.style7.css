@@ -48,12 +48,14 @@ body {
     gap: 20px;
 }
 
+/* CORREÇÃO APLICADA AQUI: line-height e display */
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3.2rem; 
     border-bottom: 3px solid #ffbd59;
-    line-height: 0.5;       
+    line-height: 1.2;       
+    display: inline-block;
     padding-bottom: 5px;    
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
@@ -61,174 +63,4 @@ body {
 .ornamento { width: 60px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CONTAINER DE CARDS --- */
-.cards-main-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    gap: 30px;
-    flex-wrap: wrap; 
-}
-
-.value-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.image-frame {
-    width: 100%;
-    height: 280px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    border: 0px solid rgba(255,255,255,0.15);
-    margin-bottom: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.card-image { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    opacity: 0.9;
-}
-
-.card-title {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: #ffbd59;
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 8px black;
-    padding: 20px 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-}
-
-.card-text { 
-    text-align: center; 
-    font-size: 1rem; 
-    color: #eee; 
-    line-height: 1.5;
-    padding: 0 10px;
-}
-
-/* --- BOTÕES PÍLULA --- */
-.navigation-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin-top: 40px;
-}
-
-.btn-pilula {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
-    background-color: #0b1a3d; 
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    transition: 0.4s ease;
-    text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-}
-
-.btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
-}
-
-/* ============================================================
-   --- AJUSTES PARA CELULAR (RESOLVE A FOTO ENVIADA) ---
-   ============================================================ */
-
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto; 
-        background-attachment: scroll; 
-    }
-
-    .page-container {
-        padding: 15px 10px;
-        height: auto;
-    }
-
-    /* Reduzi o logo para sobrar espaço para o título */
-    .club-logo {
-        height: 55px;
-        margin-bottom: 10px;
-    }
-
-    /* Título Corrigido: Menor e sem quebrar os ornamentos */
-    .titulo-gotico {
-        font-size: 1.9rem; 
-        line-height: 0.9;
-        display: inline-block;
-        padding-bottom: 2px;
-    }
-
-    .ornamento {
-        width: 30px;
-    }
-
-    .titulo-wrapper {
-        gap: 8px;
-        flex-wrap: nowrap; /* Garante que os enfeites fiquem na mesma linha */
-    }
-
-    /* Cards Empilhados e Proporcionais */
-    .cards-main-container {
-        flex-direction: column; 
-        align-items: center;
-        gap: 35px;
-        margin-top: 20px;
-    }
-
-    .value-card {
-        min-width: 100%;
-        max-width: 100%;
-        padding: 0 5px;
-    }
-
-    .image-frame {
-        height: 220px; 
-    }
-
-    .card-title {
-        font-size: 1.1rem;
-        padding: 15px 5px;
-    }
-
-    .card-text {
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-
-    /* Botões lado a lado sem espremer */
-    .navigation-footer {
-        flex-direction: row; 
-        justify-content: center;
-        gap: 10px;
-        margin-top: 40px;
-        margin-bottom: 20px;
-    }
-
-    .btn-pilula {
-        padding: 12px 10px; 
-        font-size: 0.8rem; 
-        flex: 1; 
-        text-align: center;
-        white-space: nowrap;
-    }
-}
+/* --- CONTAINER DE CARDS
