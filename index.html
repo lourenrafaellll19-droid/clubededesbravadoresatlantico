@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,6 +21,7 @@
     <main class="container">
         <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
         <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
+        <img src="bussola.png" alt="Bússola" class="bussola">
         
         <header>
             <h1 class="texto-brilhante">Clube de desbravadores</h1>
@@ -29,38 +29,30 @@
         </header>
 
         <nav class="menu">
-    <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
-    <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
-    <a href="enviar especialidade.html" class="btn btn-largo" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
-</nav>
-        <img src="bussola.png" alt="Bússola" class="bussola">
+            <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
+            <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
+            <a href="enviar especialidade.html" class="btn btn-largo" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
+        </nav>
     </main>
 
     <audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-<script>
-    function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <script>
+        function transicaoComSom(event) {
+            event.preventDefault(); 
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1200); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
-
+            });
+        }
+    </script>
 </body>
 </html>
