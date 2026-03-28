@@ -81,7 +81,7 @@ h2.titulo-gotico { font-size: 3.2rem; }
 .value-card { flex: 1; }
 
 .image-frame {
-    height: 450px;
+    height: 250px;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
