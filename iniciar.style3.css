@@ -89,7 +89,7 @@ h2.titulo-gotico { font-size: 3.2rem; }
     background-color: #1a237e;
     /* Ajuste para centralizar quando houver apenas uma imagem */
     width: 100%;
-    max-width: 780px; 
+    max-width: 580px; 
     margin: 0 auto; 
 }
 
