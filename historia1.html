@@ -1,61 +1,158 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>História - Clube Atlântico</title>
-    <link rel="stylesheet" href="historia1.style6.css">
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main class="page-container">
-        <section class="left-column">
-            <div class="left-content">
-                <div class="sobre-nos-header">
-                    <img src="ornamentoamarelo.png" alt="Início" class="ornamento-desce">
-                    <h2 class="titulo-gotico titulo-sublinhado">História</h2>
-                    <img src="ornamentoamarelo.png" alt="Fim" class="ornamento-desce ornamento-dir">
-                </div>
-                <p class="texto-historia">
-                    O Clube Atlântico tem sua data de fundação em 08/07/2018 com um irmão chamado Gilmar Pinheiro de Carvalho que tinha um ônibus muito simples mas que auxiliava pegando crianças totalmente carentes, ia na casa de apoio e também pegava crianças de lá e trazia para o Clube de Desbravadores. Infelizmente o ônibus precisou ser vendido por questão dos custo para mantê-lo e logo veio a pandemia. Após não foi possível dar continuidade ficando o Clube fechado alguns anos e retornando em 2024 com outra liderança, um jovem chamado Luis Miguel Tramontini de 18 anos assumiu e vem trabalhando desde então com uma liderança unida, motivada e dedicada, para que tudo possa se reorganizar novamente, apesar de todas as dificuldades.
-                </p>
-            </div>
-        </section>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-        <section class="right-column">
-            <div class="cards-container">
-                <div class="image-frame">
-                    <img src="foto1.jpeg" alt="História do Clube" class="card-image">
-                </div>
-            </div>
+/* --- LAYOUT --- */
+.page-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
 
-            <footer class="navigation-footer">
-                <a href="iniciar.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-                <a href="historia2.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
-            </footer>
-        </section>
-    </main>
+/* --- COLUNA ESQUERDA (Texto) --- */
+.left-column {
+    flex: 1;
+    background-color: #1a237e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
 
-    <audio id="somBrilho" preload="auto">
-        <source src="somdoclique.mp3" type="audio/mpeg">
-    </audio>
+.left-content {
+    max-width: 500px;
+    text-align: center;
+    z-index: 2;
+}
 
-    <script>
-        function transicaoComSom(event) {
-            event.preventDefault(); 
-            const link = event.currentTarget.href;
-            const som = document.getElementById('somBrilho');
+.sobre-nos-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
-            som.play().then(() => {
-                setTimeout(() => {
-                    window.location.href = link;
-                }, 1000); 
-            }).catch(err => {
-                window.location.href = link;
-            });
-        }
-    </script>
+.texto-historia { 
+    font-size: clamp(1rem, 2.5vw, 1.2rem); 
+    line-height: 1.6; 
+    text-align: justify;
+    color: #ffffff;
+}
 
-</body>
-</html>
+/* --- COLUNA DIREITA (Imagem/Vídeo) --- */
+.right-column {
+    flex: 1.2;
+    background-color: #0d1b3e;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+}
+
+.cards-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.image-frame {
+    width: 100%;
+    max-width: 790px;
+    height: clamp(300px, 50vh, 500px); /* Altura dinâmica */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
+    background-color: #000;
+}
+
+.card-image { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* --- TÍTULOS --- */
+.titulo-gotico {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #ffbd59;
+}
+
+.titulo-sublinhado {
+    border-bottom: 3px solid #f5a623;
+    display: inline-block;
+    line-height: 1.1;
+}
+
+.ornamento-desce { width: clamp(30px, 5vw, 50px); }
+.ornamento-dir { transform: scaleX(-1); }
+
+/* --- BOTÕES PÍLULA --- */
+.navigation-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.btn-pilula {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+    padding: 12px clamp(20px, 5vw, 50px);
+    background-color: #0b1a3d; 
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+}
+
+.btn-pilula:hover {
+    transform: scale(1.05);
+    background-color: #1e3a8a;
+    border-color: #ffbd59;
+}
+
+/* --- AJUSTE PARA CELULAR --- */
+@media (max-width: 900px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        flex: none;
+        width: 100%;
+    }
+
+    .right-column {
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .image-frame {
+        height: 250px; /* Reduz altura da foto no celular */
+    }
+
+    .navigation-footer {
+        justify-content: center;
+    }
+}
