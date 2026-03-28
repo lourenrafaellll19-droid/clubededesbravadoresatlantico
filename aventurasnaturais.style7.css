@@ -68,7 +68,7 @@ body {
     width: 100%;
     max-width: 1200px;
     gap: 30px;
-    flex-wrap: wrap; /* Permite quebrar linha se não couber */
+    flex-wrap: wrap; 
 }
 
 .value-card {
@@ -150,58 +150,85 @@ body {
 }
 
 /* ============================================================
-   --- AJUSTES PARA CELULAR (MEDIA QUERY) ---
+   --- AJUSTES PARA CELULAR (RESOLVE A FOTO ENVIADA) ---
    ============================================================ */
 
 @media (max-width: 768px) {
     body {
-        overflow-y: auto; /* Garante que o usuário consiga rolar para baixo */
-        background-attachment: scroll; /* Melhora fluidez em telas touch */
+        overflow-y: auto; 
+        background-attachment: scroll; 
     }
 
     .page-container {
-        padding: 20px 15px;
-        height: auto; /* Altura se adapta ao conteúdo empilhado */
+        padding: 15px 10px;
+        height: auto;
     }
 
-    /* Título Gótico Ajustado */
+    /* Reduzi o logo para sobrar espaço para o título */
+    .club-logo {
+        height: 55px;
+        margin-bottom: 10px;
+    }
+
+    /* Título Corrigido: Menor e sem quebrar os ornamentos */
     .titulo-gotico {
-        font-size: 2.1rem; 
-        line-height: 0.8;
+        font-size: 1.9rem; 
+        line-height: 0.9;
+        display: inline-block;
+        padding-bottom: 2px;
     }
 
     .ornamento {
-        width: 35px;
+        width: 30px;
     }
 
     .titulo-wrapper {
-        gap: 10px;
+        gap: 8px;
+        flex-wrap: nowrap; /* Garante que os enfeites fiquem na mesma linha */
     }
 
-    /* Empilhamento dos Cards */
+    /* Cards Empilhados e Proporcionais */
     .cards-main-container {
         flex-direction: column; 
         align-items: center;
-        gap: 45px; /* Espaço maior entre um card e outro */
+        gap: 35px;
+        margin-top: 20px;
     }
 
     .value-card {
         min-width: 100%;
         max-width: 100%;
+        padding: 0 5px;
     }
 
     .image-frame {
-        height: 230px; /* Reduz altura da imagem para sobrar tela */
+        height: 220px; 
     }
 
-    /* Ajuste dos Botões no Rodapé */
+    .card-title {
+        font-size: 1.1rem;
+        padding: 15px 5px;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    /* Botões lado a lado sem espremer */
     .navigation-footer {
-        flex-direction: row; /* Mantém lado a lado */
+        flex-direction: row; 
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
         margin-top: 40px;
         margin-bottom: 20px;
     }
 
     .btn-pilula {
-        padding:
+        padding: 12px 10px; 
+        font-size: 0.8rem; 
+        flex: 1; 
+        text-align: center;
+        white-space: nowrap;
+    }
+}
