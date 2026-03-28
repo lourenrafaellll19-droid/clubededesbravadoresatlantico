@@ -18,17 +18,17 @@ body {
     object-fit: cover;
 }
 
-/* --- CONTAINER --- */
+/* --- CONTAINER PRINCIPAL --- */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 30px;
     box-sizing: border-box;
 }
 
-/* --- CABEÇALHO --- */
+/* --- ESTRUTURA DO TOPO --- */
 .header-visual {
     display: flex;
     flex-direction: column;
@@ -38,44 +38,48 @@ body {
 }
 
 .logo-topo {
-    width: 150px;
+    width: 120px; /* Tamanho equilibrado para mobile */
     z-index: 1;
-    margin-bottom: -50px; /* Faz o texto subir para cima da logo */
+    margin-bottom: 10px; /* Espaço para não tampar o texto */
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.3));
 }
 
 h1 {
     font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin: 0;
-    text-shadow: 2px 2px 10px black;
+    text-align: center;
+    text-shadow: 2px 2px 8px black;
 }
 
 .titulo-principal {
     font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 4rem;
+    font-size: 3.2rem;
     margin: 0;
     position: relative;
     z-index: 5;
+    text-align: center;
 }
 
 .texto-brilhante {
-    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6), 2px 2px 5px black;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5), 2px 2px 4px black;
 }
 
-/* --- ORNAMENTOS --- */
+/* --- ORNAMENTOS LATERAIS --- */
 .ornamentos-box {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: fit-content;
 }
 
 .ornamentos-box::before, .ornamentos-box::after {
     content: '';
     position: absolute;
-    top: 60%;
-    width: 150px;
-    height: 70px;
+    top: 55%;
+    width: 130px;
+    height: 60px;
     background-image: url('Ornamentos.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -83,40 +87,45 @@ h1 {
     opacity: 0.5;
 }
 
-.ornamentos-box::before { left: -80px; transform: translateY(-50%); }
-.ornamentos-box::after { right: -80px; transform: translateY(-50%) scaleX(-1); }
+/* Posicionamento dos ornamentos grudados no texto */
+.ornamentos-box::before { left: -70px; transform: translateY(-50%); }
+.ornamentos-box::after { right: -70px; transform: translateY(-50%) scaleX(-1); }
 
-/* --- BOTÕES --- */
+/* --- MENU DE BOTÕES --- */
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-top: 50px;
+    margin-top: 40px;
     width: 100%;
 }
 
 .btn {
     background-color: #0b1a3d;
     color: white;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    padding: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    padding: 16px;
     border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
     width: 85%;
-    max-width: 320px;
+    max-width: 300px;
     text-align: center;
     text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    transition: 0.3s;
 }
 
-/* --- AJUSTE PARA PC --- */
+/* --- AJUSTE PARA COMPUTADOR (Telas > 800px) --- */
 @media (min-width: 800px) {
-    .logo-topo { width: 220px; margin-bottom: -80px; }
+    .container { padding-top: 60px; }
+    .logo-topo { width: 200px; margin-bottom: 20px; }
     h1 { font-size: 3.5rem; }
     .titulo-principal { font-size: 8rem; }
-    .ornamentos-box::before, .ornamentos-box::after { width: 400px; height: 200px; }
-    .ornamentos-box::before { left: -300px; }
-    .ornamentos-box::after { right: -300px; }
-    .btn { max-width: 450px; font-size: 1.2rem; }
+    .ornamentos-box::before, .ornamentos-box::after { width: 450px; height: 200px; opacity: 0.7; }
+    .ornamentos-box::before { left: -380px; }
+    .ornamentos-box::after { right: -380px; }
+    .btn { max-width: 450px; font-size: 1.2rem; padding: 20px; }
 }
