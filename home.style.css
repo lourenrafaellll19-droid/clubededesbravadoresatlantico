@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
     width: 100%;
     color: white;
-    overflow-x: hidden; /* Evita rolagem lateral chata */
+    overflow-x: hidden;
 }
 
 /* --- VÍDEO DE FUNDO --- */
@@ -153,37 +153,41 @@ h1 { font-size: 4.5rem; }
     opacity: 0.7;
 }
 
-.logo-topo, .lenco-topo, .bussola {
-    filter: drop-shadow(8px 12px 12px rgba(0, 0, 0, 0.7));
-    pointer-events: none;
-}
-
 /* --- MODO CELULAR (RESPONSIVIDADE) --- */
 @media (max-width: 768px) {
     body {
-        overflow-y: auto; /* Permite rolar para baixo no celular */
-        align-items: flex-start; /* Alinha ao topo para não cortar conteúdo */
-        padding-top: 150px;
+        display: block;
+        overflow-y: auto;
+        padding-top: 130px; /* Espaço para a logo no topo */
     }
 
-    h1 { font-size: 1.8rem; }
+    .container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    h1 { 
+        font-size: 1.6rem !important; 
+    }
     
     .titulo-principal { 
-        font-size: 3.5rem; 
+        font-size: 3rem !important; 
         margin-top: 5px;
+        letter-spacing: 1px;
     }
 
-    /* Esconde ornamentos que quebram a largura no mobile */
+    /* Esconde elementos que esticam a tela no mobile */
     .titulo-principal::before,
     .titulo-principal::after,
     .lenco-topo,
     .bussola {
-        display: none;
+        display: none !important;
     }
 
     .logo-topo {
-        top: 20px; /* Posiciona a logo no topo da tela mobile */
-        width: 120px;
+        top: 20px;
+        width: 100px;
     }
 
     .menu {
@@ -192,10 +196,11 @@ h1 { font-size: 4.5rem; }
     }
 
     .btn, .btn-largo {
-        width: 90%; /* Ocupa a largura da tela do celular */
+        width: 90% !important;
         max-width: 320px;
-        padding: 15px 10px;
-        font-size: 0.9rem;
-        border-radius: 30px;
+        padding: 18px 10px !important;
+        font-size: 0.85rem !important; /* Fonte menor para não quebrar texto longo */
+        border-radius: 40px;
         border-width: 3px;
     }
+}
