@@ -60,25 +60,3 @@
 
 </body>
 </html>
-
-    <script>
-        function transicaoComSom(event) {
-            event.preventDefault(); 
-            const link = event.currentTarget.href;
-            const som = document.getElementById('somBrilho');
-            if(som) {
-                som.play().then(() => {
-                    setTimeout(() => { window.location.href = link; }, 1000);
-                }).catch(() => { window.location.href = link; });
-            } else {
-                window.location.href = link;
-            }
-        }
-    </script>
-</body>
-</html>
-
-<header class="header-container">
-    <h1 class="texto-brilhante">Clube de desbravadores</h1>
-    <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
-</header>
