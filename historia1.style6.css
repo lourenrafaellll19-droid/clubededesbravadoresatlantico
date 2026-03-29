@@ -73,6 +73,7 @@ body {
 }
 
 /* --- CONTAINER DO VÍDEO --- */
+/* --- CONTAINER DO VÍDEO / FOTO --- */
 .cards-container {
     flex-grow: 1;
     display: flex;
@@ -81,22 +82,22 @@ body {
 }
 
 .image-frame {
-    width: 50%;
-    max-width: 590px;  /* Largura máxima solicitada */
-    height: 300px;     /* Altura fixa solicitada */
-    border-radius: 0px;
+    width: 100%;       /* Aumentado para preencher melhor o espaço */
+    max-width: 590px; 
+    height: 300px;     
     overflow: hidden;
     position: relative;
     border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
-    
+    background-color: transparent; /* Garante que o fundo do quadro não seja preto */
 }
 
-.card-video { 
+/* Alterado de .card-video para .card-image para bater com seu HTML */
+.card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Ajusta o vídeo sem distorcer */
-}
+    object-fit: cover; /* Isso estica a foto para eliminar as bordas pretas internas */
+    display: block;
 
 /* --- TÍTULOS --- */
 .titulo-gotico {
