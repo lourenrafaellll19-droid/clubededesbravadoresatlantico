@@ -81,7 +81,7 @@ body {
 }
 
 .image-frame {
-    width: 100%;
+    width: 50%;
     max-width: 590px;  /* Largura máxima solicitada */
     height: 300px;     /* Altura fixa solicitada */
     border-radius: 0px;
