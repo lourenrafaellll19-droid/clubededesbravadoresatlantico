@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    overflow-x: hidden;
 }
 
 .page-container {
@@ -24,92 +24,85 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 20px;
+    padding: 30px 20px;
     min-height: 100vh;
     width: 100%;
-    max-width: 1600px; /* Limita o crescimento da página em telas 4K */
+    max-width: 1400px;
 }
 
-/* --- HEADER E ORNAMENTOS (PADRONIZADO) --- */
+/* --- HEADER --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.club-logo { height: 70px; margin-bottom: 15px; }
+.club-logo { 
+    height: clamp(50px, 8vw, 70px); 
+    margin-bottom: 10px; 
+}
 
 .titulo-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
-    font-size: 3.2rem; 
+    font-size: clamp(1.8rem, 5vw, 3.2rem); 
     border-bottom: 3px solid #ffbd59;
     line-height: 0.85;
     padding-bottom: 5px;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
-.ornamento { 
-    width: 60px; 
-    height: auto;
-}
-
+.ornamento { width: 50px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CONTAINER DE CARDS (4 COLUNAS EM TELAS GRANDES) --- */
+/* --- CONTAINER DE CARDS --- */
 .cards-main-container {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1400px; 
     gap: 20px;
-    flex-wrap: wrap; /* Importante para responsividade */
-    margin-top: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .value-card {
-    flex: 1 1 calc(25% - 20px); /* 4 por linha, tirando o gap */
+    flex: 1 1 calc(25% - 20px); /* 4 por linha no Desktop */
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    min-width: 250px; /* Impede que fiquem muito estreitos */
+    transition: transform 0.3s ease;
 }
 
-/* --- CORREÇÃO DEFINITIVA DA BORDA E TAMANHO --- */
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- MOLDURA DA IMAGEM --- */
 .image-frame {
     width: 100%;
     height: 300px; 
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    
-    /* Zera tudo: borda, contorno e sombra que pode parecer linha */
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important; 
-    
-    /* Remove qualquer fundo que possa vazar pelas bordas */
-    background: transparent !important;
-    
-    margin-bottom: 15px;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .card-image {
-    width: 101%; /* Aumenta 1% para garantir que a imagem cubra qualquer "fresta" */
-    height: 101%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     opacity: 0.9;
-    border: none !important;
 }
-
 
 .card-title {
     position: absolute;
@@ -117,76 +110,67 @@ body {
     width: 100%;
     text-align: center;
     color: #ffbd59;
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     font-weight: 700;
     text-shadow: 2px 2px 8px black;
-    padding: 20px 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 15px 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
     text-transform: uppercase;
 }
 
-/* --- BOTÕES (MANTIDOS) --- */
+/* --- NAVEGAÇÃO --- */
 .navigation-footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin-top: 40px;
-    padding-bottom: 20px;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    padding: 12px 30px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    transition: 0.4s ease;
+    transition: 0.3s ease;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    flex: 1;
+    max-width: 220px;
+    text-align: center;
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: #ffffff;
 }
 
-/* --- RESPONSIVIDADE (CORRIGIDA) --- */
+/* --- RESPONSIVIDADE --- */
 
-/* Tablets e telas médias (ex: 1100px down to 800px) */
-@media (max-width: 1200px) {
+/* Esconde ornamentos em telas pequenas para sobrar espaço para o texto */
+@media (max-width: 768px) {
+    .hide-mobile { display: none; }
+}
+
+/* Tablets (2 por linha) */
+@media (max-width: 1100px) {
     .value-card {
-        flex: 1 1 calc(50% - 20px); /* 2 por linha */
-    }
-    .image-frame {
-        height: 250px; /* Reduz a altura */
+        flex: 1 1 calc(50% - 20px);
     }
 }
 
-/* Celulares (ex: 800px down to 320px) */
-@media (max-width: 800px) {
-    .header-topo { margin-bottom: 20px; }
-    .club-logo { height: 50px; }
-    .titulo-gotico { font-size: 2.2rem; }
-    
+/* Celulares (1 por linha) */
+@media (max-width: 600px) {
     .value-card {
-        flex: 1 1 100%; /* 1 por linha */
-        margin-bottom: 20px;
+        flex: 1 1 100%;
     }
     .image-frame {
-        height: 200px; /* Altura menor para celular */
+        height: 220px; /* Reduz altura para caber mais coisa na tela do celular */
     }
-    .card-title { font-size: 1rem; }
-
     .navigation-footer {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
+        justify-content: center;
     }
-    .btn-pilula { width: 80%; text-align: center; }
 }
