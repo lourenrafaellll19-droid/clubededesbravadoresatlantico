@@ -20,56 +20,47 @@
                 </div>
                 
                 <p class="texto-historia">
-                    Hoje o Clube tem 25 desbravadores,  e uma liderança de 10 pessoas, alguns irmãos que ajudam , mas Deus tem sustentado, o Clube funciona na escola Zélia do Balneário do Primavera, uma localidade carente mas muito receptiva e acolhedora, os desbravadores são juvenis e adolescentes maravilhosos e muito talentosos com seus dons,  são muito ativos e felizes no Clube.
+                    Hoje o Clube tem 25 desbravadores, e uma liderança de 10 pessoas, alguns irmãos que ajudam, mas Deus tem sustentado. O Clube funciona na escola Zélia do Balneário do Primavera, uma localidade carente mas muito receptiva e acolhedora. Os desbravadores são juvenis e adolescentes maravilhosos e muito talentosos com seus dons, são muito ativos e felizes no Clube.
                 </p>
             </div>
         </section>
 
         <section class="right-column">
-            <header class="right-header">
-                
-            </header>
+            <header class="right-header"></header>
 
             <div class="cards-container">
                 <div class="image-frame">
-                    <img src="foto2.png" alt="Físico" class="card-image">
-                    
+                    <img src="foto2.png" alt="Desbravadores do Atlântico" class="card-image">
                 </div>
             </div>
 
-             <footer class="navigation-footer">
-    <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-    <a href="historia3.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
-</footer>
+            <footer class="navigation-footer">
+                <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+                <a href="historia3.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
             </footer>
         </section>
 
     </main>
-    
-</body>
-<audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-   function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+    <script>
+       function transicaoComSom(event) {
+            event.preventDefault(); 
+            
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
+
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1000); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
+            });
+        }
+    </script>
+</body>
 </html>
