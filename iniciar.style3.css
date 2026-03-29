@@ -98,7 +98,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .ornamento-desce { width: clamp(30px, 5vw, 60px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CARDS E FOTOS COM GRADIENTE (CORRIGIDO) --- */
+/* --- CARDS E FOTOS COM GRADIENTE (SOLUÇÃO DEFINITIVA MOBILE) --- */
 .cards-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -121,18 +121,20 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     position: relative; 
     width: 100%;
     border: none;
-    background: transparent;
+    /* Adicionei display flex para garantir que a imagem ocupe tudo */
+    display: flex;
 }
 
-/* Camada de Gradiente: Agora garantida em 100% da largura da foto */
+/* A Película de Gradiente agora usa 'inset' para colar nas bordas da imagem */
 .image-frame::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 60%; 
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+    right: 0;
+    bottom: 0;
+    /* O gradiente agora cobre a imagem perfeitamente */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0) 60%);
     z-index: 2; 
     pointer-events: none;
 }
@@ -140,7 +142,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* FORÇA a foto a preencher as laterais que estavam vazias */
+    object-fit: cover; /* ISSO VAI ELIMINAR AS FAIXAS LATERAIS AZUIS */
     display: block;
     position: relative;
     z-index: 1; 
