@@ -121,25 +121,32 @@ body {
     padding: 0 10px;
 }
 
- /* Ajuste dos Botões */
-    .navigation-footer {
-        flex-direction: row; /* Mantém lado a lado, ou 'column' se preferir um sobre o outro */
-        gap: 10px;
-        justify-content: center;
-    }
+/* --- BOTÕES PÍLULA --- */
+.navigation-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
 
-    .btn-pilula {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        flex: 1; /* Faz os botões dividirem o espaço igualmente */
-        text-align: center;
-    }
+.btn-pilula {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 50px;
+    background-color: #0b1a3d; 
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transition: 0.4s ease;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
 
-    /* Remove ou ajusta o enfeite de fundo para não poluir o visual */
-    .left-column::before {
-        height: 100px;
-        background-size: contain;
-    }
+.btn-pilula:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border-color: white;
 }
 
 /* --- AJUSTES PARA CELULAR --- */
