@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta name="viewport" content="width=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valores do Clube - Atlântico</title>
@@ -39,60 +38,52 @@
                 <article class="value-card">
                     <div class="image-frame">
                         <img src="Fisico1.png" alt="Físico" class="card-image">
-                        <h3 class="card-title physical">FÍSICO</h3>
+                        <h3 class="card-title">FÍSICO</h3>
                     </div>
-                    <p class="card-text">No aspecto físico, o Desbravador aprende que seu corpo é uma ferramenta de serviço. Através de acampamentos, trilhas e especialidades esportivas, ele desenvolve resistência, saúde e disciplina, preparando-se para os desafios da vida e para ser útil à sua comunidade.</p>
+                    <p class="card-text">No aspecto físico, o Desbravador aprende que seu corpo é uma ferramenta de serviço. Através de acampamentos, trilhas e especialidades esportivas, ele desenvolve resistência, saúde e disciplina.</p>
                 </article>
 
                 <article class="value-card">
                     <div class="image-frame">
                         <img src="Mental2.png" alt="Mental" class="card-image">
-                        <h3 class="card-title mental">MENTAL</h3>
+                        <h3 class="card-title">MENTAL</h3>
                     </div>
-                    <p class="card-text">No pilar mental, o Desbravador exercita a mente para ser útil e criativo. Através das classes e especialidades, ele expande seus horizontes, descobre novos talentos e desenvolve a disciplina necessária para ser um cidadão exemplar e um líder preparado para o futuro."
-.</p>
+                    <p class="card-text">No pilar mental, o Desbravador exercita a mente para ser útil e criativo. Através das classes e especialidades, ele expande seus horizontes e desenvolve a liderança necessária.</p>
                 </article>
 
                 <article class="value-card">
                     <div class="image-frame">
                         <img src="espiritual.png" alt="Espiritual" class="card-image">
-                        <h3 class="card-title spiritual">ESPIRITUAL</h3>
+                        <h3 class="card-title">ESPIRITUAL</h3>
                     </div>
-                    <p class="card-text">No pilar espiritual, o Desbravador encontra o seu propósito. Ele aprende a amar a Deus sobre todas as coisas e ao próximo como a si mesmo. Através da oração, do estudo da Bíblia e do serviço, ele molda um caráter para a eternidade, vivendo o lema: 'O amor de Cristo me motiva'.".</p>
+                    <p class="card-text">No pilar espiritual, o Desbravador encontra o seu propósito. Ele aprende a amar a Deus sobre todas as coisas e ao próximo como a si mesmo, moldando um caráter para a eternidade.</p>
                 </article>
             </div>
 
             <footer class="navigation-footer">
-    <a href="index.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-    <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
-</footer>
+                <a href="index.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+                <a href="historia1.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
             </footer>
         </section>
     </main>
-<audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
 
-<script>
- function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+    <script>
+        function transicaoComSom(event) {
+            event.preventDefault(); 
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1200); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
+            });
+        }
+    </script>
 </body>
 </html>
