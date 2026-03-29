@@ -98,35 +98,48 @@ h1 { font-size: clamp(1.8rem, 6vw, 4.5rem); }
     opacity: 0.9;
 }
 
-/* --- MENU E BOTÕES --- */
+/* --- BOTÕES COM BRILHO AO PASSAR O MOUSE --- */
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-top: 30px;
-    width: 100%;
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .btn {
     background-color: #0b1a3d;
     color: white;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    padding: 18px 30px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 80px;
     border-radius: 60px;
     font-weight: bold;
-    font-size: clamp(0.9rem, 4vw, 1.2rem);
-    width: 100%; 
-    max-width: 380px; 
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 400px;
     transition: all 0.4s ease;
-    text-decoration: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    
+    /* Novos ajustes para o link funcionar como botão */
+    text-decoration: none; 
     display: flex;
     justify-content: center;
     align-items: center;
-    text-transform: uppercase;
-    box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
+    box-sizing: border-box; /* Garante que a borda não aumente o tamanho do botão */
 }
 
+.btn-largo { width: 550px; }
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
+                0px 0px 45px rgba(30, 58, 138, 0.7);
+    border: 5px solid rgba(255, 255, 255, 0.6); /* Mantive os 5px do seu design */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
 /* --- AJUSTES DE TELA --- */
 
 @media (min-width: 1024px) {
