@@ -1,149 +1,79 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-    color: white;
-    min-height: 100vh;
-    overflow: hidden; /* Evita rolagem na tela cheia */
-}
-
-.page-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
-
-/* --- COLUNA ESQUERDA --- */
-.left-column {
-    flex: 1;
-    background-color: #1a237e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    position: relative;
-}
-
-/* Detalhe visual opcional no rodapé da coluna esquerda */
-.left-column::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: url('linhas-amarelas.png') no-repeat bottom left;
-    background-size: contain;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.left-content {
-    max-width: 450px;
-    text-align: center;
-    z-index: 2;
-}
-
-.texto-historia { 
-    font-size: 1.3rem; 
-    line-height: 1.6; 
-    margin-top: 30px; 
-    text-align: justify;
-    color: #ffffff;
-}
-
-/* --- COLUNA DIREITA --- */
-.right-column {
-    flex: 1.5;
-    background-color: #0d1b3e;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-}
-
-.right-header {
-    height: 60px;
-    margin-bottom: 20px;
-}
-
-/* --- CONTAINER DO VÍDEO --- */
 /* --- CONTAINER DO VÍDEO / FOTO --- */
 .cards-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px; /* Adiciona um espaço de respiro nas laterais */
 }
 
 .image-frame {
-    width: 100%;       /* Aumentado para preencher melhor o espaço */
-    max-width: 590px; 
-    height: 300px;     
+    width: 100%;       /* Ocupa a largura disponível da coluna */
+    max-width: 700px;  /* Aumentado para acomodar melhor a foto horizontal */
+    height: auto;      /* IMPORTANTE: A altura agora é automática para manter a proporção */
+    aspect-ratio: 16 / 9; /* Força uma proporção de TV (widescreen), que é a da foto */
+    border-radius: 8px; /* Adiciona cantos arredondados sutis para um visual mais limpo */
     overflow: hidden;
     position: relative;
     border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
-    background-color: transparent; /* Garante que o fundo do quadro não seja preto */
+    background-color: #000; /* Fundo preto para caso a foto demore a carregar */
 }
 
 /* Alterado de .card-video para .card-image para bater com seu HTML */
 .card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Isso estica a foto para eliminar as bordas pretas internas */
+    object-fit: cover; /* Mantém o preenchimento total e corta o excesso sem distorcer */
     display: block;
+}
 
-/* --- TÍTULOS --- */
+/* --- TÍTULOS E ORNAMENTOS --- */
+.sobre-nos-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espaço entre ornamentos e texto */
+}
 .titulo-gotico {
     font-family: 'UnifrakturMaguntia', cursive;
     font-size: 3.2rem;
     color: #ffbd59; /* Cor dourada/amarela para combinar */
+    margin: 0; /* Remove margens padrão */
 }
-
-.titulo-sublinhado {
-    border-bottom: 3px solid #f5a623;
-    display: inline-block;
-}
-
-.ornamento-desce { width: 50px; vertical-align: middle; }
-.ornamento-dir { transform: scaleX(-1); }
 
 /* --- BOTÕES PÍLULA --- */
 .navigation-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-}
-
-.btn-pilula {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
-    background-color: #0b1a3d; 
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    transition: 0.4s ease;
-    text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-}
-
-.btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: white;
+    gap: 15px; /* Garante espaço entre os botões em telas menores */
 }
 
 /* Ajuste simples para telas menores */
 @media (max-width: 900px) {
-    .page-container { flex-direction: column; overflow-y: auto; }
-    .image-frame { height: 300px; }
+    .page-container { 
+        flex-direction: column; 
+        overflow-y: auto; /* Permite rolar se o conteúdo for maior que a tela */
+    }
+    
+    .left-column, .right-column {
+        flex: none; /* Desativa o flex para empilhamento vertical */
+        width: 100%;
+        padding: 30px 20px; /* Reduz padding lateral */
+    }
+
+    .image-frame { 
+        max-width: 90%; /* Ocupa a maior parte da largura da tela do celular */
+        margin: 0 auto; /* Centraliza horizontalmente */
+    }
+    
+    .navigation-footer {
+        justify-content: center; /* Centraliza os botões */
+    }
+    
+    .btn-pilula {
+        padding: 10px 30px; /* Botões menores no celular */
+        font-size: 0.9rem;
+    }
 }
