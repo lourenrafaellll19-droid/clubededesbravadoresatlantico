@@ -8,39 +8,27 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: black;
-    color: #ffbd59;
+    color: white;
     min-height: 100vh;
-    overflow: hidden; /* Evita barras de rolagem desnecessárias */
+    overflow-x: hidden;
 }
 
+/* --- LAYOUT --- */
 .page-container {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
 }
 
-/* --- COLUNA ESQUERDA --- */
+/* --- COLUNA ESQUERDA (Texto) --- */
 .left-column {
     flex: 1;
     background-color: #1a237e;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 40px 20px;
     position: relative;
-}
-
-/* Estilo do fundo com a faixa amarela que você tem na imagem */
-.left-column::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: url('linhas-amarelas.png') no-repeat bottom left; /* Ajuste se tiver essa imagem */
-    background-size: contain;
-    pointer-events: none;
 }
 
 .left-content {
@@ -49,45 +37,50 @@ body {
     z-index: 2;
 }
 
-/* Tamanho do texto solicitado (1.3rem) */
+.sobre-nos-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 .texto-historia { 
-    font-size: 1.3rem; 
+    font-size: clamp(1rem, 2.5vw, 1.3rem); 
     line-height: 1.6; 
-    margin-top: 30px; 
     text-align: justify;
     color: #ffffff;
 }
 
-/* --- COLUNA DIREITA --- */
+/* --- COLUNA DIREITA (Imagem) --- */
 .right-column {
     flex: 1.5;
     background-color: #0d1b3e;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 40px 20px;
 }
 
 .right-header {
     display: flex;
-    justify-content: flex-start;
     margin-bottom: 20px;
 }
 
 .club-logo { height: 60px; }
 
-/* --- AJUSTE DA FOTO (MANUAL) --- */
+/* --- AJUSTE DA FOTO RESPONSIVO --- */
 .cards-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
 }
 
 .image-frame {
-    /* AJUSTE O TAMANHO DA FOTO AQUI: */
-    width: 690px;  /* Largura */
-    height: 400px; /* Altura */
-    
+    width: 100%;
+    max-width: 690px; /* Sua largura solicitada */
+    height: clamp(250px, 45vh, 400px); /* Sua altura solicitada se adaptando ao celular */
     border-radius: 20px;
     overflow: hidden;
     position: relative;
@@ -104,19 +97,21 @@ body {
 
 .card-title { 
     position: absolute;
-    bottom: 25px;
+    bottom: 20px;
     width: 100%;
     text-align: center;
-    font-size: 1.8rem; 
+    font-size: clamp(1.2rem, 4vw, 1.8rem); 
     font-weight: bold; 
     color: #ffbd59;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1); 
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    z-index: 2;
 }
 
 /* --- TÍTULOS --- */
 .titulo-gotico {
     font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 3.2rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #ffbd59;
 }
 
 .titulo-sublinhado {
@@ -124,33 +119,56 @@ body {
     display: inline-block;
 }
 
-.ornamento-desce { width: 50px; vertical-align: middle; }
+.ornamento-desce { width: clamp(30px, 5vw, 50px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- BOTÕES PÍLULA --- */
+/* --- BOTÕES --- */
 .navigation-footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: auto;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+    padding: 12px 30px;
     background-color: #0b1a3d; 
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    transition: 0.4s ease;
+    transition: 0.3s ease;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: hsl(0, 0%, 100%);
+    border-color: #ffbd59;
+    transform: translateY(-3px);
+}
+
+/* --- AJUSTE CELULAR --- */
+@media (max-width: 900px) {
+    .page-container {
+        flex-direction: column;
+    }
+    .left-column, .right-column {
+        width: 100%;
+        flex: none;
+    }
+    .right-header {
+        justify-content: center;
+    }
+    .image-frame {
+        height: 250px;
+    }
+    .navigation-footer {
+        justify-content: center;
+        padding-bottom: 20px;
+    }
 }
