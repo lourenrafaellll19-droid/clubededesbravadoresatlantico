@@ -24,7 +24,7 @@ body {
 .titulo-sublinhado {
     border-bottom: 2px solid #f5a623; /* Aumentei para 3px para destacar mais */
     display: inline-block;
-    line-height: 0.85; /* Diminuí para "esmagar" a caixa e trazer a borda para cima */
+    line-height: 0.45; /* Diminuí para "esmagar" a caixa e trazer a borda para cima */
     padding-bottom: 5px; /* Ajuste este valor para subir ou descer o traço */
 }
 
