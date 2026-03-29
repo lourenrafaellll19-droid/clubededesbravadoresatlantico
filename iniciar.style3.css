@@ -186,6 +186,6 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 
 .btn-pilula:hover {
     background-color: #1e3a8a;
-    border-color: #ffbd59;
+    border-color: #FFFFFF;
     transform: translateY(-3px);
 }
