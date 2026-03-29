@@ -155,12 +155,31 @@ h1 {
     .titulo-principal::after { right: -280px; transform: translateY(-50%) scaleX(-1); }
 }
 
-/* Ajustes para Celular (Esconde o que sobra) */
+/* Ajustes para Celular */
 @media (max-width: 1023px) {
-    .lenco-topo, .bussola, .titulo-principal::before, .titulo-principal::after {
-        display: none; /* Esconde elementos gigantes no mobile para não bugar a tela */
+    /* Mantemos o lenço e a bússola escondidos para não bugar a tela */
+    .lenco-topo, .bussola {
+        display: none; 
     }
+
+    /* Ajustamos os ornamentos para caberem no celular */
+    .titulo-principal::before, .titulo-principal::after {
+        display: block; /* Garante que apareça */
+        width: 80px;    /* Tamanho bem menor para o celular */
+        height: 40px;
+        top: 50%;
+    }
+
+    .titulo-principal::before { 
+        left: -90px;   /* Posiciona na esquerda do texto */
+        transform: translateY(-50%); 
+    }
+
+    .titulo-principal::after { 
+        right: -90px;  /* Posiciona na direita do texto */
+        transform: translateY(-50%) scaleX(-1); 
+    }
+
     body {
-        overflow-y: auto; /* Permite rolar se o conteúdo for maior que a tela do celular */
+        overflow-y: auto;
     }
-}
