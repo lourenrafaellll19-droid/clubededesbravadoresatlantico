@@ -39,7 +39,6 @@
                     <p>Figura emblemática e de presença marcante, Luis Miguel — carinhosamente conhecido por todos como Vermeio — é o coração pulsante da diretoria do nosso clube. Dono de um carisma inegável e de uma dedicação que parece não ter fim, ele lidera pelo exemplo e pela proximidade.</p>
                 </div>
             </article>
-    
 
             <article class="value-card">
                 <div class="image-frame">
@@ -61,37 +60,31 @@
 
         </section>
 
-          <footer class="navigation-footer">
-    <a href="oquenosoferecemos.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-    <a href="direção.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
-</footer>
-            </footer>
-        </section>
+        <footer class="navigation-footer">
+            <a href="oquenosoferecemos.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+            <a href="direção.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+        </footer>
+
     </main>
-<audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-   function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+    <script>
+        function transicaoComSom(event) {
+            event.preventDefault(); 
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
+
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1200); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
+            });
+        }
+    </script>
 </body>
 </html>
