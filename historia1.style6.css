@@ -1,79 +1,193 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black; /* Fundo padrão do site */
+    color: white;
+    min-height: 100vh;
+}
+
+.page-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* --- COLUNA ESQUERDA (Original Reestabelecido) --- */
+.left-column {
+    flex: 1;
+    background-color: #1a237e; /* Voltou o azul-royal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    overflow: hidden; /* Garante que o desenho não saia da coluna */
+}
+
+/* Detalhe visual opcional no rodapé da coluna esquerda (MANTIDO) */
+.left-column::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: url('linhas-amarelas.png') no-repeat bottom left;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.left-content {
+    max-width: 450px;
+    text-align: center;
+    z-index: 2;
+}
+
+.texto-historia { 
+    font-size: 1.1rem; /* Reduzido levemente para caber melhor */
+    line-height: 1.6; 
+    margin-top: 30px; 
+    text-align: justify;
+    color: #ffffff;
+}
+
+/* --- COLUNA DIREITA (Original Reestabelecido) --- */
+.right-column {
+    flex: 1.5;
+    background-color: #0d1b3e; /* Voltou o azul-marinho */
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.right-header {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
 /* --- CONTAINER DO VÍDEO / FOTO --- */
 .cards-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Adiciona um espaço de respiro nas laterais */
+    padding: 20px;
 }
 
 .image-frame {
-    width: 100%;       /* Ocupa a largura disponível da coluna */
-    max-width: 700px;  /* Aumentado para acomodar melhor a foto horizontal */
-    height: auto;      /* IMPORTANTE: A altura agora é automática para manter a proporção */
-    aspect-ratio: 16 / 9; /* Força uma proporção de TV (widescreen), que é a da foto */
-    border-radius: 8px; /* Adiciona cantos arredondados sutis para um visual mais limpo */
+    width: 100%;       
+    max-width: 700px;  
+    height: auto;      
+    aspect-ratio: 16 / 9; /* Mantém a proporção da foto */
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
     border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
-    background-color: #000; /* Fundo preto para caso a foto demore a carregar */
+    background-color: #000;
 }
 
 /* Alterado de .card-video para .card-image para bater com seu HTML */
 .card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Mantém o preenchimento total e corta o excesso sem distorcer */
+    object-fit: cover; /* Mantém o preenchimento sem distorcer */
     display: block;
 }
 
-/* --- TÍTULOS E ORNAMENTOS --- */
+/* --- TÍTULOS (Original Reestabelecido) --- */
 .sobre-nos-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Espaço entre ornamentos e texto */
-}
-.titulo-gotico {
-    font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 3.2rem;
-    color: #ffbd59; /* Cor dourada/amarela para combinar */
-    margin: 0; /* Remove margens padrão */
+    gap: 15px; 
 }
 
-/* --- BOTÕES PÍLULA --- */
+.titulo-gotico {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2.8rem; /* Reduzido levemente */
+    color: #ffbd59; /* Cor dourada */
+}
+
+.titulo-sublinhado {
+    border-bottom: 3px solid #f5a623;
+    display: inline-block;
+}
+
+.ornamento-desce { width: 50px; vertical-align: middle; }
+.ornamento-dir { transform: scaleX(-1); }
+
+/* --- BOTÕES PÍLULA (Original Reestabelecido) --- */
 .navigation-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    gap: 15px; /* Garante espaço entre os botões em telas menores */
 }
 
-/* Ajuste simples para telas menores */
+.btn-pilula {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 50px;
+    background-color: #0b1a3d; 
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transition: 0.4s ease;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-pilula:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* Ajuste simples para telas menores (CORRIGIDO PARA MANTER O VISUAL) */
 @media (max-width: 900px) {
     .page-container { 
         flex-direction: column; 
-        overflow-y: auto; /* Permite rolar se o conteúdo for maior que a tela */
+        overflow-y: auto; /* Permite rolar */
+        height: auto; /* Permite que a página cresça verticalmente */
     }
     
     .left-column, .right-column {
         flex: none; /* Desativa o flex para empilhamento vertical */
         width: 100%;
-        padding: 30px 20px; /* Reduz padding lateral */
+        min-height: 100vh; /* Garante que cada coluna ocupe a tela cheia se necessário */
+        padding: 60px 20px; /* Mais padding superior/inferior no celular */
     }
 
     .image-frame { 
         max-width: 90%; /* Ocupa a maior parte da largura da tela do celular */
-        margin: 0 auto; /* Centraliza horizontalmente */
+        margin: 0 auto; /* Centraliza */
     }
     
     .navigation-footer {
         justify-content: center; /* Centraliza os botões */
+        flex-direction: row; /* Mantém os botões lado a lado no celular */
+        gap: 15px;
     }
     
     .btn-pilula {
-        padding: 10px 30px; /* Botões menores no celular */
+        padding: 10px 20px; /* Botões menores no celular */
         font-size: 0.9rem;
+    }
+    
+    .titulo-gotico {
+        font-size: 2.2rem; /* Título menor no celular */
+    }
+    
+    .texto-historia {
+        font-size: 1rem; /* Texto menor no celular */
     }
 }
