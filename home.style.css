@@ -1,20 +1,139 @@
-/* --- DECORAÇÕES E ORNAMENTOS (GERAL) --- */
-.titulo-principal::before, 
-.titulo-principal::after {
+/* --- RESET E BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Fundo de segurança caso o vídeo demore a carregar */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+    overflow-x: hidden; 
+}
+
+/* --- VÍDEO DE FUNDO (RESTAURADO) --- */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.container {
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* --- TEXTOS E TÍTULOS --- */
+h1, .titulo-principal {
+    font-family: 'UnifrakturMaguntia', cursive;
+    margin: 0;
+    color: white;
+    line-height: 1.1;
+}
+
+h1 { 
+    font-size: clamp(1.8rem, 6vw, 4.5rem); 
+}
+
+.titulo-principal { 
+    font-size: clamp(3rem, 12vw, 8rem); 
+    letter-spacing: 2px;
+    margin-top: -5px;
+    position: relative;
+    display: inline-block;
+}
+
+/* --- ORNAMENTOS (CONFIGURAÇÃO PARA NÃO QUEBRAR O LAYOUT) --- */
+.titulo-principal::before, .titulo-principal::after {
     content: '';
     position: absolute;
     top: 50%;
-    width: 300px; /* Tamanho padrão do PC */
-    height: 150px;
     background-image: url('Ornamentos.png');
     background-size: contain;
     background-repeat: no-repeat;
     z-index: -1;
-    transform: translateY(-50%);
+    display: block;
+    pointer-events: none; /* Garante que não atrapalhe cliques */
 }
 
-.titulo-principal::before { left: -280px; }
-.titulo-principal::after { right: -280px; transform: translateY(-50%) scaleX(-1); }
+.texto-brilhante {
+    text-shadow: 
+        3px 3px 1px rgba(0, 0, 0, 0.9), 
+        0px 0px 20px rgba(255, 255, 255, 0.5), 
+        0px 0px 25px rgba(30, 58, 138, 0.4);
+}
+
+/* --- MENU E BOTÕES --- */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn {
+    background-color: #0b1a3d;
+    color: white;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 30px;
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 100%; 
+    max-width: 380px; 
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.btn-largo { 
+    max-width: 500px; 
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #1e3a8a;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+/* --- DECORAÇÕES E IMAGENS --- */
+.logo-topo {
+    width: clamp(100px, 20vw, 180px);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+}
 
 /* --- AJUSTES PARA TELAS GRANDES (PC) --- */
 @media (min-width: 1024px) {
@@ -26,6 +145,7 @@
         z-index: -1;
         opacity: 0.8;
     }
+
     .bussola {
         position: absolute;
         bottom: -50px;
@@ -34,24 +154,38 @@
         z-index: -1;
         opacity: 0.6;
     }
+
+    /* Ornamentos Grandes no PC */
+    .titulo-principal::before, .titulo-principal::after {
+        width: 300px; 
+        height: 150px;
+    }
+    .titulo-principal::before { left: -280px; transform: translateY(-50%); }
+    .titulo-principal::after { right: -280px; transform: translateY(-50%) scaleX(-1); }
 }
 
-/* --- AJUSTES PARA CELULAR E TABLET --- */
+/* --- AJUSTES PARA CELULAR (Mobile) --- */
 @media (max-width: 1023px) {
+    /* Esconde o lenço e a bússola gigantes */
     .lenco-topo, .bussola {
         display: none; 
     }
 
-    /* Reduz o tamanho para caber no celular */
-    .titulo-principal::before, 
-    .titulo-principal::after {
-        width: 60px;  
+    /* Ornamentos Pequenos no Celular */
+    .titulo-principal::before, .titulo-principal::after {
+        width: 60px;       
         height: 30px;
     }
 
-    /* Aproxima os ornamentos do texto no celular */
-    .titulo-principal::before { left: -65px; }
-    .titulo-principal::after { right: -65px; transform: translateY(-50%) scaleX(-1); }
+    .titulo-principal::before { 
+        left: -65px; 
+        transform: translateY(-50%);
+    }
+
+    .titulo-principal::after { 
+        right: -65px; 
+        transform: translateY(-50%) scaleX(-1); 
+    }
 
     body {
         overflow-y: auto;
