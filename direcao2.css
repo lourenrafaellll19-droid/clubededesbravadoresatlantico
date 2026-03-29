@@ -1,4 +1,3 @@
-CSS
 /* --- CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
@@ -8,7 +7,8 @@ CSS
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
+    /* Gradiente para escurecer o fundo e garantir leitura do texto */
+    background: linear-gradient(rgba(5, 10, 26, 0.75), rgba(5, 10, 26, 0.75)), 
                 url('fundodiretoria.png'); 
     background-size: cover;
     background-position: center;
@@ -25,14 +25,17 @@ body {
     min-height: 100vh;
 }
 
-/* --- HEADER --- */
+/* --- HEADER E TÍTULOS --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
     margin-bottom: 30px;
 }
 
-.club-logo { height: 70px; margin-bottom: 15px; }
+.club-logo { 
+    height: 70px; 
+    margin-bottom: 15px; 
+}
 
 .titulo-wrapper {
     display: flex;
@@ -49,16 +52,22 @@ body {
     line-height: 0.8;
 }
 
-.ornamento { width: 60px; height: auto; }
-.ornamento-dir { transform: scaleX(-1); }
+.ornamento { 
+    width: 60px; 
+    height: auto; 
+}
 
-/* --- CARDS --- */
+.ornamento-dir { 
+    transform: scaleX(-1); 
+}
+
+/* --- CONTAINER DE CARDS --- */
 .cards-main-container {
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
-    gap: 30px;
+    gap: 30px; /* Espaço entre os 3 líderes */
     margin-top: 20px;
 }
 
@@ -69,17 +78,24 @@ body {
     align-items: center;
 }
 
+/* FOTOS CIRCULARES */
 .image-frame {
-    width: 220px; 
-    height: 220px;
+    width: 210px; 
+    height: 210px;
     border-radius: 50%;
     overflow: hidden;
+    border: 3px solid rgba(255, 189, 89, 0.2);
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.card-image { width: 100%; height: 100%; object-fit: cover; }
+.card-image { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
 
+/* --- BLOCO DE TEXTOS --- */
 .bio-info {
     width: 100%;
     display: flex;
@@ -93,11 +109,12 @@ body {
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
+    margin-bottom: 5px;
     text-align: center;
 }
 
 .cargo-wrapper {
-    width: 80%;
+    width: 90%;
     display: flex; 
     flex-direction: column;
     align-items: center; 
@@ -106,71 +123,104 @@ body {
 .bio-cargo {
     font-size: 0.95rem;
     font-weight: 600;
+    letter-spacing: 1px;
     color: white;
     margin-bottom: 2px;
 }
 
 .linha-branca {
     width: 100%; 
-    height: 1.5px;
+    height: 2px;
     background-color: white;
 }
 
+/* QUADRADO DE DESCRIÇÃO */
 .box-descricao {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
     padding: 20px;
     margin-top: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-    max-width: 450px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+    width: 100%;
+    max-width: 400px;
     text-align: justify;
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #ddd;
 }
 
-/* --- BOTÕES --- */
+/* --- BOTÕES DE NAVEGAÇÃO --- */
 .navigation-footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin-top: 40px;
+    margin-top: 50px;
+    padding-bottom: 30px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 40px;
+    font-size: 1rem;
+    padding: 12px 45px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     transition: 0.4s ease;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-pilula:hover {
+    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
-    transform: scale(1.05);
-    border-color: white;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
 }
 
-/* --- MEDIA QUERIES (MOBILE) --- */
-@media (max-width: 992px) {
+/* --- MEDIA QUERIES (MOBILE E TABLET) --- */
+
+/* Para tablets e telas menores que 1024px */
+@media (max-width: 1024px) {
     .cards-main-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
+        flex-wrap: wrap; /* Permite quebrar linha se necessário */
+        gap: 40px;
     }
 }
 
-@media (max-width: 600px) {
-    .titulo-gotico { font-size: 2.2rem; }
+/* Para celulares (Telas menores que 768px) */
+@media (max-width: 768px) {
+    .cards-main-container {
+        flex-direction: column; /* Empilha os cards um sobre o outro */
+        align-items: center;
+        gap: 60px;
+    }
+
+    .titulo-gotico {
+        font-size: 2.2rem;
+    }
+
+    .ornamento {
+        width: 45px;
+    }
+
     .navigation-footer {
-        flex-direction: column;
+        flex-direction: column; /* Empilha os botões Voltar/Seguinte */
         gap: 15px;
         align-items: center;
+        margin-top: 30px;
     }
-    .btn-pilula { width: 100%; text-align: center; }
+
+    .btn-pilula {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .image-frame {
+        width: 190px;
+        height: 190px;
+    }
 }
