@@ -8,13 +8,10 @@
 body {
     background-color: black;
     font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     width: 100%;
     color: white;
-    /* ALTERAÇÃO: Permitimos o scroll lateral no body */
+    /* Permitimos a rolagem em todas as direções */
     overflow-x: auto; 
     overflow-y: auto;
 }
@@ -29,6 +26,17 @@ body {
     z-index: -1000;
     transform: translate(-50%, -50%);
     object-fit: cover;
+}
+
+/* --- O TRUQUE DO ARRASTE TOTAL --- */
+/* Criamos uma área interna larga o suficiente para os objetos das pontas */
+.wrapper-geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 150vw; /* Dá 25% de sobra para cada lado no celular */
+    position: relative;
 }
 
 /* --- CONTAINER PRINCIPAL --- */
@@ -71,21 +79,21 @@ h1 { font-size: clamp(1.8rem, 6vw, 4.5rem); }
     z-index: -1;
 }
 
-/* --- OBJETOS DECORATIVOS (Bússola e Lenço) --- */
+/* --- OBJETOS DECORATIVOS --- */
 .lenco-topo {
     position: absolute;
-    top: -100px;
-    right: -150px;
-    width: 450px;
+    top: -50px;
+    right: -100px;
+    width: 400px;
     z-index: -1;
     opacity: 0.8;
 }
 
 .bussola {
     position: absolute;
-    bottom: -50px;
-    left: -200px;
-    width: 500px;
+    bottom: -30px;
+    left: -150px;
+    width: 450px;
     z-index: -1;
     opacity: 0.6;
 }
@@ -116,33 +124,23 @@ h1 { font-size: clamp(1.8rem, 6vw, 4.5rem); }
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    background-color: #1e3a8a;
-    border: 4px solid rgba(255, 255, 255, 0.6);
-}
+/* --- AJUSTES DE TELA --- */
 
-/* --- AJUSTES DE POSIÇÃO (PC vs MOBILE) --- */
-
-/* No PC (Telas Grandes) */
 @media (min-width: 1024px) {
+    .wrapper-geral { min-width: 100vw; } /* No PC não precisa de sobra */
     .titulo-principal::before { width: 300px; height: 150px; left: -280px; transform: translateY(-50%); }
     .titulo-principal::after { width: 300px; height: 150px; right: -280px; transform: translateY(-50%) scaleX(-1); }
 }
 
-/* No Celular (Telas Pequenas) */
 @media (max-width: 1023px) {
-    /* REMOVIDO o display: none da bússola e lenço */
-    
-    /* Ajustamos os ornamentos para não ficarem em cima do texto no celular */
     .titulo-principal::before { width: 60px; height: 30px; left: -65px; transform: translateY(-50%); }
     .titulo-principal::after { width: 60px; height: 30px; right: -65px; transform: translateY(-50%) scaleX(-1); }
-
-    /* Forçamos os objetos a ficarem onde estão, permitindo o arraste */
+    
+    /* Garantimos que bússola e lenço existam no mobile */
     .lenco-topo, .bussola {
         display: block !important;
-        opacity: 0.7;
     }
 }
