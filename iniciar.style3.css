@@ -214,31 +214,44 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     margin: 0 auto;
 }
 
-/* --- BOTÕES --- */
-.navigation-footer { 
-    margin-top: auto; 
-    display: flex; 
-    justify-content: space-between;
-    padding-top: 20px;
-    gap: 10px;
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
 }
 
-.btn-pilula {
-    text-decoration: none;
+.btn {
+    background-color: #0b1a3d;
     color: white;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 80px;
+    border-radius: 60px;
     font-weight: bold;
-    font-size: clamp(0.8rem, 3vw, 1.1rem);
-    padding: 12px clamp(20px, 5vw, 60px);
-    background-color: #0b1a3d; 
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    transition: 0.3s;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 400px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    text-align: center;
+    
+    /* Novos ajustes para o link funcionar como botão */
+    text-decoration: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Garante que a borda não aumente o tamanho do botão */
 }
 
-.btn-pilula:hover {
+.btn-largo { width: 550px; }
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
-    border-color: #FFFFFF;
-    transform: translateY(-3px);
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
+                0px 0px 45px rgba(30, 58, 138, 0.7);
+    border: 5px solid rgba(255, 255, 255, 0.6); /* Mantive os 5px do seu design */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
