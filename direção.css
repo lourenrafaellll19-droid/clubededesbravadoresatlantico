@@ -174,14 +174,8 @@ body {
         align-items: center;
         gap: 50px;
     }
-
-    .value-card {
-        width: 100%;
-    }
-
-    .titulo-gotico {
-        font-size: 2.5rem;
-    }
+    .value-card { width: 100%; }
+    .titulo-gotico { font-size: 2.5rem; }
 }
 
 @media (max-width: 600px) {
@@ -190,23 +184,12 @@ body {
         gap: 15px;
         align-items: center;
     }
-
     .btn-pilula {
         width: 100%;
         max-width: 300px;
         text-align: center;
     }
-
-    .titulo-gotico {
-        font-size: 2rem;
-    }
-
-    .ornamento {
-        width: 40px;
-    }
-
-    .image-frame {
-        width: 200px;
-        height: 200px;
-    }
+    .titulo-gotico { font-size: 2rem; }
+    .ornamento { width: 40px; }
+    .image-frame { width: 200px; height: 200px; }
 }
