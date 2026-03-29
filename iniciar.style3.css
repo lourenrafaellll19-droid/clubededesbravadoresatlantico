@@ -98,7 +98,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .ornamento-desce { width: clamp(30px, 5vw, 60px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CARDS E FOTOS COM GRADIENTE (CORRIGIDO) --- */
+/* --- CARDS E FOTOS COM GRADIENTE (VERSÃO FINAL) --- */
 .cards-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -118,20 +118,32 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     height: clamp(300px, 40vh, 450px);
     border-radius: 15px;
     overflow: hidden; 
-    position: relative;
+    position: relative; /* Mantém tudo dentro do quadro */
     width: 100%;
     border: none;
-    /* Remove fundo preto lateral e aplica o gradiente de baixo para cima */
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%);
+    background: transparent;
+}
+
+/* A Película de Gradiente que fica na frente da foto */
+.image-frame::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Escurece os 60% inferiores da imagem */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    z-index: 2; /* Fica na frente da foto */
+    pointer-events: none;
 }
 
 .card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Garante que a foto preencha tudo sem faixas */
+    object-fit: cover; /* Faz a foto preencher todo o espaço sem faixas pretas */
     display: block;
     position: relative;
-    z-index: -1; /* Joga a foto para trás do gradiente do container */
+    z-index: 1; /* Fica atrás do gradiente */
 }
 
 .card-title { 
@@ -141,7 +153,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     width: 100%;
     text-align: center;
     font-size: 1.6rem; 
-    z-index: 10; /* Garante que o texto fique por cima de tudo */
+    z-index: 3; /* Fica por cima de tudo */
     color: #ffbd59;
     font-weight: bold;
     text-transform: uppercase;
@@ -156,7 +168,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     text-align: justify;
 }
 
-/* --- BOTÕES (FIXOS E COM BRILHO) --- */
+/* --- BOTÕES COM BRILHO --- */
 .navigation-footer { 
     margin-top: auto; 
     display: flex; 
