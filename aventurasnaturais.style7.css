@@ -121,7 +121,7 @@ body {
     padding: 0 10px;
 }
 
-/* Ajuste dos Botões */
+ /* Ajuste dos Botões */
     .navigation-footer {
         flex-direction: row; /* Mantém lado a lado, ou 'column' se preferir um sobre o outro */
         gap: 10px;
@@ -140,6 +140,7 @@ body {
         height: 100px;
         background-size: contain;
     }
+}
 
 /* --- AJUSTES PARA CELULAR --- */
 @media (max-width: 768px) {
