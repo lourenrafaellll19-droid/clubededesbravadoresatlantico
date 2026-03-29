@@ -98,7 +98,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .ornamento-desce { width: clamp(30px, 5vw, 60px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CARDS E FOTOS COM GRADIENTE (SOLUÇÃO DEFINITIVA MOBILE) --- */
+/* --- CARDS E FOTOS COM GRADIENTE (CORREÇÃO FORÇADA PARA MOBILE) --- */
 .cards-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -120,21 +120,20 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     overflow: hidden; 
     position: relative; 
     width: 100%;
-    border: none;
-    /* Adicionei display flex para garantir que a imagem ocupe tudo */
-    display: flex;
+    background: transparent;
+    display: flex; /* Garante alinhamento interno */
 }
 
-/* A Película de Gradiente agora usa 'inset' para colar nas bordas da imagem */
+/* Camada de Gradiente que cobre exatamente a área da foto */
 .image-frame::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    /* O gradiente agora cobre a imagem perfeitamente */
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0) 60%);
+    width: 100%;
+    height: 100%; 
+    /* Cria o efeito de escurecimento de baixo para cima */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%);
     z-index: 2; 
     pointer-events: none;
 }
@@ -142,7 +141,9 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .card-image { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* ISSO VAI ELIMINAR AS FAIXAS LATERAIS AZUIS */
+    min-width: 100%; /* FORÇA a largura total no celular */
+    min-height: 100%; /* FORÇA a altura total no celular */
+    object-fit: cover; /* Recorta a foto para preencher o quadro sem distorcer */
     display: block;
     position: relative;
     z-index: 1; 
