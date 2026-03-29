@@ -155,31 +155,41 @@ h1 {
     .titulo-principal::after { right: -280px; transform: translateY(-50%) scaleX(-1); }
 }
 
-/* Ajustes para Celular */
+/* --- AJUSTES PARA CELULAR --- */
 @media (max-width: 1023px) {
-    /* Mantemos o lenço e a bússola escondidos para não bugar a tela */
+    /* Esconde apenas os elementos grandes que bugam o layout */
     .lenco-topo, .bussola {
         display: none; 
     }
 
-    /* Ajustamos os ornamentos para caberem no celular */
+    /* FORÇA O APARECIMENTO E AJUSTA O TAMANHO NO CELULAR */
     .titulo-principal::before, .titulo-principal::after {
-        display: block; /* Garante que apareça */
-        width: 80px;    /* Tamanho bem menor para o celular */
-        height: 40px;
+        display: block;    /* Garante que apareça */
+        visibility: visible;
+        
+        /* Reduzimos bastante para caber na tela do celular */
+        width: 60px;       
+        height: 30px;
+        
+        background-size: contain;
+        background-repeat: no-repeat;
         top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;     /* Coloca na frente de outros elementos */
+        opacity: 1;
     }
 
+    /* Posiciona bem perto do texto para o celular */
     .titulo-principal::before { 
-        left: -90px;   /* Posiciona na esquerda do texto */
-        transform: translateY(-50%); 
+        left: -65px;       
     }
 
     .titulo-principal::after { 
-        right: -90px;  /* Posiciona na direita do texto */
+        right: -65px;      
         transform: translateY(-50%) scaleX(-1); 
     }
 
+    /* Permite rolagem vertical se necessário */
     body {
         overflow-y: auto;
     }
