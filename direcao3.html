@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diretoria - Clube Atlântico</title>
+    <title>Direção - Clube Atlântico</title>
     <link rel="stylesheet" href="direcao3.css">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -24,9 +24,8 @@
             
             <article class="value-card">
                 <div class="image-frame">
-                    <img src="heitor.png" alt="Luis Miguel" class="card-image">
+                    <img src="heitor.png" alt="Heitor" class="card-image">
                 </div>
-
                 <div class="bio-info">
                     <h3 class="card-title">HEITOR</h3>
                     <div class="cargo-wrapper">
@@ -34,17 +33,15 @@
                         <div class="linha-branca"></div>
                     </div>
                 </div>
-
                 <div class="box-descricao">
-                    <p>  Heitor, Conselheiro do Clube de Desbravadores, dedicado a orientar, apoiar e inspirar os jovens em seu desenvolvimento físico, mental e espiritual.</p>
+                    <p>Heitor, Conselheiro do Clube de Desbravadores, dedicado a orientar, apoiar e inspirar os jovens em seu desenvolvimento físico, mental e espiritual.</p>
                 </div>
             </article>
 
             <article class="value-card">
                 <div class="image-frame">
-                    <img src="luiz.png" alt="Jaqueline" class="card-image">
+                    <img src="luiz.png" alt="Luiz" class="card-image">
                 </div>
-
                 <div class="bio-info">
                     <h3 class="card-title">LUIZ</h3>
                     <div class="cargo-wrapper">
@@ -52,49 +49,38 @@
                         <div class="linha-branca"></div>
                     </div>
                 </div>
-
                 <div class="box-descricao">
-                    <p> Conselheiro dedicado do Clube de Desbravadores, LUIZ conhecido por seu compromisso em orientar e inspirar os jovens em sua jornada de crescimento pessoal, espiritual e social. Sempre disposto a ajudar, ele se destaca pela paciência e pela forma respeitosa com que trata cada membro do clube, entendendo que cada desbravador possui seu próprio ritmo e suas próprias dificuldades.</p>
+                    <p>Luiz é conhecido por seu compromisso em inspirar os jovens em sua jornada de crescimento. Destaca-se pela paciência e pela forma respeitosa com que trata cada membro do clube.</p>
                 </div>
             </article>
 
-           
-
         </section>
 
-           <footer class="navigation-footer">
-    <a href="direcao2.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
-    <a href="Contato.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
-</footer>
-            </footer>
-        </section>
+        <footer class="navigation-footer">
+            <a href="direcao2.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+            <a href="contato.html" class="btn-pilula" onclick="transicaoComSom(event)">SEGUINTE</a>
+        </footer>
+
     </main>
-<audio id="somBrilho" preload="auto">
-    <source src="somdoclique.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-    function transicaoComSom(event) {
-        // 1. Bloqueia a mudança de página imediata
-        event.preventDefault(); 
-        
-        const link = event.currentTarget.href;
-        const som = document.getElementById('somBrilho');
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
 
-        // 2. Toca o som de brilho
-        som.play().then(() => {
-            // 3. ESPERA MAIS TEMPO (1200ms = 1.2 segundos)
-            // Aumente este número se o seu som for ainda mais longo
-            setTimeout(() => {
+    <script>
+        function transicaoComSom(event) {
+            event.preventDefault(); 
+            const link = event.currentTarget.href;
+            const som = document.getElementById('somBrilho');
+
+            som.play().then(() => {
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 1200); 
+            }).catch(err => {
                 window.location.href = link;
-            }, 1200); 
-        }).catch(err => {
-            // Se houver erro ou bloqueio, muda de página direto para não travar
-            window.location.href = link;
-        });
-    }
-</script>
-</body>
-</html>
+            });
+        }
+    </script>
 </body>
 </html>
