@@ -53,10 +53,13 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: clamp(1.8rem, 6vw, 3.2rem); 
-    border-bottom: 3px solid #ffbd59;
-    line-height: 1.00;
-    padding-bottom: 0px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 3px solid #ffbd59; 
+    
+    /* --- AJUSTES PARA ENCOSTAR --- */
+    line-height: 0.7;        /* Diminuímos para reduzir o espaço interno da fonte */
+    padding-bottom: 0px;      
+    display: inline-block;   /* Garante que o elemento respeite as medidas de altura */
+    height: 0.8em;           /* Forçamos a altura a ser menor que a letra */
 }
 
 .ornamento { width: 50px; height: auto; }
