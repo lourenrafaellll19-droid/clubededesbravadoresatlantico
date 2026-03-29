@@ -1,4 +1,4 @@
-/* --- CONFIGURAÇÕES GERAIS (MANTIDAS) --- */
+/* --- CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
+    background: linear-gradient(rgba(5, 10, 26, 0.75), rgba(5, 10, 26, 0.75)), 
                 url('fundodiretoria.png'); 
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- HEADER E ORNAMENTOS (MANTIDOS) --- */
+/* --- HEADER --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
@@ -56,8 +56,8 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1200px;
-    gap: 60px;
+    max-width: 1000px;
+    gap: 50px;
     margin-top: 20px;
 }
 
@@ -68,81 +68,74 @@ body {
     align-items: center;
 }
 
-/* FOTO (MANTIDA) */
 .image-frame {
     width: 230px; 
     height: 230px;
     border-radius: 50%;
     overflow: hidden;
-    border: 0px solid rgba(255, 189, 89, 0.2);
+    border: 3px solid rgba(255, 189, 89, 0.2);
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card-image { width: 100%; height: 100%; object-fit: cover; }
 
-/* --- BLOCO DE INFORMAÇÕES (CORREÇÃO DE ALINHAMENTO) --- */
 .bio-info {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* FORÇA A CENTRALIZAÇÃO HORIZONTAL DE TODOS OS ELEMENTOS DENTRO */
+    align-items: center; 
     margin-bottom: 15px;
 }
 
-/* NOME (JAQUELINE) */
 .card-title {
     color: #ffbd59;
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 5px;
-    text-align: center; /* Garante que o texto dentro da tag esteja centralizado */
+    text-align: center;
 }
 
-/* CARGO E LINHA (ABAIXO DO NOME) */
 .cargo-wrapper {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0px; /* Removido para controle mais fino */
+    width: 80%;
     display: flex; 
     flex-direction: column;
-    align-items: center; /* Centraliza o cargo e a linha */
+    align-items: center; 
 }
 
 .bio-cargo {
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 1px;
     color: white;
-    margin-bottom: -5px; /* Mantive seu ajuste manual para a linha subir */
 }
 
 .linha-branca {
-    width: 100%; /* Largura total conforme seu ajuste manual */
-    height: 1.5px;
+    width: 100%; 
+    height: 2px;
     background-color: white;
-    margin: 0 auto;
+    margin-top: 2px;
 }
 
-/* DESCRIÇÃO (MANTIDA) */
-.bio-descricao {
-    width: 100%;
-    padding: 0 10px;
+.box-descricao {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+    max-width: 450px;
     text-align: justify;
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #ddd;
 }
 
-/* --- BOTÕES (MANTIDOS) --- */
+/* --- BOTÕES --- */
 .navigation-footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin-top: 40px;
-    padding-bottom: 20px;
+    max-width: 1000px;
+    margin-top: 50px;
 }
 
 .btn-pilula {
@@ -156,24 +149,24 @@ body {
     border-radius: 50px;
     transition: 0.4s ease;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
+    transform: scale(1.05);
     background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
+    border-color: white;
 }
-.btn-pilula:hover { background-color: #1e3a8a; transform: scale(1.05); }
 
-.box-descricao {
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto transparente */
-    border: 0px solid #d4af37;           /* Borda dourada para combinar com o título */
-    border-radius: 10px;                 /* Bordas arredondadas */
-    padding: 20px;                       /* Espaço interno para o texto não encostar na borda */
-    margin-top: 15px;                    /* Espaço entre o cargo e o quadrado */
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.5); /* Sombra para dar destaque */
-    max-width: 450px;                    /* Limita a largura para o texto não ficar espalhado */
-    text-align: justify;                 /* Deixa o texto alinhado */
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 850px) {
+    .cards-main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navigation-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .btn-pilula { width: 100%; max-width: 300px; text-align: center; }
 }
