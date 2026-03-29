@@ -1,4 +1,3 @@
-CSS
 /* --- CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
@@ -24,12 +23,9 @@ body {
 .titulo-sublinhado {
     border-bottom: 2px solid #f5a623; 
     display: inline-block;
-    /* line-height controla o espaço acima da letra */
     line-height: 0.8; 
-    /* padding-bottom controla a distância entre o texto e a linha */
     padding-bottom: 2px; 
 }
-
 
 h1.titulo-gotico { font-size: clamp(1.8rem, 5vw, 2.8rem); }
 h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
@@ -75,13 +71,6 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     max-width: 450px;
 }
 
-.sobre-nos-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
 .left-content p { 
     font-size: clamp(1rem, 3vw, 1.2rem); 
     line-height: 1.6; 
@@ -109,7 +98,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .ornamento-desce { width: clamp(30px, 5vw, 60px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CARDS (CORREÇÃO BLINDADA) --- */
+/* --- CARDS E FOTOS COM GRADIENTE --- */
 .cards-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -127,55 +116,29 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 
 .image-frame {
     height: clamp(300px, 40vh, 450px);
-    border-radius: 15px; /* Arredondado para combinar com a foto */
+    border-radius: 15px;
     overflow: hidden; 
     position: relative;
     width: 100%;
-    /* Removemos o border e background que podem conflitar */
     border: none;
 }
 
-/* --- A CAMADA DE GRADIENTE (Sombra interna) --- */
 .image-frame::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Cria o degradê do transparente para o preto no final da foto */
+    top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%);
-    z-index: 1; /* Fica acima da foto, mas abaixo do texto */
+    z-index: 1;
     pointer-events: none;
 }
 
-/* --- A FOTO EM SI --- */
 .card-image { 
     width: 100%; 
     height: 100%; 
     object-fit: cover;
     display: block;
     border-radius: 15px;
-    /* Adicionamos uma sombra interna suave com inset */
-    box-shadow: inset 0px -20px 50px rgba(0,0,0,0.5);
 }
-
-/* --- AJUSTE DO TÍTULO --- */
-.card-title { 
-    position: absolute;
-    bottom: 20px; 
-    left: 0; 
-    width: 100%;
-    text-align: center;
-    font-size: 1.5rem; 
-    z-index: 2; /* Garante que o texto fique ACIMA do gradiente */
-    color: #ffbd59;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1);
-}
-
-
 
 .card-title { 
     position: absolute;
@@ -186,7 +149,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     color: #ffbd59;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1);
 }
 
 .card-text { 
@@ -197,53 +160,35 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     text-align: justify;
 }
 
-/* --- ESTILIZAÇÃO DAS IMAGENS DOS CARDS (SOBRE NÓS) --- */
-.card-image {
-    width: 100%;
-    height: 100%; /* Ajuste a altura conforme sua necessidade, ex: 300px; */
-    object-fit: cover;
-    border-radius: 15px; /* Bordas arredondadas dão um toque melhor */
-    
-    /* --- O TRUQUE DO SOMBREAMENTO GRADIENTE --- */
-    box-shadow: 
-        0px 5px 15px rgba(0, 0, 0, 0.4),  /* Sombra suave e difusa */
-        0px 10px 30px rgba(0, 0, 0, 0.6); /* Sombra mais profunda e focada na base */
-    
-    /* Garante que a sombra não seja cortada por um container menor */
-    display: block;
-    margin: 0 auto;
+/* --- BOTÕES (FIXOS E COM BRILHO) --- */
+.navigation-footer { 
+    margin-top: auto; 
+    display: flex; 
+    justify-content: space-between;
+    padding-top: 20px;
+    gap: 10px;
 }
 
-/* --- BOTÕES COM BRILHO AO PASSAR O MOUSE --- */
-.menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.btn {
-    background-color: #0b1a3d;
+.btn-pilula {
+    text-decoration: none;
     color: white;
-    border: 5px solid rgba(255, 255, 255, 0.1);
-    padding: 20px 80px;
-    border-radius: 60px;
     font-weight: bold;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    width: 400px;
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+    padding: 12px clamp(20px, 5vw, 60px);
+    background-color: #0b1a3d; 
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
     transition: all 0.4s ease;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    
-    /* Novos ajustes para o link funcionar como botão */
-    text-decoration: none; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box; /* Garante que a borda não aumente o tamanho do botão */
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
 }
 
-.btn-largo { width: 550px; }
+/* O efeito de brilho que você queria */
+.btn-pilula:hover {
+    background-color: #1e3a8a;
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4); /* Brilho branco suave */
+}
