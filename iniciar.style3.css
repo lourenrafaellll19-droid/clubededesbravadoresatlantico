@@ -144,7 +144,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     content: "";
     position: absolute;
     inset: 0; /* Alinha perfeitamente nos cantos */
-    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.9));
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9));
     border: 0px solid rgba(255, 189, 89, 0.3); /* Moldura dourada fina */
     border-radius: 0px;
     z-index: 1;
