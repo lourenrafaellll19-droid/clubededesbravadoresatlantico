@@ -22,11 +22,14 @@ body {
 }
 
 .titulo-sublinhado {
-    border-bottom: 2px solid #f5a623; /* Aumentei para 3px para destacar mais */
+    border-bottom: 2px solid #f5a623; 
     display: inline-block;
-    line-height: 0.45; /* Diminuí para "esmagar" a caixa e trazer a borda para cima */
-    padding-bottom: 15px; /* Ajuste este valor para subir ou descer o traço */
+    /* line-height controla o espaço acima da letra */
+    line-height: 0.8; 
+    /* padding-bottom controla a distância entre o texto e a linha */
+    padding-bottom: 2px; 
 }
+
 
 h1.titulo-gotico { font-size: clamp(1.8rem, 5vw, 2.8rem); }
 h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
