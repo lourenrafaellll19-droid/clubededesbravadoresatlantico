@@ -18,27 +18,29 @@
         Seu navegador não suporta vídeos.
     </video>
 
-    <main class="container">
-        <div class="decoracoes-topo">
-            <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
-        </div>
+    <div class="wrapper-geral">
         
-        <header>
-            <h1 class="texto-brilhante">Clube de desbravadores</h1>
-            <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
-        </header>
+        <main class="container">
+            <div class="decoracoes-topo">
+                <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
+            </div>
+            
+            <header>
+                <h1 class="texto-brilhante">Clube de desbravadores</h1>
+                <h2 class="titulo-principal texto-brilhante">Atlântico</h2>
+            </header>
 
-        <nav class="menu">
-            <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
-            <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
-            <a href="enviar especialidade.html" class="btn btn-largo" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
-        </nav>
+            <nav class="menu">
+                <a href="iniciar.html" class="btn" onclick="transicaoComSom(event)">INICIAR</a>
+                <a href="apontamentos.html" class="btn" onclick="transicaoComSom(event)">APONTAMENTOS</a>
+                <a href="enviar especialidade.html" class="btn btn-largo" onclick="transicaoComSom(event)">ENVIAR AS ESPECIALIDADES</a>
+            </nav>
 
-        <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
-        <img src="bussola.png" alt="Bússola" class="bussola">
-    </main>
+            <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
+            <img src="bussola.png" alt="Bússola" class="bussola">
+        </main>
 
-    <audio id="somBrilho" preload="auto">
+    </div> <audio id="somBrilho" preload="auto">
         <source src="somdoclique.mp3" type="audio/mpeg">
     </audio>
 
@@ -48,11 +50,13 @@
             const link = event.currentTarget.href;
             const som = document.getElementById('somBrilho');
 
+            // Tenta tocar o som antes de mudar de página
             som.play().then(() => {
                 setTimeout(() => {
                     window.location.href = link;
-                }, 800); // Reduzi um pouco para não parecer que o site travou
+                }, 800); 
             }).catch(err => {
+                // Se o navegador bloquear o som, muda de página imediatamente
                 window.location.href = link;
             });
         }
