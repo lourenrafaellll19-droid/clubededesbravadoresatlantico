@@ -214,6 +214,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     margin: 0 auto;
 }
 
+/* --- BOTÕES COM BRILHO AO PASSAR O MOUSE --- */
 .menu {
     display: flex;
     flex-direction: column;
@@ -246,12 +247,3 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 }
 
 .btn-largo { width: 550px; }
-
-.btn:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.3), 
-                0px 0px 45px rgba(30, 58, 138, 0.7);
-    border: 5px solid rgba(255, 255, 255, 0.6); /* Mantive os 5px do seu design */
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-}
