@@ -98,7 +98,7 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 .ornamento-desce { width: clamp(30px, 5vw, 60px); }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CARDS E FOTOS COM GRADIENTE (CORREÇÃO DE LARGURA) --- */
+/* --- CARDS E FOTOS COM GRADIENTE (VERSÃO À PROVA DE ERROS) --- */
 .cards-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -110,54 +110,57 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
 
 .value-card { 
     flex: 1; 
-    min-width: 250px; 
+    min-width: 280px; 
     max-width: 350px; 
 }
 
 .image-frame {
-    height: clamp(300px, 40vh, 450px);
+    height: 400px; /* Altura fixa para evitar distorção no mobile */
     border-radius: 15px;
     overflow: hidden; 
     position: relative; 
     width: 100%;
-    border: none;
-    background: transparent;
+    background-color: #000; /* Fundo preto caso a imagem falhe */
 }
 
-/* A Película de Gradiente agora cobre toda a largura disponível da foto */
+/* Criando o gradiente escuro que "gruda" na imagem */
 .image-frame::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 60%; 
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+    right: 0;
+    bottom: 0;
+    /* Gradiente forte na base para o texto aparecer */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 70%);
     z-index: 2; 
     pointer-events: none;
 }
 
 .card-image { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* ISSO ELIMINA AS FAIXAS LATERAIS DO MOBILE */
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; /* Força o preenchimento total lateral */
     display: block;
-    position: relative;
+    position: absolute; /* Fixa a imagem no fundo do frame */
+    top: 0;
+    left: 0;
     z-index: 1; 
 }
 
 .card-title { 
     position: absolute;
-    bottom: 25px; 
+    bottom: 20px; 
     left: 0; 
     width: 100%;
     text-align: center;
     font-size: 1.6rem; 
-    z-index: 3; 
+    z-index: 10; /* Garante que fique acima da sombra */
     color: #ffbd59;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1);
+    text-shadow: 2px 2px 10px rgba(0,0,0,1);
+    padding: 0 10px;
 }
 
 .card-text { 
