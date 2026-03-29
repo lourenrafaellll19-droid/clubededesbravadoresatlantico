@@ -110,8 +110,8 @@ h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
     display: flex; 
     flex-wrap: wrap; 
     gap: 25px; 
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     justify-content: center;
 }
 
