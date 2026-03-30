@@ -48,8 +48,13 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
+    /* O TRAÇO AMARELO ABAIXO */
     border-bottom: 3px solid #ffbd59;
-    line-height: 0.8;
+    /* Aumentamos levemente o line-height para a borda não sumir */
+    line-height: 1.1;
+    /* Espaço entre o texto e o traço */
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
 .ornamento { 
@@ -182,24 +187,24 @@ body {
 
 /* --- MEDIA QUERIES (MOBILE E TABLET) --- */
 
-/* Para tablets e telas menores que 1024px */
 @media (max-width: 1024px) {
     .cards-main-container {
-        flex-wrap: wrap; /* Permite quebrar linha se necessário */
+        flex-wrap: wrap; 
         gap: 40px;
     }
 }
 
-/* Para celulares (Telas menores que 768px) */
 @media (max-width: 768px) {
     .cards-main-container {
-        flex-direction: column; /* Empilha os cards um sobre o outro */
+        flex-direction: column; 
         align-items: center;
         gap: 60px;
     }
 
     .titulo-gotico {
         font-size: 2.2rem;
+        /* Garantindo que a borda apareça no mobile também */
+        line-height: 1.2;
     }
 
     .ornamento {
@@ -207,7 +212,7 @@ body {
     }
 
     .navigation-footer {
-        flex-direction: column; /* Empilha os botões Voltar/Seguinte */
+        flex-direction: column; 
         gap: 15px;
         align-items: center;
         margin-top: 30px;
