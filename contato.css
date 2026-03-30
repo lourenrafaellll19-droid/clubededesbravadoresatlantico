@@ -1,38 +1,4 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Poppins', sans-serif;
-    /* Verifique se o arquivo se chama Contato.png (com C maiúsculo) no GitHub */
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
-                url('contato.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    min-height: 100vh;
-}
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* --- HEADER PADRONIZADO --- */
-.header-topo { 
-    text-align: center; 
-    width: 100%; 
-    margin-bottom: 50px;
-}
 
 .titulo-wrapper {
     display: flex;
@@ -46,8 +12,8 @@ body {
     color: #ffbd59; 
     font-size: 3rem; 
     border-bottom: 3px solid #ffbd59;
-    line-height: 0.85;
-    padding-bottom: 5px;
+    line-height: 1; /* Ajustado para aproximar o sublinhado */
+    padding-bottom: 2px; /* Reduzido para aproximar o sublinhado */
 }
 
 .ornamento { width: 60px; }
@@ -153,11 +119,11 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
-    gap: 5px; /* Ajustado para aproximar os ícones dos textos */
+    gap: 3px; /* Reduzido ainda mais o gap para aproximar os ícones */
 }
 
 .link-social img {
-    height: 25px; /* Ajustado para um tamanho um pouco menor */
+    height: 22px; /* Ajustado para um tamanho um pouco menor */
     width: auto;
 }
 
@@ -208,6 +174,8 @@ body {
     }
     .titulo-gotico {
         font-size: 2rem;
+        line-height: 1; /* Garantir que o sublinhado fique próximo também no mobile */
+        padding-bottom: 2px; /* Garantir que o sublinhado fique próximo também no mobile */
     }
     .page-container {
         padding: 20px 15px; /* Ajustar padding para telas menores */
@@ -218,9 +186,10 @@ body {
     .link-social {
         font-size: 0.9rem; /* Aumentar um pouco a fonte para melhor leitura em mobile */
         justify-content: center; /* Centralizar os links sociais em mobile */
+        gap: 3px; /* Manter o gap reduzido para ícones em mobile */
     }
     .link-social img {
-        height: 20px; /* Reduzir um pouco mais o ícone em mobile */
+        height: 18px; /* Reduzir um pouco mais o ícone em mobile */
     }
     .navigation-footer {
         flex-direction: column; /* Botões um abaixo do outro em mobile */
