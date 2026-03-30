@@ -64,6 +64,7 @@ body {
 .ornamento-dir { transform: scaleX(-1); }
 
 /* --- CONTAINER DE CARDS (GRID RÍGIDO) --- */
+/* --- CARDS CONTAINER --- */
 .cards-main-container {
     display: flex;
     justify-content: center;
@@ -122,8 +123,7 @@ body {
     padding: 0 10px;
 }
 
-
-/* --- NAVEGAÇÃO (VOLTANDO AO SEU ESTILO ORIGINAL) --- */
+/* --- BOTÕES PÍLULA --- */
 .navigation-footer {
     display: flex;
     justify-content: space-between;
@@ -150,4 +150,21 @@ body {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: white;
 }
+
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none; /* Esconde ornamentos laterais se a tela for pequena */
+    }
+    .cards-main-container {
+        gap: 40px; /* Aumenta espaço entre os cards empilhados */
+    }
+    .value-card {
+        max-width: 100%; /* Card ocupa a largura toda no mobile */
+    }
+    .navigation-footer {
+        flex-direction: row; /* Mantém os botões lado a lado ou mude para column se preferir */
+    }
+}
+
 
