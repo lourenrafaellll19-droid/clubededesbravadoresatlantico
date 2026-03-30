@@ -154,7 +154,7 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
-    gap: 1px; /* Ajustado para aproximar os ícones dos textos */
+    gap: 30px; /* Ajustado para aproximar os ícones dos textos */
 }
 
 .link-social img {
