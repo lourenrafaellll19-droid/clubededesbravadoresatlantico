@@ -47,7 +47,7 @@ body {
     font-size: 3rem; 
     line-height: 1.2; /* Valor padrão bom para desktop */
     border-bottom: 3px solid #ffbd59;
-    padding-bottom: 5px;
+    padding-bottom: 1px;
 }
 
 .ornamento { width: 60px; }
