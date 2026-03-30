@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    /* Gradiente para garantir leitura e imagem de fundo */
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
                 url('contato.png'); 
     background-size: cover;
@@ -44,7 +45,7 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
-    line-height: 0.5;
+    line-height: 0.5; /* Valor padrão bom para desktop */
     border-bottom: 3px solid #ffbd59;
     padding-bottom: 1px;
 }
@@ -64,29 +65,31 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center; /* ALTERADO: Centraliza os itens na coluna */
-    text-align: center;  /* ALTERADO: Centraliza o texto */
+    align-items: flex-start; /* Alinhado à esquerda para manter seu layout */
+    text-align: left; /* Alinhado à esquerda para manter seu layout */
 }
 
+/* --- AJUSTE: CORREÇÃO DA FALHA --- */
 .image-frame {
     width: 100%;
-    max-width: 600px; 
+    max-width: 600px; /* Sua foto grande */
     border-radius: 20px;
     overflow: hidden;
     border: none !important;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background-color: transparent;
-    height: auto;
+    background-color: transparent; /* AJUSTE: Evita falha visual com fundo */
+    height: auto; /* AJUSTE: Garante que a caixa se ajuste à foto */
 }
 
 .photo-grupo {
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+    height: auto; /* AJUSTE: Mantém proporção */
+    display: block; /* AJUSTE: Remove espaço em branco embaixo da imagem */
+    object-fit: contain; /* AJUSTE: Garante que a foto inteira apareça */
 }
 
+/* Restante do conteúdo principal */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
@@ -94,12 +97,7 @@ body {
     margin-bottom: 5px;
 }
 
-.frase-legenda { 
-    font-size: 1rem; 
-    color: #ddd; 
-    margin-bottom: 20px;
-    text-align: center; /* Garante centralização */
-}
+.frase-legenda { font-size: 1rem; color: #ddd; margin-bottom: 20px; }
 
 .divisor {
     width: 80%;
@@ -115,10 +113,9 @@ body {
     max-width: 400px;
     margin-top: 10px;
     font-style: italic;
-    text-align: center; /* Garante centralização */
 }
 
-/* SIDEBAR DE CONTATOS */
+/* SIDEBAR DE CONTATOS (ONDE FICA O QR CODE) */
 .sidebar-contatos {
     flex: 1;
     display: flex;
@@ -128,7 +125,7 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    align-items: center;
+    align-items: center; /* Centraliza o conteúdo interno */
 }
 
 .section-title {
@@ -141,8 +138,8 @@ body {
 }
 
 .qr-code {
-    width: 100%;
-    max-width: 300px;
+    width: 100%; /* Ocupa a largura do sidebar controlado */
+    max-width: 300px; /* Tamanho máximo do QR Code */
     height: auto;
     margin: 0 auto;
     display: block;
@@ -173,7 +170,7 @@ body {
 .navigation-footer {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centralizados no desktop */
     gap: 30px;
     max-width: 1200px;
     margin-top: 50px;
@@ -195,11 +192,17 @@ body {
     text-align: center;
 }
 
-/* RESPONSIVIDADE MOBILE */
+.btn-pilula:hover {
+    transform: scale(1.05);
+    background-color: #1e3a8a;
+    border-color: #ffffff;
+}
+
+/* --- RESPONSIVIDADE (MOBILE - Mantido as correções) --- */
 @media (max-width: 768px) {
     .titulo-gotico {
         font-size: 2rem;
-        line-height: 1.2;
+        line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
         padding-bottom: 2px;
     }
 
@@ -215,6 +218,15 @@ body {
     }
 
     .image-frame {
+        max-width: 100%; /* Foto ocupa a largura da tela no celular */
+        height: auto; /* AJUSTE: Garante altura proporcional */
+    }
+    
+    .photo-grupo {
+        height: auto;
+    }
+
+    .texto-biblico {
         max-width: 100%;
     }
 
