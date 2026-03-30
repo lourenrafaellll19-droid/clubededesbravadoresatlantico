@@ -153,8 +153,8 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
-    gap: -65px;
-    gap: -65px; /* Ajustado para aproximar os ícones dos textos */
+    gap: -5px;
+    gap: -5px; /* Ajustado para aproximar os ícones dos textos */
 }
 
 .link-social img {
