@@ -70,8 +70,8 @@ body {
 }
 
 .image-frame {
-    width: 200%;
-    max-width: 300px; /* Tamanho controlado para a foto lateral */
+    width: 100%;
+    max-width: 600px; /* AUMENTADO: Antes era 300px, agora a foto ficará maior no desktop */
     border-radius: 20px;
     overflow: hidden;
     border: none !important;
