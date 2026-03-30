@@ -67,6 +67,7 @@ body {
     /* ALTERAÇÃO CHAVE: Mudado de flex-start para center */
     align-items: center; 
     text-align: center; 
+    width: 100%
 }
 
 /* --- IMAGEM --- */
