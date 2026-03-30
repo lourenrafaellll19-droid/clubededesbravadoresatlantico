@@ -80,20 +80,28 @@ body {
 .image-frame {
     width: 100%;
     max-width: 690px;
-    /* Removido aspect-ratio fixo para evitar o espaço preto */
     border-radius: 20px;
-    overflow: hidden; /* Importante para a foto respeitar o arredondamento */
+    overflow: hidden;
     position: relative;
     border: 3px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 15px 30px rgba(0,0,0,0.5);
+    /* Adicionamos fundo preto para que, se sobrar 1px, ele seja preto e não azul */
+    background-color: #000; 
+    /* Remove qualquer espaço interno */
+    padding: 0;
+    line-height: 0;
 }
 
 .card-image { 
     width: 100%; 
     height: auto; 
-    display: block; /* Remove o espaço extra de "descendente" na base */
-    object-fit: cover; /* Faz a foto preencher toda a moldura */
+    display: block;
+    object-fit: cover;
     opacity: 1;
+    /* Truque final: aumenta levemente a escala para garantir que cubra as bordas */
+    transform: scale(1.01);
+    /* Garante que a imagem não tenha margem alguma */
+    margin: 0;
 }
 
 /* --- TÍTULOS --- */
@@ -145,37 +153,19 @@ body {
 
 /* --- AJUSTE CELULAR --- */
 @media (max-width: 900px) {
-    .page-container {
-        flex-direction: column;
-    }
-
-    .left-column, .right-column {
-        width: 100%;
-        flex: none;
-    }
+    /* ... outros estilos ... */
     
-    .left-column {
-        min-height: auto;
-        padding: 60px 20px;
-    }
-
-    .right-header {
-        justify-content: center;
-    }
-
     .image-frame {
         height: auto;
         max-height: none;
+        /* Garante que no mobile também não tenha espaço */
+        line-height: 0; 
     }
 
     .card-image { 
         height: auto;
         max-height: none;
-        object-fit: cover;
-    }
-
-    .navigation-footer {
-        justify-content: center;
-        padding-bottom: 40px;
+        transform: scale(1.01); /* Mantém o truque no mobile */
     }
 }
+
