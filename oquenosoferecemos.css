@@ -150,13 +150,18 @@ body {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: white;
 }
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 1100px) {
-    .cards-main-container { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 650px) {
-    .cards-main-container { grid-template-columns: 1fr; }
-    .image-frame { height: 250px; }
-    .navigation-footer { justify-content: center; }
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none; /* Esconde ornamentos laterais se a tela for pequena */
+    }
+    .cards-main-container {
+        gap: 40px; /* Aumenta espaço entre os cards empilhados */
+    }
+    .value-card {
+        max-width: 100%; /* Card ocupa a largura toda no mobile */
+    }
+    .navigation-footer {
+        flex-direction: row; /* Mantém os botões lado a lado ou mude para column se preferir */
+    }
 }
