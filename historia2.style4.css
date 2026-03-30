@@ -124,33 +124,36 @@ body {
 
 /* --- BOTÕES --- */
 .navigation-footer {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    margin-top: auto;
+    margin-top: 30px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: clamp(0.8rem, 3vw, 1.1rem);
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
     padding: 12px 30px;
-    background-color: #0b1a3d; 
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: #0b1a3d;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 50px;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    text-align: center;
     flex: 1;
-    max-width: 200px;
+    max-width: 220px;
+    text-align: center;
 }
 
 .btn-pilula:hover {
     background-color: #1e3a8a;
-    border-color: ffffff;
-    transform: translateY(-3px);
+    border-color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
+
 
 /* --- AJUSTE CELULAR --- */
 @media (max-width: 900px) {
