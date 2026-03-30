@@ -47,7 +47,7 @@ body {
     font-size: 3rem; 
     border-bottom: 3px solid #ffbd59;
     line-height: 9; /* Ajustado ra aproximar o sublinhado */
-    padding-bottom: -9px; /* Reduzido ra aproximar o sublinhado */
+    padding-bottom: 9px; /* Reduzido ra aproximar o sublinhado */
 }
 
 .ornamento { width: 60px; }
