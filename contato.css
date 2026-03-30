@@ -209,7 +209,7 @@ body {
     }
     .titulo-gotico {
         font-size: 2rem;
-        line-height: 1; /* Garantir que o sublinhado fique próximo também no mobile */
+        line-height: 11; /* Garantir que o sublinhado fique próximo também no mobile */
         padding-bottom: 2px; /* Garantir que o sublinhado fique próximo também no mobile */
     }
     .page-container {
