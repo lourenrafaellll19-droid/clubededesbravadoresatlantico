@@ -52,22 +52,22 @@ body {
 .ornamento { width: 60px; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- ESTRUTURA DE DUAS COLUNAS --- */
+/* --- ESTRUTURA CORRIGIDA PARA CENTRALIZAÇÃO --- */
 .content-wrapper {
     display: flex;
     width: 100%;
     gap: 40px;
-    align-items: flex-start;
+    /* Alinha a sidebar e a seção principal no topo, mas permite centralização interna */
+    align-items: flex-start; 
 }
 
 .secao-principal {
     flex: 2;
+    width: 100%; /* Ocupa o espaço máximo da coluna */
     display: flex;
     flex-direction: column;
-    /* ALTERAÇÃO CHAVE: Mudado de flex-start para center */
-    align-items: center; 
-    text-align: center; 
-    width: 100%
+    align-items: center; /* Centraliza a imagem e as caixas de texto */
+    text-align: center;  /* Centraliza todas as linhas de texto */
 }
 
 /* --- IMAGEM --- */
@@ -76,7 +76,6 @@ body {
     max-width: 600px; 
     border-radius: 20px;
     overflow: hidden;
-    border: none !important;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     background-color: transparent;
@@ -90,14 +89,13 @@ body {
     object-fit: contain;
 }
 
-/* --- TEXTOS EM BRANCO (CENTRALIZADOS) --- */
+/* --- TEXTOS BRANCOS (AGORA CENTRALIZADOS) --- */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 5px;
     width: 100%;
-    text-align: center;
 }
 
 .frase-legenda { 
@@ -105,24 +103,26 @@ body {
     color: #ddd; 
     margin-bottom: 20px;
     width: 100%;
-    text-align: center; /* Centraliza o texto branco */
+    display: block;
+    text-align: center; /* Centro real */
 }
 
 .divisor {
     width: 80%;
     height: 1px;
     background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* Centraliza a linha horizontal */
+    margin: 30px auto; /* Centraliza a linha */
 }
 
 .texto-biblico {
     font-size: 0.9rem;
     line-height: 1.6;
     color: #aaa;
-    max-width: 500px; 
+    max-width: 600px; 
     margin: 10px auto; 
     font-style: italic;
-    text-align: center; /* Centraliza o texto bíblico */
+    width: 100%;
+    text-align: center; /* Centro real */
 }
 
 /* --- SIDEBAR --- */
@@ -144,36 +144,13 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .qr-code {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
     height: auto;
-    margin: 0 auto;
     display: block;
-}
-
-.card-social {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.link-social {
-    text-decoration: none;
-    color: #ddd;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.link-social img {
-    height: 22px; 
-    width: auto;
 }
 
 /* --- BOTÕES --- */
@@ -182,68 +159,34 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    max-width: 1200px;
     margin-top: 50px;
-    padding-bottom: 20px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
     padding: 12px 50px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     transition: 0.4s ease;
     text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
 }
 
-.btn-pilula:hover {
-    transform: scale(1.05);
-    background-color: #1e3a8a;
-    border-color: #ffffff;
-}
-
-/* --- MOBILE --- */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    .titulo-gotico {
-        font-size: 2rem;
-        line-height: 1.2;
-        padding-bottom: 2px;
-    }
-
     .content-wrapper {
         flex-direction: column;
-        gap: 30px;
         align-items: center;
     }
 
     .secao-principal {
-        align-items: center;
-        text-align: center;
-    }
-
-    .image-frame {
-        max-width: 100%;
+        order: 1; /* Foto e textos primeiro no mobile */
     }
 
     .sidebar-contatos {
+        order: 2;
         width: 100%;
-        padding: 20px;
-    }
-
-    .navigation-footer {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .btn-pilula {
-        width: 100%;
-        max-width: 300px;
     }
 }
