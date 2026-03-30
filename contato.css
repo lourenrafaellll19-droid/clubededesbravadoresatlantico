@@ -7,7 +7,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.8), rgba(5, 10, 26, 0.8)), 
+    /* Verifique se o arquivo se chama Contato.png (com C maiúsculo) no GitHub */
+    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
                 url('contato.png'); 
     background-size: cover;
     background-position: center;
@@ -20,127 +21,226 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-/* --- HEADER (ONDE ESTÁ O ERRO DO PRINT) --- */
+/* --- HEADER PADRONIZADO --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 50px;
 }
 
 .titulo-wrapper {
     display: flex;
-    flex-direction: column; /* No celular, um embaixo do outro funciona melhor */
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
-    font-size: clamp(1.5rem, 8vw, 2.8rem); /* Ajusta conforme o tamanho da tela */
-    line-height: 1.2;
-    padding: 10px 0;
-    /* Removi a borda fixa daqui para usar a div divisor embaixo */
+    font-size: 3rem; 
+    line-height: 1.2; /* Valor padrão bom para desktop */
+    border-bottom: 3px solid #ffbd59;
+    padding-bottom: 5px;
 }
 
-.ornamento { 
-    width: 60px; 
-    height: auto; 
-    opacity: 0.8;
-}
+.ornamento { width: 60px; }
+.ornamento-dir { transform: scaleX(-1); }
 
-/* A LINHA DOURADA DO PRINT */
-.divisor-titulo {
-    width: 80%; /* Não deixa a linha atravessar a tela toda */
-    max-width: 400px;
-    height: 2px;
-    background-color: #ffbd59;
-    margin: 5px auto 15px auto;
-}
-
-/* --- CONTEÚDO --- */
+/* --- ESTRUTURA DE DUAS COLUNAS --- */
 .content-wrapper {
     display: flex;
     width: 100%;
-    gap: 30px;
-    flex-direction: column; /* Padrão mobile primeiro */
+    gap: 40px;
+    align-items: flex-start;
 }
 
-@media (min-width: 769px) {
-    .content-wrapper { flex-direction: row; }
-    .titulo-wrapper { flex-direction: row; }
+.secao-principal {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhado à esquerda para manter seu layout */
+    text-align: left; /* Alinhado à esquerda para manter seu layout */
 }
 
 .image-frame {
     width: 100%;
-    max-width: 800px;
+    max-width: 300px; /* Tamanho controlado para a foto lateral */
     border-radius: 20px;
     overflow: hidden;
+    border: none !important;
+    margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: #0b1a3d;
 }
 
 .photo-grupo {
     width: 100%;
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
     font-weight: 700;
-    margin: 20px 0 10px;
+    margin-bottom: 5px;
+}
+
+.frase-legenda { font-size: 1rem; color: #ddd; margin-bottom: 20px; }
+
+.divisor {
+    width: 80%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 30px 0;
+}
+
+.texto-biblico {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #aaa;
+    max-width: 400px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* SIDEBAR DE CONTATOS (ONDE FICA O QR CODE) */
+.sidebar-contatos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #0b1a3d;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    align-items: center; /* Centraliza o conteúdo interno */
+}
+
+.section-title {
+    color: #ffbd59;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-.frase-legenda { 
-    font-size: 1rem; 
-    color: #ccc; 
-    text-align: center;
-    margin-bottom: 20px;
+.qr-code {
+    width: 100%; /* Ocupa a largura do sidebar controlado */
+    max-width: 300px; /* Tamanho máximo do QR Code */
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
-/* --- BOTÕES --- */
-.navigation-footer {
-    width: 100%;
+.card-social {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center;
-    margin-top: 30px;
+    width: 100%;
 }
 
-@media (min-width: 769px) {
-    .navigation-footer { flex-direction: row; justify-content: center; }
+.link-social {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-social img {
+    height: 22px; 
+    width: auto;
+}
+
+/* BOTÕES */
+.navigation-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centralizados no desktop */
+    gap: 30px;
+    max-width: 1200px;
+    margin-top: 50px;
+    padding-bottom: 20px;
 }
 
 .btn-pilula {
-    width: 100%;
-    max-width: 300px;
     text-decoration: none;
     color: white;
-    font-weight: 700;
-    padding: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 50px;
     background-color: #0b1a3d;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: 0.4s ease;
     text-transform: uppercase;
-    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
 }
 
 .btn-pilula:hover {
+    transform: scale(1.05);
     background-color: #1e3a8a;
-    border-color: #fff;
+    border-color: #ffffff;
+}
+
+/* ========================================= */
+/* --- CORREÇÃO CIRÚRGICA PARA CELULAR --- */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* Garante que o título não tenha o espaçamento gigante (o erro original) */
+    .titulo-gotico {
+        font-size: 2rem;
+        line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
+        padding-bottom: 2px;
+    }
+
+    /* Coloca tudo em uma coluna no celular */
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    /* Centraliza o texto da seção principal no celular */
+    .secao-principal {
+        align-items: center;
+        text-align: center;
+    }
+
+    .image-frame {
+        max-width: 100%; /* Foto ocupa a largura da tela no celular */
+    }
+
+    .texto-biblico {
+        max-width: 100%;
+    }
+
+    /* Ajusta o sidebar para celular */
+    .sidebar-contatos {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Alinha os botões em coluna no celular */
+    .navigation-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn-pilula {
+        width: 100%;
+        max-width: 300px;
+    }
 }
