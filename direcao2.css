@@ -51,7 +51,7 @@ body {
     /* O TRAÇO AMARELO ABAIXO */
     border-bottom: 3px solid #ffbd59;
     /* Aumentamos levemente o line-height para a borda não sumir */
-    line-height: 0.9;
+    line-height: 0.10;
     /* Espaço entre o texto e o traço */
     padding-bottom: 10px;
     display: inline-block;
