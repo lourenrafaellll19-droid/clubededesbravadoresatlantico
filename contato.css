@@ -64,9 +64,8 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza as caixas */
-    text-align: center;  /* Centraliza o texto dentro das caixas */
-    width: 100%;
+    align-items: center; /* ALTERADO: Centraliza os itens na coluna */
+    text-align: center;  /* ALTERADO: Centraliza o texto */
 }
 
 .image-frame {
@@ -85,43 +84,38 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-/* CENTRALIZAÇÃO DOS TEXTOS EM BRANCO */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 5px;
-    width: 100%;
-    text-align: center;
 }
 
 .frase-legenda { 
     font-size: 1rem; 
     color: #ddd; 
     margin-bottom: 20px;
-    width: 100%;
-    text-align: center; /* Força o centro */
+    text-align: center; /* Garante centralização */
 }
 
 .divisor {
     width: 80%;
     height: 1px;
     background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* O 'auto' centraliza a linha */
+    margin: 30px 0;
 }
 
 .texto-biblico {
     font-size: 0.9rem;
     line-height: 1.6;
     color: #aaa;
-    max-width: 600px; /* Aumentei um pouco para o texto fluir melhor centralizado */
-    margin: 10px auto; 
+    max-width: 400px;
+    margin-top: 10px;
     font-style: italic;
-    width: 100%;
-    text-align: center; /* Força o centro */
+    text-align: center; /* Garante centralização */
 }
 
 /* SIDEBAR DE CONTATOS */
@@ -199,9 +193,6 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* RESPONSIVIDADE MOBILE */
@@ -241,6 +232,5 @@ body {
     .btn-pilula {
         width: 100%;
         max-width: 300px;
-        padding: 15px 0;
     }
 }
