@@ -1,206 +1,59 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- APENAS O QUE PRECISA SER AJUSTADO --- */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-    color: white;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* --- TÍTULOS --- */
-.titulo-gotico {
-    font-family: 'UnifrakturMaguntia', cursive;
-    color: #ffbd59;
-    text-align: center;
-}
-
-.titulo-sublinhado {
-    border-bottom: 2px solid #f5a623; 
-    display: inline-block;
-    line-height: 0.8; 
-    padding-bottom: 2px; 
-}
-
-h1.titulo-gotico { font-size: clamp(1.8rem, 5vw, 2.8rem); }
-h2.titulo-gotico { font-size: clamp(2rem, 6vw, 3.2rem); }
-
-/* --- LAYOUT RESPONSIVO --- */
-.page-container { 
-    display: flex; 
-    min-height: 100vh; 
-    flex-direction: row;
-}
-
-.left-column {
-    flex: 1;
-    background-color: #1a237e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-.right-column {
-    flex: 2;
-    background-color: #0d1b3e;
-    display: flex;
-    flex-direction: column;
-    padding: 40px 20px;
-    min-height: 100vh;
-}
-
-@media (max-width: 900px) {
-    .page-container { flex-direction: column; }
-    .right-header { flex-direction: column; gap: 20px; }
-    .club-logo { margin: 0 auto !important; }
-    .titulo-wrapper { margin-right: 0 !important; }
-}
-
-/* --- CONTEÚDO ESQUERDA --- */
-.left-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 450px;
-}
-
-.left-content p { 
-    font-size: clamp(1rem, 3vw, 1.2rem); 
-    line-height: 1.6; 
-    margin-top: 20px; 
-}
-
-/* --- CONTEÚDO DIREITA --- */
-.right-header { 
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 30px; 
-}
-
-.club-logo { height: 70px; margin-right: auto; }
-
-.titulo-wrapper { 
-    flex-grow: 1; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 15px; 
-    margin-right: 70px; 
-}
-
-.ornamento-desce { width: clamp(30px, 5vw, 60px); }
-.ornamento-dir { transform: scaleX(-1); }
-
-/* --- CARDS E FOTOS COM GRADIENTE (CORREÇÃO DE BORDAS) --- */
-.cards-container { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 15px; 
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: center;
-}
-
-.value-card { 
-    flex: 1; 
-    min-width: 250px; 
-    max-width: 350px; 
-}
-
+/* 1. REMOVENDO AS BORDAS E O PRETO DAS IMAGENS */
 .image-frame {
-    height: clamp(300px, 40vh, 450px);
-    border-radius: 15px;
-    overflow: hidden; 
-    position: relative; 
     width: 100%;
-    /* Removendo bordas e cores de fundo que geram frestas */
-    border: none;
-    background: transparent;
+    height: 300px; 
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    /* Aqui tiramos qualquer cor de fundo ou sombra interna */
+    background: transparent !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* Criando o gradiente escuro que cobre o texto */
-.image-frame::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%; 
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
-    z-index: 2; 
-    pointer-events: none;
-}
-
-/* --- A CORREÇÃO REAL: FORÇANDO A IMAGEM A COBRIR AS BORDAS --- */
-.card-image { 
-    width: 100% !important; 
-    height: 100% !important; 
-    object-fit: cover !important; /* FORÇA A IMAGEM A COBRIR TODO O FRAME SEM CORTES DE BORDA */
-    object-position: center; /* Mantém o foco no centro */
+.card-image {
+    width: 100% !important;
+    height: 100% !important;
+    /* Isso garante que a foto encoste em todas as bordas sem frestas */
+    object-fit: cover !important;
     display: block;
-    position: absolute; /* Fixa a imagem no fundo do frame */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; 
 }
 
-.card-title { 
+/* 2. LIMPANDO O SOMBREADO DO TÍTULO QUE PARECIA UMA BORDA */
+.card-title {
     position: absolute;
-    bottom: 25px; 
-    left: 0; 
+    bottom: 0;
     width: 100%;
     text-align: center;
-    font-size: 1.6rem; 
-    z-index: 3; 
     color: #ffbd59;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1);
+    font-weight: 700;
+    padding: 15px 10px;
+    /* Gradiente suave apenas para leitura, sem manchas no topo */
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    text-shadow: 2px 2px 8px black;
 }
 
-.card-text { 
-    font-size: 0.95rem; 
-    line-height: 1.5; 
-    color: #e0e0e0; 
-    margin-top: 15px;
-    text-align: justify;
-}
-
-/* --- BOTÕES COM BRILHO --- */
-.navigation-footer { 
-    margin-top: auto; 
-    display: flex; 
-    justify-content: space-between;
-    padding-top: 20px;
-    gap: 10px;
-}
-
+/* 3. RESTAURANDO A ANIMAÇÃO DOS BOTÕES (IGUAL ÀS OUTRAS PÁGINAS) */
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: clamp(0.8rem, 3vw, 1.1rem);
-    padding: 12px clamp(20px, 5vw, 60px);
-    background-color: #0b1a3d; 
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 30px;
+    background-color: #0b1a3d;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 50px;
-    transition: all 0.4s ease;
-    text-transform: uppercase;
-    text-align: center;
+    transition: all 0.3s ease; /* Transição suave que você usava */
     display: inline-block;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
 }
 
 .btn-pilula:hover {
     background-color: #1e3a8a;
-    border-color: rgba(255, 255, 255, 0.8);
-    transform: translateY(-3px);
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4); 
+    border-color: #ffffff;
+    /* Essa é a animação que você arrasta o mouse e ele cresce */
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
