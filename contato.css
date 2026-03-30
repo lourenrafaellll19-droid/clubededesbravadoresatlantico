@@ -65,8 +65,8 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinhado à esquerda para manter seu layout */
-    text-align: left; /* Alinhado à esquerda para manter seu layout */
+    align-items: center; /* ACRESCENTADO: Centraliza as caixas de texto e imagem */
+    text-align: center;  /* ACRESCENTADO: Centraliza o conteúdo do texto */
 }
 
 /* --- AJUSTE: CORREÇÃO DA FALHA --- */
