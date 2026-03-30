@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Gradiente sobre a imagem de fundo para dar leitura */
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
                 url('florestaazul.png'); 
     background-size: cover;
@@ -63,11 +62,11 @@ body {
 .ornamento { width: 50px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CONTAINER DE CARDS (CORRIGIDO) --- */
+/* --- CONTAINER DE CARDS (AJUSTADO) --- */
 .cards-main-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha todos os cards pelo topo */
+    align-items: stretch; /* Garante que todos tenham a mesma altura */
     width: 100%;
     gap: 20px;
     flex-wrap: wrap;
@@ -75,12 +74,11 @@ body {
 }
 
 .value-card {
-    /* Força os cards a manterem a mesma base de tamanho */
-    flex: 1 1 280px; 
-    max-width: 320px; /* Impede que o último card estique mais que os outros */
+    /* Força largura igual para os 4 cards no desktop */
+    flex: 1 1 250px; 
+    max-width: 320px; 
     display: flex;
     flex-direction: column;
-    align-items: center;
     position: relative;
     transition: transform 0.3s ease;
 }
@@ -89,22 +87,24 @@ body {
     transform: translateY(-5px);
 }
 
-/* --- MOLDURA DA IMAGEM --- */
+/* --- MOLDURA DA IMAGEM (CORREÇÃO DAS LATERAIS) --- */
 .image-frame {
     width: 100%;
     height: 300px; 
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    border: none;
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     background-color: #000;
+    /* Garante que o container interno não encolha */
+    display: flex; 
 }
 
 .card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a foto preencha o quadro sem sobrar espaços */
+    width: 100% !important;
+    height: 100% !important;
+    /* object-fit: cover é o que remove as faixas pretas laterais */
+    object-fit: cover !important; 
     opacity: 0.9;
     display: block;
 }
@@ -115,7 +115,7 @@ body {
     width: 100%;
     text-align: center;
     color: #ffbd59;
-    font-size: 1rem; 
+    font-size: 0.9rem; 
     font-weight: 700;
     text-shadow: 2px 2px 8px black;
     padding: 15px 10px;
@@ -160,21 +160,19 @@ body {
     .hide-mobile { display: none; }
 }
 
-/* Tablets (2 por linha) */
 @media (max-width: 1100px) {
     .value-card {
         flex: 1 1 calc(50% - 20px);
     }
 }
 
-/* Celulares (1 por linha) */
 @media (max-width: 600px) {
     .value-card {
         flex: 1 1 100%;
-        max-width: 100%; /* No mobile eles podem ocupar a largura toda */
+        max-width: 100%;
     }
     .image-frame {
-        height: 250px; 
+        height: 220px; 
     }
     .navigation-footer {
         justify-content: center;
