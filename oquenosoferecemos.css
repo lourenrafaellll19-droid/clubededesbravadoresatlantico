@@ -84,11 +84,11 @@ body {
 .image-frame {
     width: 100%;
     height: 300px; 
-    border-radius: 20px;
+    border-radius: 00px;
     overflow: hidden;
     position: relative;
     /* Mantendo apenas a sombra externa */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 00px 00px rgba(0,0,0,0.4);
     /* Forçamos o fundo para transparente para não "vazar" preto */
     background: transparent !important; 
 }
