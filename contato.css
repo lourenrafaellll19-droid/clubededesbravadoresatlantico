@@ -44,61 +44,30 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
-    line-height: 1.2;
+    line-height: 0.5;
     border-bottom: 3px solid #ffbd59;
-    padding-bottom: 5px;
+    padding-bottom: 1px;
 }
 
 .ornamento { width: 60px; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- ESTRUTURA DE DUAS COLUNAS (O QUE MANTÉM SEU DESIGN) --- */
+/* --- ESTRUTURA DE DUAS COLUNAS --- */
 .content-wrapper {
     display: flex;
     width: 100%;
     gap: 40px;
-    align-items: flex-start; /* Mantém um ao lado do outro no topo */
+    align-items: flex-start;
 }
 
 .secao-principal {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os itens dentro da coluna da esquerda */
-}
-
-/* --- TEXTOS BRANCOS (O FOCO DA SUA PERGUNTA) --- */
-.chamariz {
-    color: #ffbd59;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    text-align: center; /* Centraliza o título amarelo */
-}
-
-.frase-legenda { 
-    font-size: 1rem; 
-    color: #ddd; 
-    margin-bottom: 20px;
-    text-align: center; /* Centraliza o texto branco */
+    /* FORÇA A CENTRALIZAÇÃO DO BLOCO INTEIRO */
+    align-items: center !important; 
+    text-align: center !important; 
     width: 100%;
-}
-
-.divisor {
-    width: 80%;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-    margin: 30px auto;
-}
-
-.texto-biblico {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #aaa;
-    max-width: 500px;
-    margin: 10px auto;
-    font-style: italic;
-    text-align: center; /* Centraliza o texto bíblico */
 }
 
 /* --- IMAGEM --- */
@@ -109,15 +78,60 @@ body {
     overflow: hidden;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: transparent;
+    height: auto;
+    /* GARANTE QUE A CAIXA DA FOTO FIQUE NO MEIO */
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .photo-grupo {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
 }
 
-/* --- SIDEBAR (QR CODE E REDES) --- */
+/* --- TEXTOS EM BRANCO (FORÇANDO CENTRALIZAÇÃO TOTAL) --- */
+.chamariz {
+    color: #ffbd59;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center !important;
+}
+
+.frase-legenda { 
+    font-size: 1rem; 
+    color: #ddd; 
+    margin-bottom: 20px;
+    width: 100%;
+    /* O !important garante que o texto ignore ordens de ficar à esquerda */
+    text-align: center !important; 
+    display: block;
+}
+
+.divisor {
+    width: 80%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 30px auto !important; 
+}
+
+.texto-biblico {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #aaa;
+    max-width: 500px; 
+    margin: 10px auto !important; 
+    font-style: italic;
+    width: 100%;
+    text-align: center !important;
+    display: block;
+}
+
+/* --- SIDEBAR --- */
 .sidebar-contatos {
     flex: 1;
     display: flex;
@@ -126,6 +140,7 @@ body {
     background-color: #0b1a3d;
     padding: 30px;
     border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     align-items: center;
 }
 
@@ -133,13 +148,17 @@ body {
     color: #ffbd59;
     font-size: 1.1rem;
     font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .qr-code {
     width: 100%;
-    max-width: 250px;
+    max-width: 300px;
     height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
 /* --- BOTÕES --- */
@@ -148,27 +167,56 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
+    max-width: 1200px;
     margin-top: 50px;
+    padding-bottom: 20px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
     padding: 12px 50px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
+    transition: 0.4s ease;
+    text-transform: uppercase;
     text-align: center;
 }
 
-/* --- RESPONSIVIDADE --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
+    .titulo-gotico {
+        font-size: 2rem;
+        line-height: 1.2;
+        padding-bottom: 2px;
+    }
+
     .content-wrapper {
         flex-direction: column;
+        gap: 30px;
         align-items: center;
     }
-    
-    .titulo-gotico { font-size: 2rem; }
-    
-    .sidebar-contatos { width: 100%; }
+
+    .secao-principal {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .image-frame {
+        max-width: 100%;
+    }
+
+    .navigation-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn-pilula {
+        width: 100%;
+        max-width: 300px;
+    }
 }
