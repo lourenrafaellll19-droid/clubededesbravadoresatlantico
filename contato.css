@@ -64,9 +64,10 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    /* ALTERAÇÃO CHAVE: Mudado de flex-start para center */
-    align-items: center; 
-    text-align: center; 
+    /* FORÇA A CENTRALIZAÇÃO DO BLOCO INTEIRO */
+    align-items: center !important; 
+    text-align: center !important; 
+    width: 100%;
 }
 
 /* --- IMAGEM --- */
@@ -75,11 +76,13 @@ body {
     max-width: 600px; 
     border-radius: 20px;
     overflow: hidden;
-    border: none !important;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     background-color: transparent;
     height: auto;
+    /* GARANTE QUE A CAIXA DA FOTO FIQUE NO MEIO */
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .photo-grupo {
@@ -89,14 +92,14 @@ body {
     object-fit: contain;
 }
 
-/* --- TEXTOS EM BRANCO (CENTRALIZADOS) --- */
+/* --- TEXTOS EM BRANCO (FORÇANDO CENTRALIZAÇÃO TOTAL) --- */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 5px;
     width: 100%;
-    text-align: center;
+    text-align: center !important;
 }
 
 .frase-legenda { 
@@ -104,14 +107,16 @@ body {
     color: #ddd; 
     margin-bottom: 20px;
     width: 100%;
-    text-align: center; /* Centraliza o texto branco */
+    /* O !important garante que o texto ignore ordens de ficar à esquerda */
+    text-align: center !important; 
+    display: block;
 }
 
 .divisor {
     width: 80%;
     height: 1px;
     background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* Centraliza a linha horizontal */
+    margin: 30px auto !important; 
 }
 
 .texto-biblico {
@@ -119,9 +124,11 @@ body {
     line-height: 1.6;
     color: #aaa;
     max-width: 500px; 
-    margin: 10px auto; 
+    margin: 10px auto !important; 
     font-style: italic;
-    text-align: center; /* Centraliza o texto bíblico */
+    width: 100%;
+    text-align: center !important;
+    display: block;
 }
 
 /* --- SIDEBAR --- */
@@ -154,27 +161,6 @@ body {
     display: block;
 }
 
-.card-social {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.link-social {
-    text-decoration: none;
-    color: #ddd;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.link-social img {
-    height: 22px; 
-    width: auto;
-}
-
 /* --- BOTÕES --- */
 .navigation-footer {
     width: 100%;
@@ -197,14 +183,7 @@ body {
     border-radius: 50px;
     transition: 0.4s ease;
     text-transform: uppercase;
-    cursor: pointer;
     text-align: center;
-}
-
-.btn-pilula:hover {
-    transform: scale(1.05);
-    background-color: #1e3a8a;
-    border-color: #ffffff;
 }
 
 /* --- MOBILE --- */
@@ -222,17 +201,12 @@ body {
     }
 
     .secao-principal {
-        align-items: center;
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .image-frame {
         max-width: 100%;
-    }
-
-    .sidebar-contatos {
-        width: 100%;
-        padding: 20px;
     }
 
     .navigation-footer {
