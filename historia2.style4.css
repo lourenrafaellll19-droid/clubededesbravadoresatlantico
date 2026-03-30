@@ -157,16 +157,28 @@ body {
     .page-container {
         flex-direction: column;
     }
+
     .left-column, .right-column {
         width: 100%;
         flex: none;
     }
+
     .right-header {
         justify-content: center;
     }
+
+    /* --- CORREÇÃO DA FOTO DO GRUPO --- */
     .image-frame {
-        height: 250px;
+        height: auto; /* Permite que a altura se ajuste à foto inteira */
+        min-height: 250px;
+        max-height: 400px;
     }
+
+    .card-image { 
+        object-fit: contain; /* ESSENCIAL: Faz a foto aparecer inteira sem cortes */
+        opacity: 1; /* Melhora a visibilidade no mobile */
+    }
+
     .navigation-footer {
         justify-content: center;
         padding-bottom: 20px;
