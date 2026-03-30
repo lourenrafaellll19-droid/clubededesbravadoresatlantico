@@ -45,7 +45,7 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
-    line-height: 1.2; /* Valor padrão bom para desktop */
+    line-height: 0.2; /* Valor padrão bom para desktop */
     border-bottom: 3px solid #ffbd59;
     padding-bottom: 1px;
 }
