@@ -125,38 +125,31 @@ body {
 
 /* --- NAVEGAÇÃO (VOLTANDO AO SEU ESTILO ORIGINAL) --- */
 .navigation-footer {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
-    padding: 12px 30px;
-    background-color: #0b1a3d;
+    font-size: 1.1rem;
+    padding: 12px 50px;
+    background-color: #0b1a3d; 
     border: 2px solid rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.4); /* Brilho da borda que você tinha */
     border-radius: 50px;
-    transition: 0.3s ease;
+    transition: 0.4s ease;
     text-transform: uppercase;
-    flex: 1;
-    max-width: 220px;
-    text-align: center;
-    /* Adicionando um leve brilho constante */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-pilula:hover {
+    transform: scale(1.05) translateY(-3px);
     background-color: #1e3a8a;
-    border-color: #ffffff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Brilho ao passar o mouse */
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    border-color: white;
 }
-
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 1100px) {
     .cards-main-container { grid-template-columns: repeat(2, 1fr); }
