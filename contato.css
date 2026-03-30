@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Verifique se o arquivo se chama Contato.png (com C maiúsculo) no GitHub */
+    /* Gradiente para garantir leitura e imagem de fundo */
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
                 url('contato.png'); 
     background-size: cover;
@@ -69,23 +69,27 @@ body {
     text-align: left; /* Alinhado à esquerda para manter seu layout */
 }
 
+/* --- AJUSTE: CORREÇÃO DA FALHA --- */
 .image-frame {
     width: 100%;
-    max-width: 600px; /* AUMENTADO: Antes era 300px, agora a foto ficará maior no desktop */
+    max-width: 600px; /* Sua foto grande */
     border-radius: 20px;
     overflow: hidden;
     border: none !important;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background-color: #0b1a3d;
+    background-color: transparent; /* AJUSTE: Evita falha visual com fundo */
+    height: auto; /* AJUSTE: Garante que a caixa se ajuste à foto */
 }
 
 .photo-grupo {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* AJUSTE: Mantém proporção */
+    display: block; /* AJUSTE: Remove espaço em branco embaixo da imagem */
+    object-fit: contain; /* AJUSTE: Garante que a foto inteira apareça */
 }
 
+/* Restante do conteúdo principal */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
@@ -194,25 +198,20 @@ body {
     border-color: #ffffff;
 }
 
-/* ========================================= */
-/* --- CORREÇÃO CIRÚRGICA PARA CELULAR --- */
-/* ========================================= */
+/* --- RESPONSIVIDADE (MOBILE - Mantido as correções) --- */
 @media (max-width: 768px) {
-    /* Garante que o título não tenha o espaçamento gigante (o erro original) */
     .titulo-gotico {
         font-size: 2rem;
         line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
         padding-bottom: 2px;
     }
 
-    /* Coloca tudo em uma coluna no celular */
     .content-wrapper {
         flex-direction: column;
         gap: 30px;
         align-items: center;
     }
 
-    /* Centraliza o texto da seção principal no celular */
     .secao-principal {
         align-items: center;
         text-align: center;
@@ -220,19 +219,22 @@ body {
 
     .image-frame {
         max-width: 100%; /* Foto ocupa a largura da tela no celular */
+        height: auto; /* AJUSTE: Garante altura proporcional */
+    }
+    
+    .photo-grupo {
+        height: auto;
     }
 
     .texto-biblico {
         max-width: 100%;
     }
 
-    /* Ajusta o sidebar para celular */
     .sidebar-contatos {
         width: 100%;
         padding: 20px;
     }
 
-    /* Alinha os botões em coluna no celular */
     .navigation-footer {
         flex-direction: column;
         gap: 15px;
