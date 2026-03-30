@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Gradiente para garantir leitura e imagem de fundo */
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
                 url('contato.png'); 
     background-size: cover;
@@ -27,7 +26,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- HEADER PADRONIZADO --- */
+/* --- HEADER --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
@@ -45,7 +44,7 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
-    line-height: 0.5; /* Valor padrão bom para desktop */
+    line-height: 0.5;
     border-bottom: 3px solid #ffbd59;
     padding-bottom: 1px;
 }
@@ -65,33 +64,32 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center; /* ACRESCENTADO PARA CENTRALIZAR O BLOCO */
-    text-align: center;  /* ACRESCENTADO PARA CENTRALIZAR O TEXTO */
+    /* ALTERAÇÃO CHAVE: Mudado de flex-start para center */
+    align-items: center; 
+    text-align: center; 
 }
 
-/* --- AJUSTE: CORREÇÃO DA FALHA --- */
+/* --- IMAGEM --- */
 .image-frame {
     width: 100%;
-    max-width: 600px; /* Sua foto grande */
+    max-width: 600px; 
     border-radius: 20px;
     overflow: hidden;
     border: none !important;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background-color: transparent; /* AJUSTE: Evita falha visual com fundo */
-    height: auto; /* AJUSTE: Garante que a caixa se ajuste à foto */
-    margin-left: auto;  /* FORÇA CENTRALIZAÇÃO */
-    margin-right: auto; /* FORÇA CENTRALIZAÇÃO */
+    background-color: transparent;
+    height: auto;
 }
 
 .photo-grupo {
     width: 100%;
-    height: auto; /* AJUSTE: Mantém proporção */
-    display: block; /* AJUSTE: Remove espaço em branco embaixo da imagem */
-    object-fit: contain; /* AJUSTE: Garante que a foto inteira apareça */
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
-/* Restante do conteúdo principal */
+/* --- TEXTOS EM BRANCO (CENTRALIZADOS) --- */
 .chamariz {
     color: #ffbd59;
     font-size: 1.8rem;
@@ -106,30 +104,27 @@ body {
     color: #ddd; 
     margin-bottom: 20px;
     width: 100%;
-    text-align: center; /* Força o centro */
-    margin-left: auto;  /* FORÇA CENTRALIZAÇÃO */
-    margin-right: auto; /* FORÇA CENTRALIZAÇÃO */
+    text-align: center; /* Centraliza o texto branco */
 }
 
 .divisor {
     width: 80%;
     height: 1px;
     background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* O 'auto' centraliza a linha */
+    margin: 30px auto; /* Centraliza a linha horizontal */
 }
 
 .texto-biblico {
     font-size: 0.9rem;
     line-height: 1.6;
     color: #aaa;
-    max-width: 600px; 
+    max-width: 500px; 
     margin: 10px auto; 
     font-style: italic;
-    width: 100%;
-    text-align: center; /* Força o centro */
+    text-align: center; /* Centraliza o texto bíblico */
 }
 
-/* SIDEBAR DE CONTATOS (ONDE FICA O QR CODE) */
+/* --- SIDEBAR --- */
 .sidebar-contatos {
     flex: 1;
     display: flex;
@@ -139,7 +134,7 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    align-items: center; /* Centraliza o conteúdo interno */
+    align-items: center;
 }
 
 .section-title {
@@ -152,8 +147,8 @@ body {
 }
 
 .qr-code {
-    width: 100%; /* Ocupa a largura do sidebar controlado */
-    max-width: 300px; /* Tamanho máximo do QR Code */
+    width: 100%;
+    max-width: 300px;
     height: auto;
     margin: 0 auto;
     display: block;
@@ -180,11 +175,11 @@ body {
     width: auto;
 }
 
-/* BOTÕES */
+/* --- BOTÕES --- */
 .navigation-footer {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centralizados no desktop */
+    justify-content: center;
     gap: 30px;
     max-width: 1200px;
     margin-top: 50px;
@@ -212,11 +207,11 @@ body {
     border-color: #ffffff;
 }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
     .titulo-gotico {
         font-size: 2rem;
-        line-height: 1.2; 
+        line-height: 1.2;
         padding-bottom: 2px;
     }
 
@@ -232,15 +227,6 @@ body {
     }
 
     .image-frame {
-        max-width: 100%; 
-        height: auto; 
-    }
-    
-    .photo-grupo {
-        height: auto;
-    }
-
-    .texto-biblico {
         max-width: 100%;
     }
 
