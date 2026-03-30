@@ -48,7 +48,7 @@ body {
 .ornamento { width: 50px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CONTAINER DE CARDS (LIMPEZA TOTAL) --- */
+/* --- CONTAINER DE CARDS (RESOLVENDO A BORDA INVISÍVEL) --- */
 .cards-main-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -63,7 +63,6 @@ body {
     flex-direction: column;
     position: relative;
     width: 100%;
-    background: transparent !important; /* Remove qualquer fundo preto */
 }
 
 .image-frame {
@@ -73,18 +72,20 @@ body {
     overflow: hidden;
     position: relative;
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    background: transparent !important; /* Mata o preto no fundo da moldura */
+    /* Fundo transparente para não vazar preto no topo */
+    background: transparent !important; 
 }
 
 .card-image {
-    width: 100% !important;
-    height: 105% !important; /* Aumentado levemente para "sangrar" e cobrir o topo */
-    object-fit: cover !important; 
+    width: 100%;
+    height: 100%;
+    /* 'cover' faz a foto preencher tudo, 'top' garante que ela encoste no teto */
+    object-fit: cover; 
+    object-position: top; 
     display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza e força o preenchimento total */
+    top: 0;
+    left: 0;
 }
 
 .card-title {
@@ -97,12 +98,12 @@ body {
     font-weight: 700;
     text-shadow: 2px 2px 8px black;
     padding: 15px 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
     text-transform: uppercase;
     z-index: 2;
 }
 
-/* --- BOTÕES (COM BRILHO E ANIMAÇÃO ORIGINAL) --- */
+/* --- BOTÕES (ANIMAÇÃO IGUAL ÀS PÁGINAS ANTERIORES) --- */
 .navigation-footer {
     width: 100%;
     display: flex;
@@ -124,17 +125,18 @@ body {
     flex: 1;
     max-width: 220px;
     text-align: center;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação suave */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    /* Transição idêntica para escala e brilho */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Efeito ao arrastar o mouse (Hover) */
 .btn-pilula:hover {
     background-color: #1e3a8a;
     border-color: #ffffff;
-    transform: scale(1.08); /* Aumenta levemente como você queria */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); /* Brilho intenso */
-    letter-spacing: 1px;
+    /* Efeito de aumentar ao passar o mouse */
+    transform: scale(1.05); 
+    /* Brilho externo intenso */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); 
 }
 
 /* --- RESPONSIVIDADE --- */
