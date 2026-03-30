@@ -1,14 +1,13 @@
-
 /* --- CONFIGURAÇÕES GERAIS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
+    background: linear-gradient(rgba(5, 10, 26, 0.75), rgba(5, 10, 26, 0.75)), 
                 url('florestaazul.png'); 
     background-size: cover;
     background-position: center;
@@ -25,45 +24,47 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 20px;
-    min-height: 100vh;
+    padding: 40px 20px;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
+    min-height: 100vh;
 }
 
-/* --- HEADER --- */
+/* --- HEADER E ORNAMENTOS --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .club-logo { 
-    height: clamp(50px, 8vw, 70px); 
-    margin-bottom: 10px; 
+    height: clamp(50px, 10vw, 70px); 
+    margin-bottom: 15px; 
 }
 
 .titulo-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
-    font-size: clamp(1.8rem, 5vw, 3.2rem); 
-    border-bottom: 3px solid #ffbd59;
-    line-height: 0.85;
-    padding-bottom: 5px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    font-size: clamp(1.8rem, 6vw, 3.2rem); 
+    border-bottom: 3px solid #ffbd59; 
+    
+    /* --- AJUSTES PARA ENCOSTAR --- */
+    line-height: 0.7;        /* Diminuímos para reduzir o espaço interno da fonte */
+    padding-bottom: 0px;      
+    display: inline-block;   /* Garante que o elemento respeite as medidas de altura */
+    height: 0.8em;           /* Forçamos a altura a ser menor que a letra */
 }
 
 .ornamento { width: 50px; height: auto; }
 .ornamento-dir { transform: scaleX(-1); }
 
-/* --- CONTAINER DE CARDS (GRID RÍGIDO) --- */
 /* --- CARDS CONTAINER --- */
 .cards-main-container {
     display: flex;
@@ -166,5 +167,3 @@ body {
         flex-direction: row; /* Mantém os botões lado a lado ou mude para column se preferir */
     }
 }
-
-
