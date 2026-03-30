@@ -65,8 +65,8 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center; /* ACRESCENTADO: Centraliza as caixas de texto e imagem */
-    text-align: center;  /* ACRESCENTADO: Centraliza o conteúdo do texto */
+    align-items: center; /* ACRESCENTADO PARA CENTRALIZAR O BLOCO */
+    text-align: center;  /* ACRESCENTADO PARA CENTRALIZAR O TEXTO */
 }
 
 /* --- AJUSTE: CORREÇÃO DA FALHA --- */
@@ -80,6 +80,8 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     background-color: transparent; /* AJUSTE: Evita falha visual com fundo */
     height: auto; /* AJUSTE: Garante que a caixa se ajuste à foto */
+    margin-left: auto;  /* FORÇA CENTRALIZAÇÃO */
+    margin-right: auto; /* FORÇA CENTRALIZAÇÃO */
 }
 
 .photo-grupo {
@@ -105,6 +107,8 @@ body {
     margin-bottom: 20px;
     width: 100%;
     text-align: center; /* Força o centro */
+    margin-left: auto;  /* FORÇA CENTRALIZAÇÃO */
+    margin-right: auto; /* FORÇA CENTRALIZAÇÃO */
 }
 
 .divisor {
@@ -118,7 +122,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.6;
     color: #aaa;
-    max-width: 600px; /* Aumentei um pouco para o texto fluir melhor centralizado */
+    max-width: 600px; 
     margin: 10px auto; 
     font-style: italic;
     width: 100%;
@@ -208,11 +212,11 @@ body {
     border-color: #ffffff;
 }
 
-/* --- RESPONSIVIDADE (MOBILE - Mantido as correções) --- */
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
     .titulo-gotico {
         font-size: 2rem;
-        line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
+        line-height: 1.2; 
         padding-bottom: 2px;
     }
 
@@ -228,8 +232,8 @@ body {
     }
 
     .image-frame {
-        max-width: 100%; /* Foto ocupa a largura da tela no celular */
-        height: auto; /* AJUSTE: Garante altura proporcional */
+        max-width: 100%; 
+        height: auto; 
     }
     
     .photo-grupo {
