@@ -134,6 +134,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 10px;
     text-align: center; /* Centraliza o título */
+    margin-top: 20
 }
 
 .qr-code {
