@@ -171,8 +171,8 @@ body {
 }
 
 .link-social img {
-    height: 32px; /* Reduzi de 50px para 30px para caber melhor na linha */
-    width: 32px;
+    height: 42px; /* Reduzi de 50px para 30px para caber melhor na linha */
+    width: 42px;
     object-fit: contain;
 }
 
