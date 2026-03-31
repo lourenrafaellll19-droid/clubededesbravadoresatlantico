@@ -156,13 +156,24 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
-    gap: 10px;
-    word-break: break-all; /* Impede que o link longo quebre a tela */
+    gap: 15px; /* Espaço entre o ícone e o texto */
+    word-break: break-all;
+    background: rgba(0, 0, 0, 0.2); /* Fundo levemente mais escuro que o card */
+    padding: 12px 20px; /* Aumenta a área do clique e o fundo azul */
+    border-radius: 10px;
+    width: 100%; /* Faz o fundo azul ocupar a largura toda */
+
+}
+
+.link-social:hover {
+    background: rgba(255, 189, 89, 0.1); /* Brilho dourado ao passar o mouse */
+    color: #ffbd59;
 }
 
 .link-social img {
-    height: 50px;
-    width: auto;
+    height: 30px; /* Reduzi de 50px para 30px para caber melhor na linha */
+    width: 30px;
+    object-fit: contain;
 }
 
 .card-extra {
