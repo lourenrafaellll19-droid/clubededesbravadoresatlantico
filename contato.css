@@ -181,7 +181,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: center;
-    margin-top: -10px; /* Isso sobe os textos de Email e Telefone */
+    margin-top: -5px; /* Isso sobe os textos de Email e Telefone */
 }
 
 /* Ajuste específico para o mapa */
