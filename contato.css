@@ -189,7 +189,7 @@ body {
     height: 120px;
     border-radius: 10px;
     object-fit: cover;
-    margin-top: -10px; /* Margem negativa para o mapa não descer junto com o texto */
+    margin-top: 20px; /* Margem negativa para o mapa não descer junto com o texto */
 }
 /* --- BOTÕES (MANTIDOS) --- */
 .navigation-footer {
