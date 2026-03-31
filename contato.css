@@ -181,7 +181,8 @@ body {
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: center;
-    margin-top: 70px; /* Aumente este valor se quiser que desça mais */
+    margin-top: 60px !important; /* Aumentei o valor e usei !important para forçar */
+    margin-bottom: 20px !important; /* Cria um espaço entre o texto e o mapa */
 }
 /* Ajuste específico para o mapa */
 .map-thumb {
@@ -189,7 +190,7 @@ body {
     height: 120px;
     border-radius: 10px;
     object-fit: cover;
-    margin-top: 50px; /* Margem negativa para o mapa não descer junto com o texto */
+    margin-top: 10px !important; /* Espaço fixo acima do mapa */
 }
 /* --- BOTÕES (MANTIDOS) --- */
 .navigation-footer {
