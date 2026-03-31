@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
-                url('Contato.png'); 
+                url('contato.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
