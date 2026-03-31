@@ -1,57 +1,116 @@
-.divisor {
-    width: 80%;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* O 'auto' centraliza a linha horizontal */
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.texto-biblico {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #aaa;
-    max-width: 500px; 
-    margin: 10px auto; 
-    font-style: italic;
-    width: 100%;
-    text-align: center; /* Força o centro */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
+                url('contato.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
 }
 
-/* SIDEBAR DE CONTATOS (AGORA CENTRALIZADA SOB O TEXTO) */
-.sidebar-contatos {
-    width: 100%;
-    max-width: 500px; /* Limita a largura da caixa de contatos */
+.page-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.header-topo { 
+    text-align: center; 
+    width: 100%; 
+    margin-bottom: 50px;
+}
+
+.titulo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
+}
+
+.titulo-gotico { 
+    font-family: 'UnifrakturMaguntia', cursive; 
+    color: #ffbd59; 
+    font-size: 3rem; 
+    line-height: 1.2;
+    border-bottom: 3px solid #ffbd59;
+    padding-bottom: 5px;
+}
+
+.ornamento { width: 60px; }
+.ornamento-dir { transform: scaleX(-1); }
+
+/* --- ESTRUTURA DE DUAS COLUNAS (VOLTANDO AO ORIGINAL) --- */
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    align-items: flex-start; /* Mantém um ao lado do outro */
+}
+
+.secao-principal {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TEXTOS DA SEÇÃO PRINCIPAL --- */
+.chamariz {
+    color: #ffbd59;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.frase-legenda, .texto-biblico { 
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* --- CAIXA AZUL (SIDEBAR) - ONDE ESTAVAM OS ERROS --- */
+.sidebar-contatos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background-color: #0b1a3d;
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    align-items: center; /* Centraliza todo o conteúdo interno */
+    align-items: center; /* Centraliza tudo dentro da caixa azul */
+    min-width: 320px; /* Impede que a caixa esprema demais o texto */
 }
 
 .section-title {
     color: #ffbd59;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 10px;
     text-align: center;
+    width: 100%;
 }
 
-.qr-code {
-    width: 100%; 
-    max-width: 250px; /* Tamanho controlado do QR Code */
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
-
+/* --- LINKS DE CONTATO (ESTILO CORRIGIDO) --- */
 .card-social {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
+    gap: 12px;
+    width: 100%; /* Ocupa a largura interna da caixa */
 }
 
 .link-social {
@@ -60,83 +119,60 @@
     font-size: 0.85rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* ADICIONE ESTA LINHA PARA CENTRALIZAR O TEXTO E ÍCONE */
+    justify-content: center; /* Centraliza ícone + texto */
     gap: 10px;
     width: 100%;
+    text-align: center;
+    word-break: break-all; /* Impede o email de vazar da caixa */
 }
 
 .link-social img {
-    height: 22px; 
+    height: 20px;
     width: auto;
 }
 
-/* BOTÕES */
+/* --- QR CODE E MAPA --- */
+.qr-code {
+    width: 150px; /* Tamanho menor para caber melhor */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Se o mapa for um iframe do Google Maps */
+iframe, .mapa-container {
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 15px;
+    border: none;
+    height: 250px; /* Altura fixa para não estragar o layout */
+}
+
+/* --- BOTÕES --- */
 .navigation-footer {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centralizados no desktop */
-    gap: 30px;
-    max-width: 1200px;
-    margin-top: 50px;
-    padding-bottom: 20px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
+    padding: 10px 30px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    transition: 0.4s ease;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
 }
 
-.btn-pilula:hover {
-    transform: scale(1.05);
-    background-color: #1e3a8a;
-    border-color: #ffffff;
-}
-
-/* ========================================= */
-/* --- CORREÇÃO CIRÚRGICA PARA CELULAR --- */
-/* ========================================= */
-@media (max-width: 768px) {
-    /* Garante que o título não tenha o espaçamento gigante (o erro original) */
-    .titulo-gotico {
-        font-size: 2rem;
-        line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
-        padding-bottom: 2px;
-    }
-
-    .image-frame {
-        max-width: 100%; /* Foto ocupa a largura da tela no celular */
-        height: auto; /* AJUSTE: Garante altura proporcional */
-    }
-    
-    .photo-grupo {
-        height: auto;
-    }
-
-    /* Ajusta o sidebar para celular */
-    .sidebar-contatos {
-        width: 100%;
-        padding: 20px;
-    }
-
-    /* Alinha os botões em coluna no celular */
-    .navigation-footer {
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+    .content-wrapper {
         flex-direction: column;
-        gap: 15px;
         align-items: center;
     }
-
-    .btn-pilula {
+    .sidebar-contatos {
         width: 100%;
-        max-width: 300px;
     }
 }
