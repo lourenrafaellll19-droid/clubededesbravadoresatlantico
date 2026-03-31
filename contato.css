@@ -7,7 +7,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
+    /* Camada de azul marinho sobre a imagem de fundo para manter a identidade visual */
+    background: linear-gradient(rgba(11, 26, 61, 0.85), rgba(11, 26, 61, 0.85)), 
                 url('Contato.png'); 
     background-size: cover;
     background-position: center;
@@ -22,47 +23,48 @@ body {
     align-items: center;
     padding: 40px 20px;
     width: 100%;
-    max-width: 1400px; /* Limita o crescimento */
+    max-width: 1300px;
     margin: 0 auto;
 }
 
-/* --- HEADER PADRONIZADO (CENTRALIZADO) --- */
+/* --- HEADER (TÍTULO CLUBE ATLÂNTICO) --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .titulo-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
-    font-size: 3rem; 
+    font-size: 3.2rem; 
     border-bottom: 3px solid #ffbd59;
-    line-height: 0.85;
-    padding-bottom: 5px;
+    line-height: 1.1; /* Ajustado para aproximar a linha do texto */
+    padding-bottom: 2px;
+    display: inline-block;
 }
 
-.ornamento { width: 60px; }
+.ornamento { width: 50px; }
 .ornamento-dir { transform: scaleX(-1); }
 
 /* --- ESTRUTURA DE DUAS COLUNAS --- */
 .content-wrapper {
     display: flex;
     width: 100%;
-    gap: 40px; /* Espaço entre as colunas */
+    gap: 30px; 
     align-items: flex-start;
 }
 
 /* COLUNA PRINCIPAL (FOTO E TEXTO BÍBLICO) */
 .secao-principal {
-    flex: 2; /* Toma 2/3 da largura */
+    flex: 2; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,22 +74,21 @@ body {
 .image-frame {
     width: 100%;
     max-width: 800px;
-    height: 400px; /* Altura fixa para cortar a foto */
-    border-radius: 20px; /* Cantos arredondados (padrão) */
+    height: 400px; 
+    border-radius: 20px; 
     overflow: hidden;
-    border: none !important; /* Remoção definitiva de borda */
-    margin-bottom: 25px;
+    border: none !important;
+    margin-bottom: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    background-color: #0b1a3d; /* Cor de fundo para quando a opacidade for aplicada */
+    background-color: #0b1a3d; /* Fundo azul marinho sólido */
 }
 
 .photo-grupo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* --- ALTERAÇÃO AQUI: REDUZINDO A OPACIDADE --- */
-    opacity: 0.3; /* 70% de opacidade. Use valores entre 0.0 e 1.0 */
-    /* ------------------------------------------- */
+    opacity: 0.6; /* Aumentado para o azul brilhar mais através da foto */
+    transition: 0.3s;
 }
 
 .chamariz {
@@ -100,103 +101,114 @@ body {
 .frase-legenda { font-size: 1rem; color: #ddd; }
 
 .divisor {
-    width: 80%;
+    width: 60%;
     height: 1px;
-    background: rgba(255,255,255,0.2);
-    margin: 30px 0;
+    background: rgba(255,255,255,0.15);
+    margin: 25px 0;
 }
 
 .texto-biblico {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: #aaa;
+    color: #bbb;
     max-width: 600px;
-    margin-top: 10px;
+    font-style: italic;
 }
 
-/* SIDEBAR DE CONTATOS (À DIREITA) */
+/* SIDEBAR DE CONTATOS (COLUNA DIREITA) */
 .sidebar-contatos {
-    flex: 1; /* Toma 1/3 da largura */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: #0b1a3d; /* Azul marinho de fundo */
-    padding: 30px;
+    background-color: #0b1a3d; /* Azul Marinho Sólido */
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Estilo padrão para os títulos das seções de contato */
 .section-title {
     color: #ffbd59;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    text-align: center; /* Centraliza o título */
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 .qr-code {
-    width: 300%;
-    max-width: 250px;
+    width: 100%;
+    max-width: 180px;
     height: auto;
-    margin: 0 auto;
-    display: block; /* Força centralização */
+    margin: 5px auto;
+    display: block;
+    border-radius: 10px;
 }
 
 .card-social {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px; /* Espaço reduzido entre as redes sociais */
 }
 
 .link-social {
     text-decoration: none;
-    color: #ddd;
+    color: #eee;
     font-size: 0.85rem;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    word-break: break-all; /* Impede que o link longo quebre a tela */
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.link-social:hover {
+    background: rgba(255,255,255,0.1);
+    color: #ffbd59;
 }
 
 .link-social img {
-    height: 50px;
-    width: auto;
+    height: 30px; /* Ícones menores e mais alinhados */
+    width: 30px;
+    object-fit: contain;
 }
 
 .card-extra {
-    color: #ddd;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-align: center; /* Centraliza E-mail e Telefone */
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* Ajuste específico para o mapa */
 .map-thumb {
     width: 100%;
-    height: 150px;
-    border-radius: 10px;
+    height: 130px;
+    border-radius: 12px;
     object-fit: cover;
     margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- BOTÕES (MANTIDOS) --- */
+/* --- BOTÕES DE NAVEGAÇÃO --- */
 .navigation-footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin-top: 40px;
-    padding-bottom: 20px;
+    margin-top: 50px;
+    padding-bottom: 30px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
+    font-size: 1rem;
+    padding: 12px 40px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
@@ -206,32 +218,20 @@ body {
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
+    transform: translateY(-3px);
     background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
-}
-.btn-pilula:hover { background-color: #1e3a8a; transform: scale(1.05); }
-
-/* Estilo especial para o botão JOGO */
-.btn-pilula {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 50px;
-    background-color: #0b1a3d;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    transition: 0.4s ease;
-    text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    border-color: #ffbd59;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
 }
 
-.btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
-    background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
+/* Responsividade para Celulares */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .secao-principal, .sidebar-contatos {
+        width: 100%;
+        flex: none;
+    }
+    .titulo-gotico { font-size: 2.2rem; }
 }
-.btn-pilula:hover { background-color: #1e3a8a; transform: scale(1.05); }
