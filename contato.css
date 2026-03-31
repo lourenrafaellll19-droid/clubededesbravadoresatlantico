@@ -167,7 +167,9 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
+    justify-content: center; /* ADICIONE ESTA LINHA PARA CENTRALIZAR */
     gap: 10px;
+    width: 100%; /* GARANTE QUE OCUPE A LARGURA TODA PARA PODER CENTRALIZAR */
 }
 
 .link-social img {
