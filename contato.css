@@ -44,11 +44,13 @@ body {
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
     font-size: 3rem; 
-    border-bottom: 3px solid #ffbd59;
-    line-height: 0.85;
-    padding-bottom: 5px;
+    border-bottom: 3px solid #ffbd59; /* A linha dourada */
+    
+    /* --- ALTERAÇÕES PARA SUBIR O TRAÇADO --- */
+    line-height: 0.7 !important;     /* Diminuir de 0.85 para 0.7 faz o texto descer em direção à linha */
+    padding-bottom: 0px !important;  /* Zera o espaço entre a letra e o traçado */
+    display: inline-block;
 }
-
 .ornamento { width: 60px; }
 .ornamento-dir { transform: scaleX(-1); }
 
