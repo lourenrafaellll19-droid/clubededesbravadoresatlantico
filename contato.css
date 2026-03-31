@@ -181,7 +181,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: center;
-    margin-top: -50px; /* Isso sobe os textos de Email e Telefone */
+    margin-top: -30px; /* Isso sobe os textos de Email e Telefone */
 }
 
 /* Ajuste específico para o mapa */
@@ -190,7 +190,7 @@ body {
     height: 120px;
     border-radius: 10px;
     object-fit: cover;
-    margin-top: 90px; /* Aumentado para compensar a subida do texto e manter o mapa onde estava */
+    margin-top: 10px; /* Aumentado para compensar a subida do texto e manter o mapa onde estava */
 }
 /* --- BOTÕES (MANTIDOS) --- */
 .navigation-footer {
