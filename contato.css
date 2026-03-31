@@ -7,31 +7,32 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Aplicando o azul correto #040e27 no gradiente de fundo */
-    background: linear-gradient(rgba(4, 14, 39, 0.85), rgba(4, 14, 39, 0.85)), 
+    /* Azul correto #040e27 com transparência para o fundo não ficar preto demais */
+    background: linear-gradient(rgba(4, 14, 39, 0.8), rgba(4, 14, 39, 0.9)), 
                 url('Contato.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: white;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* --- HEADER (CLUBE ATLÂNTICO 2026) --- */
+/* --- HEADER (TÍTULO DO CLUBE) --- */
 .header-topo { 
     text-align: center; 
     width: 100%; 
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .titulo-wrapper {
@@ -44,14 +45,14 @@ body {
 .titulo-gotico { 
     font-family: 'UnifrakturMaguntia', cursive; 
     color: #ffbd59; 
-    font-size: 3.2rem; 
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Tamanho responsivo */
     border-bottom: 3px solid #ffbd59;
-    line-height: 1.1; /* Linha colada ao texto */
-    padding-bottom: 2px;
+    line-height: 0.9; /* Deixa a linha bem próxima das letras */
+    padding-bottom: 5px;
     display: inline-block;
 }
 
-.ornamento { width: 50px; }
+.ornamento { width: 40px; }
 .ornamento-dir { transform: scaleX(-1); }
 
 /* --- ESTRUTURA DE DUAS COLUNAS --- */
@@ -59,131 +60,163 @@ body {
     display: flex;
     width: 100%;
     gap: 30px; 
-    align-items: flex-start;
+    align-items: stretch; /* Garante que as colunas tenham a mesma altura visual */
 }
 
-/* COLUNA PRINCIPAL */
+/* COLUNA DA ESQUERDA (FOTO) */
 .secao-principal {
-    flex: 2; 
+    flex: 1.5; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 }
 
 .image-frame {
     width: 100%;
-    max-width: 800px;
-    height: 400px; 
-    border-radius: 20px; 
+    max-width: 700px;
+    height: 350px; 
+    border-radius: 15px; 
     overflow: hidden;
-    border: none !important;
     margin-bottom: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    background-color: #040e27; /* Azul correto aplicado aqui */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: #040e27; 
 }
 
 .photo-grupo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6; 
+    opacity: 0.7; 
 }
 
 .chamariz {
     color: #ffbd59;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.frase-legenda { font-size: 1rem; color: #ddd; }
+.frase-legenda { font-size: 0.9rem; color: #ccc; }
 
 .divisor {
-    width: 60%;
+    width: 80%;
     height: 1px;
-    background: rgba(255,255,255,0.15);
-    margin: 25px 0;
+    background: rgba(255,255,255,0.1);
+    margin: 20px 0;
 }
 
 .texto-biblico {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #bbb;
-    max-width: 600px;
-    font-style: italic;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #aaa;
+    max-width: 500px;
 }
 
-/* SIDEBAR DE CONTATOS (COLUNA DIREITA) */
+/* SIDEBAR DA DIREITA (CONTATOS) */
 .sidebar-contatos {
     flex: 1; 
+    background-color: #040e27; /* Azul Marinho Correto */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 189, 89, 0.2); /* Borda dourada sutil */
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: #040e27; /* Azul correto aplicado aqui */
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 15px;
 }
 
 .section-title {
     color: #ffbd59;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 8px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 .qr-code {
-    width: 100%;
-    max-width: 180px;
+    width: 130px;
     height: auto;
-    margin: 5px auto;
+    margin: 0 auto;
     display: block;
-    border-radius: 10px;
 }
 
 .card-social {
     display: flex;
     flex-direction: column;
-    gap: 6px; /* Mantendo ícones próximos */
+    gap: 8px;
 }
 
 .link-social {
     text-decoration: none;
-    color: #eee;
-    font-size: 0.85rem;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 10px;
+    color: #ddd;
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.05);
+    padding: 8px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     transition: 0.3s;
 }
 
 .link-social:hover {
-    background: rgba(255,255,255,0.08);
-    color: #ffbd59;
+    background: rgba(255,189,89,0.15);
 }
 
 .link-social img {
-    height: 32px; 
-    width: 32px;
-    object-fit: contain;
+    height: 25px;
+    width: 25px;
 }
 
 .card-extra {
-    color: #ccc;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    color: #bbb;
     text-align: center;
 }
 
 .map-thumb {
     width: 100%;
-    height: 130px;
-    border-radius: 12px;
+    height: 120px;
+    border-radius: 8px;
     object-fit: cover;
-    margin-top: 10px;
+}
+
+/* --- BOTÕES NO RODAPÉ --- */
+.navigation-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.btn-pilula {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 30px;
+    background-color: #040e27;
+    border: 2px solid #ffbd59; /* Borda amarela para destacar */
+    border-radius: 50px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-pilula:hover {
+    background-color: #ffbd59;
+    color: #040e27;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVIDADE PARA CELULAR */
+@media (max-width: 850px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .navigation-footer {
+        flex-direction: row;
+        gap: 10px;
+    }
+}
