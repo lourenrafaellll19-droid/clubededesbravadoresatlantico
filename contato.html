@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Clube de Desbravadores Atlântico 2026</title>
+    <link rel="stylesheet" href="contato.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <main class="page-container">
+        
+        <header class="header-topo">
+            <div class="titulo-wrapper">
+                <img src="ornamentoamarelo.png" alt="" class="ornamento">
+                <h1 class="titulo-gotico">Clube de desbravadores Atlântico 2026</h1>
+                <img src="ornamentoamarelo.png" alt="" class="ornamento ornamento-dir">
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            
+            <section class="secao-principal">
+                <div class="image-frame">
+                    <img src="fotogrupo.jpeg" alt="Grupo Desbravadores" class="photo-grupo">
+                </div>
+                
+                <h3 class="chamariz">Venha conhecer o clube!!!</h3>
+                <p class="frase-legenda">Maranata e o Senhor logo vem.</p>
+                
+                <div class="divisor"></div> 
+                <p class="texto-biblico">
+                    <em>"Portanto ide, fazei discípulos de todas as nações, batizando-os em nome do Pai, e do Filho, e do Espírito Santo; ensinando-os a guardar todas as coisas que eu vos tenho mandado..."</em> - Mateus 28:19-20
+                </p>
+            </section>
+
+            <aside class="sidebar-contatos">
+                <div class="card-inst">
+                    <h3 class="section-title">SIGA-NOS NO INSTAGRAM</h3>
+                    <img src="Qrcode.png" alt="QR Code Instagram" class="qr-code">
+                </div>
+
+                <div class="card-social">
+                    <h3 class="section-title">SOCIAL:</h3>
+                    <a href="https://www.facebook.com/desbravadoresatlantico" class="link-social">
+                        <img src="Facebook icone.png" alt="Facebook"> facebook.com/desbravadoresatlantico
+                    </a>
+                    <a href="https://www.instagram.com/desbravadoresatlantico" class="link-social">
+                        <img src="Instagram icone.png" alt="Instagram"> @desbravadoresatlantico
+                    </a>
+                </div>
+
+                <div class="card-extra">
+                    <h3 class="section-title">EMAIL:</h3>
+                    <p>Atlanticosp@gmail.com</p>
+                    
+                    <h3 class="section-title">TELEFONE: Luiz Miguel (Diretor)</h3>
+                    <p>(41) 99813-6381 - WhatsApp</p>
+                    
+                    <h3 class="section-title">MAPA PARA CHEGAR AO CLUBE:</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.341565576137!2d-48.3619041!3d-25.6600000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM5JzM2LjAiUyA0OMKwMjEnNDIuOCJX!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="navigation-footer">
+            <a href="direção3.html" class="btn-pilula" onclick="transicaoComSom(event)">VOLTAR</a>
+            <a href="https://jackat.midiadigital.info/" class="btn-pilula btn-jogo" target="_blank" onclick="transicaoComSom(event)">JOGO</a>
+        </footer>
+    </main>
+
+    <audio id="somBrilho" preload="auto">
+        <source src="somdoclique.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+       function transicaoComSom(event) {
+            event.preventDefault(); 
+            
+            const link = event.currentTarget.href;
+            const target = event.currentTarget.target;
+            const som = document.getElementById('somBrilho');
+
+            som.play().then(() => {
+                setTimeout(() => {
+                    if(target === "_blank") {
+                        window.open(link, '_blank');
+                    } else {
+                        window.location.href = link;
+                    }
+                }, 1200); 
+            }).catch(err => {
+                window.location.href = link;
+            });
+        }
+    </script>
+</body>
+</html>
