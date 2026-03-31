@@ -181,7 +181,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: center;
-    margin-top: 30px; /* Aumente este valor se quiser que desça mais */
+    margin-top: 50px; /* Aumente este valor se quiser que desça mais */
 }
 /* Ajuste específico para o mapa */
 .map-thumb {
