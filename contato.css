@@ -1,117 +1,8 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.7)), 
-                url('contato.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    min-height: 100vh;
-}
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* --- HEADER --- */
-.header-topo { 
-    text-align: center; 
-    width: 100%; 
-    margin-bottom: 50px;
-}
-
-.titulo-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.titulo-gotico { 
-    font-family: 'UnifrakturMaguntia', cursive; 
-    color: #ffbd59; 
-    font-size: 3rem; 
-    line-height: 0.5;
-    border-bottom: 3px solid #ffbd59;
-    padding-bottom: 1px;
-}
-
-.ornamento { width: 60px; }
-.ornamento-dir { transform: scaleX(-1); }
-
-/* --- ESTRUTURA DE DUAS COLUNAS --- */
-.content-wrapper {
-    display: flex;
-    width: 100%;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.secao-principal {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    /* ALTERAÇÃO CHAVE: Mudado de flex-start para center */
-    align-items: center; 
-    text-align: center; 
-}
-
-/* --- IMAGEM --- */
-.image-frame {
-    width: 100%;
-    max-width: 600px; 
-    border-radius: 20px;
-    overflow: hidden;
-    border: none !important;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background-color: transparent;
-    height: auto;
-}
-
-.photo-grupo {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-}
-
-/* --- TEXTOS EM BRANCO (CENTRALIZADOS) --- */
-.chamariz {
-    color: #ffbd59;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    width: 100%;
-    text-align: center;
-}
-
-.frase-legenda { 
-    font-size: 1rem; 
-    color: #ddd; 
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center; /* Centraliza o texto branco */
-}
-
 .divisor {
     width: 80%;
     height: 1px;
     background: rgba(255,255,255,0.2);
-    margin: 30px auto; /* Centraliza a linha horizontal */
+    margin: 30px auto; /* O 'auto' centraliza a linha horizontal */
 }
 
 .texto-biblico {
@@ -121,12 +12,14 @@ body {
     max-width: 500px; 
     margin: 10px auto; 
     font-style: italic;
-    text-align: center; /* Centraliza o texto bíblico */
+    width: 100%;
+    text-align: center; /* Força o centro */
 }
 
-/* --- SIDEBAR --- */
+/* SIDEBAR DE CONTATOS (AGORA CENTRALIZADA SOB O TEXTO) */
 .sidebar-contatos {
-    flex: 1;
+    width: 100%;
+    max-width: 500px; /* Limita a largura da caixa de contatos */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -134,8 +27,7 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centraliza todo o conteúdo interno */
 }
 
 .section-title {
@@ -143,13 +35,13 @@ body {
     font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .qr-code {
-    width: 100%;
-    max-width: 200px;
+    width: 100%; 
+    max-width: 250px; /* Tamanho controlado do QR Code */
     height: auto;
     margin: 0 auto;
     display: block;
@@ -168,9 +60,9 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* ADICIONE ESTA LINHA PARA CENTRALIZAR */
+    justify-content: center; /* ADICIONE ESTA LINHA PARA CENTRALIZAR O TEXTO E ÍCONE */
     gap: 10px;
-    width: 100%; /* GARANTE QUE OCUPE A LARGURA TODA PARA PODER CENTRALIZAR */
+    width: 100%;
 }
 
 .link-social img {
@@ -178,66 +70,65 @@ body {
     width: auto;
 }
 
-/* --- BOTÕES --- */
+/* BOTÕES */
 .navigation-footer {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centralizados no desktop */
+    gap: 30px;
     max-width: 1200px;
     margin-top: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .btn-pilula {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
-    padding: 12px 45px;
+    font-size: 1.1rem;
+    padding: 12px 50px;
     background-color: #0b1a3d;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     transition: 0.4s ease;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    text-align: center;
 }
 
 .btn-pilula:hover {
-    transform: scale(1.05) translateY(-3px);
+    transform: scale(1.05);
     background-color: #1e3a8a;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
     border-color: #ffffff;
 }
 
-
-/* --- MOBILE --- */
+/* ========================================= */
+/* --- CORREÇÃO CIRÚRGICA PARA CELULAR --- */
+/* ========================================= */
 @media (max-width: 768px) {
+    /* Garante que o título não tenha o espaçamento gigante (o erro original) */
     .titulo-gotico {
         font-size: 2rem;
-        line-height: 1.2;
+        line-height: 1.2; /* VALOR CORRIGIDO PARA MOBILE */
         padding-bottom: 2px;
     }
 
-    .content-wrapper {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-
-    .secao-principal {
-        align-items: center;
-        text-align: center;
-    }
-
     .image-frame {
-        max-width: 100%;
+        max-width: 100%; /* Foto ocupa a largura da tela no celular */
+        height: auto; /* AJUSTE: Garante altura proporcional */
+    }
+    
+    .photo-grupo {
+        height: auto;
     }
 
+    /* Ajusta o sidebar para celular */
     .sidebar-contatos {
         width: 100%;
         padding: 20px;
     }
 
+    /* Alinha os botões em coluna no celular */
     .navigation-footer {
         flex-direction: column;
         gap: 15px;
