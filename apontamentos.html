@@ -4,90 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidades - Atlântico</title>
-    
-    <link rel="stylesheet" href="apontamentos.style2.css">
-    
+
+    <link rel="stylesheet" href="clube.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="seu-video.mp4" type="video/mp4">
-    </video>
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="seu-video.mp4" type="video/mp4">
+</video>
 
-    <main class="container">
-        <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
-        <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
-        
-        <header>
-            <h2 class="titulo-unidades texto-brilhante">Unidades</h2>
-        </header>
+<main class="container">
+    <img src="logo-atlantico.png" alt="Logo Atlântico" class="logo-topo">
+    <img src="lenco-desbravador.png" alt="Lenço" class="lenco-topo">
 
-        <section class="grid-unidades">
-    
-            <div class="unidade-item">
-                <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
-                    <img src="megalodon-img.png" alt="Megalodon" class="img-animal">
-                    <span class="btn">MEGALODON</span>
-                </a>
-            </div>
-            
-            <div class="unidade-item">
-                <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
-                    <img src="peixe-espada-img.png" alt="Peixe Espada" class="img-animal">
-                    <span class="btn">PEIXE ESPADA</span>
-                </a>
-            </div>
+    <header>
+        <h2 class="titulo-unidades texto-brilhante">Unidades</h2>
+    </header>
 
-            <div class="unidade-item">
-                <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
-                    <img src="agua-viva-img.png" alt="Água-Viva" class="img-animal">
-                    <span class="btn">ÁGUA - VIVA</span>
-                </a>
-            </div>
+    <section class="grid-unidades">
 
-        </section>
+        <div class="unidade-item">
+            <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
+                <img src="megalodon-img.png" alt="Megalodon" class="img-animal">
+                <span class="btn">MEGALODON</span>
+            </a>
+        </div>
 
-        <footer class="rodape">
-            <a href="index.html" class="btn btn-voltar" onclick="transicaoComSom(event)">VOLTAR</a>
-        </footer>
+        <div class="unidade-item">
+            <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
+                <img src="peixe-espada-img.png" alt="Peixe Espada" class="img-animal">
+                <span class="btn">PEIXE ESPADA</span>
+            </a>
+        </div>
 
-        <img src="bussola.png" alt="Bússola" class="bussola">
-    </main>
+        <div class="unidade-item">
+            <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
+                <img src="agua-viva-img.png" alt="Água-Viva" class="img-animal">
+                <span class="btn">ÁGUA - VIVA</span>
+            </a>
+        </div>
 
-    <audio id="somBrilho" preload="auto">
-        <source src="somdoclique.mp3" type="audio/mpeg">
-    </audio>
+        <div class="unidade-item">
+            <a href="https://clubes.adventistas.org/br/unit-control/" class="link-unidade" target="_blank" onclick="transicaoComSom(event)">
+                <img src="leviatan.png" alt="Água-Viva" class="img-animal">
+                <span class="btn">LEViATÃ</span>
+            </a>
+        </div>
 
-    <script>
-        function transicaoComSom(event) {
-            event.preventDefault(); // Pausa o clique
-            
-            const urlDestino = event.currentTarget.href;
-            const alvo = event.currentTarget.target; // Verifica se abre em nova aba (_blank)
-            const som = document.getElementById('somBrilho');
+    </section>
 
-            som.play().then(() => {
-                // Espera 1.5 segundos (1500ms) conforme solicitado
-                setTimeout(() => {
-                    if (alvo === "_blank") {
-                        window.open(urlDestino, '_blank');
-                    } else {
-                        window.location.href = urlDestino;
-                    }
-                }, 1500); 
-            }).catch(error => {
-                // Se o som falhar, navega imediatamente
+    <footer class="rodape">
+        <a href="index.html" class="btn btn-voltar" onclick="transicaoComSom(event)">VOLTAR</a>
+    </footer>
+
+    <img src="bussola.png" alt="Bússola" class="bussola">
+</main>
+
+<audio id="somBrilho" preload="auto">
+    <source src="somdoclique.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function transicaoComSom(event) {
+        event.preventDefault(); // Pausa o clique
+
+        const urlDestino = event.currentTarget.href;
+        const alvo = event.currentTarget.target; // Verifica se abre em nova aba (_blank)
+        const som = document.getElementById('somBrilho');
+
+        som.play().then(() => {
+            // Espera 1.5 segundos (1500ms) conforme solicitado
+            setTimeout(() => {
                 if (alvo === "_blank") {
                     window.open(urlDestino, '_blank');
                 } else {
                     window.location.href = urlDestino;
                 }
-            });
-        }
-    </script>
+            }, 1500);
+        }).catch(error => {
+            // Se o som falhar, navega imediatamente
+            if (alvo === "_blank") {
+                window.open(urlDestino, '_blank');
+            } else {
+                window.location.href = urlDestino;
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
