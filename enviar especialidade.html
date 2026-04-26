@@ -1,24 +1,36 @@
-<form onsubmit="enviarWhatsApp(event)">
-  <input type="text" id="nome" placeholder="Nome" required>
-  <input type="text" id="sobrenome" placeholder="Sobrenome" required>
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="tel" id="telefone" placeholder="Telefone" required>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro com Foto</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
 
-  <button type="submit">Enviar para WhatsApp</button>
-</form>
+<form action="enviar.php" method="POST" enctype="multipart/form-data">
 
-<script>
-function enviarWhatsApp(event) {
-  event.preventDefault();
+  <
+  <form onsubmit="enviarWhatsApp(event)">
+    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="telefone" placeholder="Telefone" required>
 
-  const nome = document.getElementById("nome").value;
-  const sobrenome = document.getElementById("sobrenome").value;
-  const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
+    <button type="submit">Enviar para WhatsApp</button>
+  </form>
 
-  const numeroWhatsApp = "5534991495513";
+  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault();
 
-  const mensagem = `
+      const nome = document.getElementById("nome").value;
+      const sobrenome = document.getElementById("sobrenome").value;
+      const email = document.getElementById("email").value;
+      const telefone = document.getElementById("telefone").value;
+
+      const numeroWhatsApp = "5534991495513";
+
+      const mensagem = `
 Novo cadastro:
 
 Nome: ${nome}
@@ -27,8 +39,13 @@ Email: ${email}
 Telefone: ${telefone}
 `;
 
-  const url = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)};
+      const url = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)};
 
-  window.open(url, "_blank");
-}
-</script>
+      window.open(url, "_blank");
+    }
+  </script>
+
+</form>
+
+</body>
+</html>
