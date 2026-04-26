@@ -7,7 +7,7 @@ $telefone = $_POST['telefone'];
 
 // Pasta onde a foto será salva
 $diretorio = "uploads/";
-if (!is_dir($diretorio)) {
+hif (!is_dir($diretorio)) {
     mkdir($diretorio, 0755, true);
 }
 
