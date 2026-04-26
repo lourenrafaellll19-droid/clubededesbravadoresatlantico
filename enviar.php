@@ -25,7 +25,7 @@ if (move_uploaded_file($tmp, $caminho)) {
     $mensagem .= "Foto salva em: $caminho\n";
 
     // Email que vai receber
-    $destino = "lourenrafaelll19@gmail.com";
+    $destino = "lourenrafaellll19@gmail.com";
     $assunto = "Especialidade";
 
     mail($destino, $assunto, $mensagem);
