@@ -1,51 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Cadastro com Foto</title>
-  <link rel="stylesheet" href="form.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato WhatsApp</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+        h1 {
+            color: #1c1e21;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #606770;
+            margin-bottom: 2rem;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        .instructions {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #8a8d91;
+            border-top: 1px solid #ebedf0;
+            padding-top: 1rem;
+        }
+    </style>
 </head>
 <body>
 
-<form action="enviar.php" method="POST" enctype="multipart/form-data">
+    <div class="card">
+        <h1>Envie aqui sua especialidade</h1>
+        <p>Clique no botão abaixo para iniciar uma conversa no WhatsApp.</p>
+        
+        <!-- INSTRUÇÃO: Substitua '5500000000000' pelo número dela (Ex: 55 + DDD + Número) -->
+        <a href="https://wa.me/5541999925788" class="btn-whatsapp" target="_blank">
+            Enviar Mensagem
+        </a>
 
-  <
-  <form onsubmit="enviarWhatsApp(event)">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="text" id="sobrenome" placeholder="Sobrenome" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="tel" id="telefone" placeholder="Telefone" required>
-
-    <button type="submit">Enviar para WhatsApp</button>
-  </form>
-
-  <script>
-    function enviarWhatsApp(event) {
-      event.preventDefault();
-
-      const nome = document.getElementById("nome").value;
-      const sobrenome = document.getElementById("sobrenome").value;
-      const email = document.getElementById("email").value;
-      const telefone = document.getElementById("telefone").value;
-
-      const numeroWhatsApp = "5534991495513";
-
-      const mensagem = `
-Novo cadastro:
-
-Nome: ${nome}
-Sobrenome: ${sobrenome}
-Email: ${email}
-Telefone: ${telefone}
-`;
-
-      const url = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)};
-
-      window.open(url, "_blank");
-    }
-  </script>
-
-</form>
+        <div class="instructions">
+            <strong>Nota:</strong> Para funcionar, abra o arquivo em um editor de texto e substitua o número <code>5500000000000</code> no código pelo número real.
+        </div>
+    </div>
 
 </body>
 </html>
